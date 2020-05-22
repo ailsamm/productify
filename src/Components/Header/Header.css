@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+.header {
+    font-family: 'Righteous', cursive;
+    padding: 10px 16px;
+    background: rgb(244, 244, 244);
+    color: #f9f9f9;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.header .logo {
+    color: rgb(118, 118, 118);
+}
