@@ -8,6 +8,16 @@
     position: fixed;
     top: 0;
     width: 100%;
+    display: flex;
+}
+
+.header__buttons {
+    align-self: center;
+    margin-left: auto;
+}
+
+.header__signUp, .header__logIn {
+    margin: 0 0.5vw;
 }
 
 .header .logo {

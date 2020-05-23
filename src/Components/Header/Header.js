@@ -9,6 +9,10 @@ export default class Header extends Component {
         return(
             <div className="header">
                 <h1 className="logo"><NavLink className="header__productify" to="/">PRODUCTIFY <FontAwesomeIcon icon={faRocket}/></NavLink></h1>
+                <div className="header__buttons">
+                    <NavLink to="/about" className="button header__signUp">sign up</NavLink>
+                    <NavLink to="/about" className="button header__logIn">log in</NavLink>
+                </div>
             </div>
         )
     }
