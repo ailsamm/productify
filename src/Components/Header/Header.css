@@ -13,3 +13,8 @@
 .header .logo {
     color: rgb(118, 118, 118);
 }
+
+.header__productify {
+    text-decoration: none;
+    color: rgb(118, 118, 118);
+}

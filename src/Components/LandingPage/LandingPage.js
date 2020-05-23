@@ -5,7 +5,7 @@ import './LandingPage.css';
 export default class LandingPage extends Component {
     render() {
         return (
-            <div className="landingPage">
+            <div className="landingPage centeredContent">
                 <p>meet</p>
                 <h1 className="landingPage_title">PRODUCTIFY</h1>
                 <p>your new favorite tool for organizing projects and increasing productivity</p>

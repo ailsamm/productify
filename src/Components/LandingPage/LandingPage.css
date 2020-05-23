@@ -1,20 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-.landingPage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    line-height: 0.5;
-    font-size: 1.5em;
-}
-
 .landingPage_title {
     font-family: 'Righteous', cursive;
     letter-spacing: 20px;
     color: #7fdae1;
-    font-size: 3em;
+    font-size: 3.5em;
 }
 
 .landingPage_button {
