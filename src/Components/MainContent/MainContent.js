@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import LandingPage from '../LandingPage/LandingPage';
 import AboutPage from '../AboutPage/AboutPage';
+import SignUpPage from '../SignUpPage/SignUpPage';
 import './MainContent.css'
 
 export default class MainContent extends Component {
@@ -19,6 +20,12 @@ export default class MainContent extends Component {
                     key='/about'
                     path='/about' 
                     component={AboutPage}
+                />
+                <Route 
+                    exact 
+                    key='/signup'
+                    path='/signup' 
+                    component={SignUpPage}
                 />
             </div>
         )
