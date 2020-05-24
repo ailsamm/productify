@@ -1,0 +1,13 @@
+.taskCard {
+    padding: 0.5vh 1vw;
+    margin: 1vh 0.5vw;
+    line-height: 0.5;
+    border-radius: 5px;
+}
+
+.taskCard__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: normal;
+}
