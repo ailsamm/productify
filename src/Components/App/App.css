@@ -31,3 +31,7 @@ body {
     line-height: 0.5;
     font-size: 1.5em;
 }
+
+input::placeholder {
+    color: rgb(182, 182, 182);
+}

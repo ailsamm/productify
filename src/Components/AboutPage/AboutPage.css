@@ -1,3 +1,7 @@
+.aboutPage {
+    text-align: center;
+}
+
 .aboutPage__useCaseItems {
     display: flex;
     flex-direction: row;

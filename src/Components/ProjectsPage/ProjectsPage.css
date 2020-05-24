@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+
+.projects {
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+}
+
+.projects > * {
+    height: 100vh;
+    margin: 0 0.5vw;
+    padding: 0.5vh 0.5vw;
+    background: rgb(247, 247, 247);
+}
+
+.projects__column {
+    font-family: 'PT Sans', sans-serif;
+    color: rgb(52, 52, 52);
+}
+
+.projects__navbar {
+    background: rgb(208, 208, 208);
+}
