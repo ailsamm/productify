@@ -7,7 +7,13 @@ export default class App extends Component {
 
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {
+      loggedIn: false,
+      loggedInUser: {
+        firstName: "Ailsa",
+        lastName:"Meechan-Maddon"
+      }
+    }
   }
 
   componentDidMount(){}
@@ -15,7 +21,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <Header/>
+        <Header loggedIn={this.state.loggedIn} user={this.state.loggedInUser}/>
         <MainContent/>
       </div>
     );

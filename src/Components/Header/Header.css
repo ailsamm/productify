@@ -28,3 +28,23 @@
     text-decoration: none;
     color: rgb(118, 118, 118);
 }
+
+.header__avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #7fdae1;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+.header__avatar__initials {
+    position: relative;
+    top: 15px; /* 25% of parent */
+    font-size: 30px; /* 50% of parent */
+    line-height: 30px; /* 50% of parent */
+    color: #fff;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+}
