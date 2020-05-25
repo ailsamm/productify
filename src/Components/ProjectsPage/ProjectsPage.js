@@ -20,10 +20,8 @@ export default class ProjectsPage extends Component {
         return (
             <div className="projects">
                 <ProjectsSidebar/>
-                {this.state.columns.map(column => <ProjectsColumn name={column}/>)}
+                {this.state.columns.map(column => <ProjectsColumn key={column} name={column}/>)}
             </div>
         )
-    }
-        
-    
+    }    
 }

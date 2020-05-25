@@ -11,6 +11,10 @@ export default class ProjectsColumn extends Component {
         return status;
     }
 
+    onDragOver = (e) => {
+        e.preventDefault();
+    }
+
     render() {
         const name = this.props.name || '';
         return (
