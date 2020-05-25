@@ -13,7 +13,7 @@ export default class Header extends Component {
     }
 
     getLinks = () => {
-        if (this.props.loggedIn){
+        if (this.props.isLoggedIn){
             return (
                 <div className="header__buttons">
                     <div className="header__avatar">

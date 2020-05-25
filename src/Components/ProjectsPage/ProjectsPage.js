@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TeamMember from '../TeamMember/TeamMember';
 import TaskCard from '../TaskCard/TaskCard';
+import ProjectsSidebar from '../ProjectsSidebar/ProjectsSidebar';
 import './ProjectsPage.css';
 
 export default class ProjectsPage extends Component {
@@ -36,7 +36,7 @@ export default class ProjectsPage extends Component {
     onDrop = (e, status) => {
         e.preventDefault();
         const taskId = parseInt(e.dataTransfer.getData("id"));
-        
+
         let tasks = this.state.tasks.filter((task => {
             if (task.id === taskId){
                 task.status = status;
@@ -53,13 +53,7 @@ export default class ProjectsPage extends Component {
     render() {
         return (
             <div className="projects">
-                <div className="projects__navbar projects__column">
-                    <h2>{this.state.teamName}</h2>
-                    <h3>Members:</h3>
-                    <div className="projects__navbar__members">
-                        {this.state.members.map(teamMember => <TeamMember key={teamMember.name} member={teamMember}></TeamMember>)}
-                    </div>
-                </div>
+                <ProjectsSidebar/>
                 <div onDragOver={(e) => this.onDragOver(e)} 
                 onDrop={(e)=>{this.onDrop(e, "backlog")}} 
                 className="projects__tasksBacklog projects__column">
