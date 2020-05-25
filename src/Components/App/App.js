@@ -13,7 +13,6 @@ export default class App extends Component {
   }
 
   onDrop = (e, status) => {
-    console.log("IN DROPPPP")
     e.preventDefault();
     const taskId = parseInt(e.dataTransfer.getData("id"));
 
@@ -28,7 +27,6 @@ export default class App extends Component {
         ...this.state,
         tasks
     })
-    console.log(this.state)
   }
   
   componentDidMount(){

@@ -13,7 +13,7 @@
 }
 
 .header__buttons {
-    align-self: center;
+    align-self: center; 
     margin-left: auto;
 }
 
@@ -46,6 +46,6 @@
     font-size: 30px;
     line-height: 30px;
     color: #FFF;
-    font-family: "Courier New", monospace;
+    font-family: "Righteous", monospace;
     font-weight: bold;
 }
