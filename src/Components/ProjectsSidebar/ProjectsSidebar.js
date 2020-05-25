@@ -15,7 +15,13 @@ export default class ProjectsSidebar extends Component {
 
     getProjects(){
         const projects = this.context.projects || [];
-        return projects.map(project => <Project updateCurrentProject={this.props.updateCurrentProject} key={project.id} project={project}></Project>)
+        return projects.map(project => {
+            let className= ""
+            if (this.props.currentProject === project.id){
+                console.log("i'm a match!", project.id)
+                className = " selectedProject"
+            }
+            return <Project className={className} updateCurrentProject={this.props.updateCurrentProject} key={project.id} project={project}></Project>})
     }
 
     render() {

@@ -37,11 +37,14 @@ export default class ProjectsPage extends Component {
     render() {
         return (
             <div className="projects">
-                <ProjectsSidebar updateCurrentProject={this.updateCurrentProject}/>
+                <ProjectsSidebar 
+                updateCurrentProject={this.updateCurrentProject}
+                currentProject={this.state.currentProject}
+                />
                 {this.state.columns.map(column => <ProjectsColumn 
-                            currentProject={this.state.currentProject} 
-                            key={column} 
-                            name={column}/>
+                    currentProject={this.state.currentProject} 
+                    key={column} 
+                    name={column}/>
                 )}
             </div>
         )
