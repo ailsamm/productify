@@ -20,7 +20,10 @@ export default class ProjectsColumn extends Component {
         return (
             <ProductifyContext.Consumer>
                 {value => {
-                    const tasks = value.tasks || [];
+                    let tasks = value.tasks || [];
+                    if (this.props.currentProject){
+                        tasks = tasks.filter(task => task.project === this.props.currentProject);
+                    }
                     return (
                         <div onDragOver={(e) => this.onDragOver(e)} 
                         onDrop={(e)=>{value.onDrop(e, this.getStatusName(name))}} 

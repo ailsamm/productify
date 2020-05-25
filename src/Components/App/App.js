@@ -30,12 +30,13 @@ export default class App extends Component {
   }
   
   componentDidMount(){
-    const {teamName, isLoggedIn, loggedInUser, members, tasks} = STORE;
+    const {teamName, isLoggedIn, loggedInUser, projects, members, tasks} = STORE;
     this.setState({
       teamName, 
       isLoggedIn, 
       loggedInUser, 
       members, 
+      projects,
       tasks
     })
   }
@@ -46,6 +47,7 @@ export default class App extends Component {
       isLoggedIn: this.state.isLoggedIn, 
       loggedInUser: this.state.loggedInUser, 
       members: this.state.members, 
+      projects: this.state.projects,
       tasks: this.state.tasks,
       onDrop: this.onDrop
     }

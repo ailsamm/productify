@@ -1,0 +1,22 @@
+@import '../App/App.css';
+
+.project {
+    background: #ffffff80;
+    padding: 0.5vh 1vw;
+    margin: 1vh 0.5vw;
+    line-height: 0.5;
+    border-radius: 5px;
+}
+
+.project__nav {
+    text-decoration: none;
+    color: var(--main-text-color);  
+}
+
+.project__nav:hover {
+    text-decoration: underline;
+}
+
+.project__name {
+    letter-spacing: 1px;
+}
