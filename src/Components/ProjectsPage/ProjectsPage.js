@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
 import ProjectsSidebar from '../ProjectsSidebar/ProjectsSidebar';
 import ProjectsColumn from '../ProjectsColumn/ProjectsColumn';
+import ProductifyContext from '../../ProductifyContext';
 import './ProjectsPage.css';
 
 export default class ProjectsPage extends Component {
+
+    static contextType = ProductifyContext;
 
     constructor(props){
         super(props);
         this.state = {
             columns: ['Backlog', 'In Progress', 'In Review', 'Complete'],
-            currentProject: 2
+            currentProject: null
+        }
+    }
+
+    componentDidMount() {
+        if (!!this.context.projects){
+            const firstProjectId = this.context.projects[0].id;
+            this.setState({
+                ...this.state.columns,
+                currentProject: firstProjectId
+            })
         }
     }
 
