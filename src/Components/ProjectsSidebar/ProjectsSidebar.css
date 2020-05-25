@@ -1,0 +1,10 @@
+
+.projects__sidebar {
+    overflow-y: scroll;
+}
+
+.projects__sidebar__charts {
+    background: #FFF;
+    border-radius: 5px;
+    padding: 2vh 0;
+}

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './LandingPage.css';
 
 export default class LandingPage extends Component {
+    
     render() {
         return (
             <div className="landingPage centeredContent">
