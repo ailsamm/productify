@@ -1,3 +1,5 @@
+@import '../App/App.css';
+
 .aboutPage {
     text-align: center;
 }
@@ -29,33 +31,33 @@
 }
 
 .aboutPage__useCaseItem1 {
-    background: rgba(255, 192, 203, 0.541);
+    background: var(--productify-red);
 }
 
 .aboutPage__useCaseItem2 {
-    background: rgba(218, 255, 192, 0.598);
+    background: var(--productify-green);
 }
 
 .aboutPage__useCaseItem3 {
-    background: rgba(192, 255, 251, 0.584);
+    background: var(--productify-turquoise);
 }
 
 .aboutPage__useCaseItem4 {
-    background: rgba(227, 164, 96, 0.475);
+    background: var(--productify-orange);
 }
 
 .aboutPage__useCaseItem5 {
-    background: rgba(234, 192, 255, 0.365);
+    background: var(--productify-purple);
 }
 
 .aboutPage__useCaseItem6 {
-    background: rgba(235, 235, 125, 0.432);
+    background: var(--productify-yellow);
 }
 
 .aboutPage__useCaseItem7 {
-    background: rgba(255, 192, 192, 0.571);
+    background: var(--productify-pink);
 }
 
 .aboutPage__useCaseItem8 {
-    background: rgba(192, 215, 255, 0.432);
+    background: var(--productify-blue);
 }

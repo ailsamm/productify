@@ -1,6 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 
+:root {
+    --main-accent-color: #7fdae1;
+    --title-gray: #767676;
+    --button-hover-color: #6fc3c9;
+    --main-text-color: #3a3a3a;
+    --placeholder-text-color: #b6b6b6;
+    --productify-red: #ffc0cb8a;
+    --productify-green: #a8f7944d;
+    --productify-turquoise: #c0fffb95;
+    --productify-orange: #e3a46079;
+    --productify-purple: #eac0ff5d;
+    --productify-yellow: #ebeb7d6e;
+    --productify-pink: #ffc0c092;
+    --productify-blue: #c0d7ff6e;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -11,7 +27,7 @@ body {
 
 .button {
     font-family: 'Nunito', sans-serif;
-    background-color: #7fdae1;
+    background-color: var(--main-accent-color);
     padding: 10px;
     border-radius: 10px;
     text-decoration: none;
@@ -19,7 +35,7 @@ body {
 }
 
 .button:hover {
-    background-color: #6fc3c9;
+    background-color: var(--button-hover-color);
 }
 
 .centeredContent {
@@ -33,5 +49,5 @@ body {
 }
 
 input::placeholder {
-    color: rgb(182, 182, 182);
+    color: var(--placeholder-text-color);
 }
