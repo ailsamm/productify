@@ -13,9 +13,7 @@ export default class App extends Component {
   }
   
   componentDidMount(){
-    console.log("hellooooooo")
     const {teamName, isLoggedIn, loggedInUser, members, tasks} = STORE;
-    console.log(members)
     this.setState({
       teamName, 
       isLoggedIn, 
@@ -23,7 +21,6 @@ export default class App extends Component {
       members, 
       tasks
     })
-    console.log(this.state)
   }
 
   render() {
@@ -34,10 +31,6 @@ export default class App extends Component {
       members: this.state.members, 
       tasks: this.state.tasks
     }
-
-    console.log(this.state)
-    console.log(contextValue)
-
     return (
       <ProductifyContext.Provider value={contextValue}>
         <div className="app">
