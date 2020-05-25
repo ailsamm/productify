@@ -4,6 +4,7 @@ const ProductifyContext = React.createContext({
   teamName: "",
   members: [],
   tasks: [],
+  onDrop: () => {},
   isLoggedIn: false,
   loggedInUser: {}
 });

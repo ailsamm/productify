@@ -11,6 +11,25 @@ export default class App extends Component {
     super(props);
     this.state = {}
   }
+
+  onDrop = (e, status) => {
+    console.log("IN DROPPPP")
+    e.preventDefault();
+    const taskId = parseInt(e.dataTransfer.getData("id"));
+
+    let tasks = this.state.tasks.filter((task => {
+        if (task.id === taskId){
+            task.status = status;
+        }
+        return task;
+    }));
+
+    this.setState({
+        ...this.state,
+        tasks
+    })
+    console.log(this.state)
+  }
   
   componentDidMount(){
     const {teamName, isLoggedIn, loggedInUser, members, tasks} = STORE;
@@ -29,7 +48,8 @@ export default class App extends Component {
       isLoggedIn: this.state.isLoggedIn, 
       loggedInUser: this.state.loggedInUser, 
       members: this.state.members, 
-      tasks: this.state.tasks
+      tasks: this.state.tasks,
+      onDrop: this.onDrop
     }
     return (
       <ProductifyContext.Provider value={contextValue}>
