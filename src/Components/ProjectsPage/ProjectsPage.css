@@ -6,13 +6,13 @@
 }
 
 .projects > * {
-    height: 100vh;
-    margin: 0 0.5vw;
-    padding: 0.5vh 0.5vw;
     background: #f7f7f7;
 }
 
 .projects__column {
+    height: 100vh;
+    margin: 0 0.5vw;
+    padding: 0.5vh 0.5vw;
     font-family: 'PT Sans', sans-serif;
     color: #343434;
 }

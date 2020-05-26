@@ -7,8 +7,8 @@ export default class TaskPage extends Component {
     render() {
         return (
             <ProductifyContext.Consumer>
-                {(value) => {
-                    const currentTask = value.tasks.find(task => task.id === parseInt(this.props.match.params.taskId)) || {};
+                {context => {
+                    const currentTask = context.tasks.find(task => task.id === parseInt(this.props.match.params.taskId)) || {};
                     return (
                     <div className="taskPage">
                         <ProjectSidebar/>
