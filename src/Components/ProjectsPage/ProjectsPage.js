@@ -18,9 +18,13 @@ export default class ProjectsPage extends Component {
 
     updateCurrentProject = (e, projectId) => {
         e.preventDefault();
+        let updatedProjectId = projectId;
+        if (projectId === this.state.currentProject){
+            updatedProjectId = null;
+        }
         this.setState({
             ...this.state.columns,
-            currentProject: projectId
+            currentProject: updatedProjectId
         })
     }
     
