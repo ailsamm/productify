@@ -9,7 +9,14 @@ export default class App extends Component {
 
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = {
+      teamName: "", 
+      isLoggedIn: false, 
+      loggedInUser: {}, 
+      members: [], 
+      projects: [],
+      tasks: []
+    }
   }
 
   onDrop = (e, status) => {
