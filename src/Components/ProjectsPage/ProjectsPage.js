@@ -17,7 +17,7 @@ export default class ProjectsPage extends Component {
     }
 
     componentDidMount() {
-        if (!!this.context.projects){
+        if (this.context.projects.length > 0){
             const firstProjectId = this.context.projects[0].id;
             this.setState({
                 ...this.state.columns,
