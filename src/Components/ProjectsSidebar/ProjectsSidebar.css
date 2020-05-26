@@ -1,6 +1,6 @@
 
 .projects__sidebar {
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .projects__sidebar__charts {

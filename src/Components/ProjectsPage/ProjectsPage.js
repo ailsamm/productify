@@ -12,7 +12,11 @@ export default class ProjectsPage extends Component {
         super(props);
         this.state = {
             columns: ['Backlog', 'In Progress', 'In Review', 'Complete'],
-            currentProject: null
+            currentProject: null,
+            backlogCount: 0,
+            inProgressCount: 0,
+            inReviewCount: 0,
+            completeCount: 0
         }
     }
 

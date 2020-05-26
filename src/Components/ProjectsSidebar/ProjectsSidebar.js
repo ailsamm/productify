@@ -13,25 +13,7 @@ export default class ProjectsSidebar extends Component {
         super(props);
         this.state = {
             pieLabels: ['Backlog', 'In Progress', 'In Review', 'Complete'],
-            pieDataset: [
-                {
-                label: 'Tasks',
-                backgroundColor: ['#ffc0cb8a', '#c0fffb95', '#ebeb7d6e', '#a8f7944d'],
-                borderWidth: 0.4,
-                borderColor: '#767676',
-                data: [3, 2, 1, 2]
-                }
-            ],
-            pieLabels2: ['Complete', 'Incomplete'],
-            pieDataset2: [
-                {
-                label: 'Tasks',
-                backgroundColor: ['#a8f7944d', '#f4f4f497'],
-                borderWidth: 0.4,
-                borderColor: '#767676',
-                data: [2, 6]
-                }
-            ],
+            doughnutLabels: ['Complete', 'Incomplete']
         }
     } 
 
@@ -50,13 +32,52 @@ export default class ProjectsSidebar extends Component {
             return <Project className={className} updateCurrentProject={this.props.updateCurrentProject} key={project.id} project={project}></Project>})
     }
 
+    calculateChartDatasets() {
+        let value = this.context;
+        const backlogCount = value.tasks.filter(task => 
+            task.status === "backlog" && task.project === this.props.currentProject).length;
+        const inProgressCount = value.tasks.filter(task => 
+            task.status === "inProgress" && task.project === this.props.currentProject).length;
+        const inReviewCount = value.tasks.filter(task => 
+            task.status === "inReview" && task.project === this.props.currentProject).length;
+        const completeCount = value.tasks.filter(task => 
+            task.status === "complete" && task.project === this.props.currentProject).length;
+        const incompleteCount = backlogCount + inProgressCount + inReviewCount;
+
+        const pieDataset = [
+                {
+                label: 'Tasks',
+                backgroundColor: ['#ffc0cb8a', '#c0fffb95', '#ebeb7d6e', '#a8f7944d'],
+                borderWidth: 0.4,
+                borderColor: '#767676',
+                data: [backlogCount, inProgressCount, inReviewCount, completeCount]
+                }
+        ]
+        const doughnutDataset = [
+            {
+            label: 'Tasks',
+            backgroundColor: ['#a8f7944d', '#f4f4f497'],
+            borderWidth: 0.4,
+            borderColor: '#767676',
+            data: [completeCount, incompleteCount]
+            }
+        ]
+
+        return {
+            pieDataset,
+            doughnutDataset
+        }
+
+    }
+
     createCharts(){
+        const datasets = this.calculateChartDatasets();
         return (
             <div className="projects__sidebar__charts">
                 <Pie
                     data={{
                         labels: this.state.pieLabels,
-                        datasets: this.state.pieDataset
+                        datasets: datasets.pieDataset
                     }}
                     height={300}
                     options={{
@@ -72,8 +93,8 @@ export default class ProjectsSidebar extends Component {
                 />
                 <Doughnut
                     data={{
-                        labels: this.state.pieLabels2,
-                        datasets: this.state.pieDataset2
+                        labels: this.state.pieLabels,
+                        datasets: datasets.doughnutDataset
                     }}
                     height={300}
                     options={{
@@ -99,7 +120,6 @@ export default class ProjectsSidebar extends Component {
                     {this.getMembers()}
                 </div> 
             </div>
-
     }
 
     render() {
