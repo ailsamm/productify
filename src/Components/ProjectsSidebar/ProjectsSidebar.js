@@ -91,6 +91,17 @@ export default class ProjectsSidebar extends Component {
         )
     }
 
+    getContent(){
+        return this.props.currentProject != null ? this.createCharts() :
+            <div>
+                <h3>Members:</h3>
+                <div className="projects__sidebar__members">
+                    {this.getMembers()}
+                </div> 
+            </div>
+
+    }
+
     render() {
         return (
             <div className="projects__sidebar projects__column">
@@ -99,11 +110,7 @@ export default class ProjectsSidebar extends Component {
                 <div className="projects__sidebar__members">
                     {this.getProjects()}
                 </div>
-                {this.createCharts()}
-                <h3>Members:</h3>
-                <div className="projects__sidebar__members">
-                    {this.getMembers()}
-                </div>                
+                {this.getContent()}          
             </div>
         )
     }
