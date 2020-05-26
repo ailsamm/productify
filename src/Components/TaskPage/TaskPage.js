@@ -4,6 +4,11 @@ import ProductifyContext from '../../ProductifyContext';
 import './TaskPage.css';
 
 export default class TaskPage extends Component {
+
+    handleGoBack = () => {
+        this.props.history.goBack();
+    }
+
     render() {
         return (
             <ProductifyContext.Consumer>
@@ -25,6 +30,8 @@ export default class TaskPage extends Component {
                                 <h3 className="taskPage__section__title">Deadline:</h3>
                                 <h4>{currentTask.deadline}</h4>
                             </div>
+                            <button type="submit" onClick={this.handleGoBack} className="button">back</button>
+
                         </div>
                     </div>
                 )}}

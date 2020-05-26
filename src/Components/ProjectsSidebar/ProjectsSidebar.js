@@ -46,21 +46,21 @@ export default class ProjectsSidebar extends Component {
         const incompleteCount = backlogCount + inProgressCount + inReviewCount;
 
         const pieDataset = [
-                {
+            {
                 label: 'Tasks',
                 backgroundColor: ['#ffc0cb8a', '#c0fffb95', '#ebeb7d6e', '#a8f7944d'],
                 borderWidth: 0.4,
                 borderColor: '#767676',
                 data: [backlogCount, inProgressCount, inReviewCount, completeCount]
-                }
+            }
         ]
         const doughnutDataset = [
             {
-            label: 'Tasks',
-            backgroundColor: ['#a8f7944d', '#f4f4f497'],
-            borderWidth: 0.4,
-            borderColor: '#767676',
-            data: [completeCount, incompleteCount]
+                label: 'Tasks',
+                backgroundColor: ['#a8f7944d', '#f4f4f497'],
+                borderWidth: 0.4,
+                borderColor: '#767676',
+                data: [completeCount, incompleteCount]
             }
         ]
 
