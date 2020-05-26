@@ -15,7 +15,8 @@
         loggedInUser: {}, 
         members: [], 
         projects: [],
-        tasks: []
+        tasks: [],
+        currentProject: null
       }
     }
 
@@ -35,6 +36,18 @@
           tasks
       })
     }
+
+    updateCurrentProject = (e, projectId) => {
+      e.preventDefault();
+      let updatedProjectId = projectId;
+      if (projectId === this.state.currentProject){
+          updatedProjectId = null;
+      }
+      this.setState({
+          ...this.state,
+          currentProject: updatedProjectId
+      })
+  }
     
     componentDidMount(){
       const {teamName, isLoggedIn, loggedInUser, projects, members, tasks} = STORE;
@@ -56,7 +69,9 @@
         members: this.state.members, 
         projects: this.state.projects,
         tasks: this.state.tasks,
-        onDrop: this.onDrop
+        currentProject: this.state.currentProject,
+        onDrop: this.onDrop,
+        updateCurrentProject: this.updateCurrentProject
       }
       return (
         <ProductifyContext.Provider value={contextValue}>

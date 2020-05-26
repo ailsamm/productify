@@ -24,12 +24,13 @@ export default class ProjectsSidebar extends Component {
 
     getProjects(){
         const projects = this.context.projects || [];
+        const context = this.context;
         return projects.map(project => {
             let className= ""
-            if (this.props.currentProject === project.id){
+            if (context.currentProject === project.id){
                 className = " selectedProject"
             }
-            return <Project className={className} updateCurrentProject={this.props.updateCurrentProject} key={project.id} project={project}></Project>})
+            return <Project className={className} updateCurrentProject={context.updateCurrentProject} key={project.id} project={project}></Project>})
     }
 
     calculateChartDatasets() {

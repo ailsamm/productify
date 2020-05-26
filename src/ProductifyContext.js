@@ -6,8 +6,10 @@ const ProductifyContext = React.createContext({
   projects: [],
   tasks: [],
   onDrop: () => {},
+  loggedInUser: {},
+  updateCurrentProject: () => {},
   isLoggedIn: false,
-  loggedInUser: {}
+  currentProject: null
 });
 
 export default ProductifyContext;

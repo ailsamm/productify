@@ -19,14 +19,14 @@ export default class ProjectsColumn extends Component {
         const name = this.props.name || '';
         return (
             <ProductifyContext.Consumer>
-                {value => {
-                    let tasks = value.tasks || [];
-                    if (this.props.currentProject){
-                        tasks = tasks.filter(task => task.project === this.props.currentProject);
+                {context => {
+                    let tasks = context.tasks || [];
+                    if (context.currentProject){
+                        tasks = tasks.filter(task => task.project === context.currentProject);
                     }
                     return (
                         <div onDragOver={(e) => this.onDragOver(e)} 
-                        onDrop={(e)=>{value.onDrop(e, this.getStatusName(name))}} 
+                        onDrop={(e)=>{context.onDrop(e, this.getStatusName(name))}} 
                         className={`projects__tasks${name.replace(" ", "")} projects__column`}>
                             <h2>{name}</h2>
                             {tasks.map(task => {

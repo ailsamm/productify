@@ -11,40 +11,20 @@ export default class ProjectsPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            columns: ['Backlog', 'In Progress', 'In Review', 'Complete'],
-            currentProject: null,
-            backlogCount: 0,
-            inProgressCount: 0,
-            inReviewCount: 0,
-            completeCount: 0
+            columns: ['Backlog', 'In Progress', 'In Review', 'Complete']
         }
-    }
-
-    updateCurrentProject = (e, projectId) => {
-        e.preventDefault();
-        let updatedProjectId = projectId;
-        if (projectId === this.state.currentProject){
-            updatedProjectId = null;
-        }
-        this.setState({
-            ...this.state.columns,
-            currentProject: updatedProjectId
-        })
     }
     
     render() {
         return (
             <div className="projects">
-                <ProjectsSidebar 
-                updateCurrentProject={this.updateCurrentProject}
-                currentProject={this.state.currentProject}
-                />
+                <ProjectsSidebar/>
                 {this.state.columns.map(column => <ProjectsColumn 
-                    currentProject={this.state.currentProject} 
                     key={column} 
-                    name={column}/>
+                    name={column}
+                    />
                 )}
             </div>
-        )
+        )     
     }    
 }
