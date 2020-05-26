@@ -34,15 +34,15 @@ export default class ProjectsSidebar extends Component {
     }
 
     calculateChartDatasets() {
-        let value = this.context;
-        const backlogCount = value.tasks.filter(task => 
-            task.status === "backlog" && task.project === this.props.currentProject).length;
-        const inProgressCount = value.tasks.filter(task => 
-            task.status === "inProgress" && task.project === this.props.currentProject).length;
-        const inReviewCount = value.tasks.filter(task => 
-            task.status === "inReview" && task.project === this.props.currentProject).length;
-        const completeCount = value.tasks.filter(task => 
-            task.status === "complete" && task.project === this.props.currentProject).length;
+        let context = this.context;
+        const backlogCount = context.tasks.filter(task => 
+            task.status === "backlog" && task.project === context.currentProject).length;
+        const inProgressCount = context.tasks.filter(task => 
+            task.status === "inProgress" && task.project === context.currentProject).length;
+        const inReviewCount = context.tasks.filter(task => 
+            task.status === "inReview" && task.project === context.currentProject).length;
+        const completeCount = context.tasks.filter(task => 
+            task.status === "complete" && task.project === context.currentProject).length;
         const incompleteCount = backlogCount + inProgressCount + inReviewCount;
 
         const pieDataset = [
@@ -114,7 +114,7 @@ export default class ProjectsSidebar extends Component {
     }
 
     getContent(){
-        return this.props.currentProject != null ? this.createCharts() :
+        return this.context.currentProject != null ? this.createCharts() :
             <div>
                 <h3>Members:</h3>
                 <div className="projects__sidebar__members">
