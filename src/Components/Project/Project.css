@@ -15,6 +15,7 @@
 
 .project__nav:hover {
     text-decoration: underline;
+    font-weight: 700;
 }
 
 .project__name {

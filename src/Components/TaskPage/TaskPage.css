@@ -1,0 +1,25 @@
+@import '../App/App.css';
+
+.taskPage {
+    display: grid;
+    grid-template-columns: 20vw 80vw;
+}
+
+.taskPage__main {
+    padding: 0 2vw;
+}
+
+.taskPage__section {
+    padding: 0.1vh 1vw;
+    border-radius: 5px;
+    background: var(--div-background);
+    margin: 2vh auto;
+}
+
+.taskPage__section__title {
+    background: var(--productify-turquoise);
+    border-radius: 5px;
+    padding: 0.5vh 0.25vw;
+    display: inline-block;
+    margin: inherit;
+}

@@ -4,6 +4,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import AboutPage from '../AboutPage/AboutPage';
 import SignUpPage from '../SignUpPage/SignUpPage.js';
 import LogInPage from '../LogInPage/LogInPage.js';
+import TaskPage from '../TaskPage/TaskPage';
 import ProjectsPage from '../ProjectsPage/ProjectsPage.js';
 import './MainContent.css'
 
@@ -40,6 +41,11 @@ export default class MainContent extends Component {
                     key='/projects'
                     path='/projects' 
                     component={ProjectsPage}
+                />
+                <Route 
+                    key='taskPage'
+                    path='/projects/:taskId' 
+                    component={TaskPage}
                 />
             </div>
         )

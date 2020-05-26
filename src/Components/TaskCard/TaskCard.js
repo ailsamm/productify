@@ -32,7 +32,7 @@ export default class TaskCard extends Component {
     render() {
         const { id, name, deadline, status} = this.props.task;
         return (
-            <NavLink to="/" className="taskCard__nav">
+            <NavLink to={`/projects/${id}`} className="taskCard__nav">
                 <div key={name} 
                 value={id}
                 draggable 
