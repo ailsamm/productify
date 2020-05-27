@@ -14,7 +14,7 @@ export default class TaskPage extends Component {
     handleDelete = () => {
         const taskId = this.props.match.params.taskId;
         this.context.onDeleteTask(parseInt(taskId));
-        this.props.history.push("/projects");
+        this.props.history.goBack();
     }
 
     render() {
@@ -40,8 +40,10 @@ export default class TaskPage extends Component {
                                 <h3 className="taskPage__section__title">Deadline:</h3>
                                 <h4>{currentTask.deadline}</h4>
                             </div>
-                            <button type="submit" onClick={this.handleGoBack} className="button stopButton">back</button>
-                            <button type="submit" onClick={this.handleDelete} className="button stopButton">delete</button>
+                            <div className="taskPage__buttons">
+                                <button type="submit" onClick={this.handleGoBack} className="button">back</button>
+                                <button type="submit" onClick={this.handleDelete} className="button stopButton">delete</button>
+                            </div>
                         </div>
                     </div>
                 )}}
