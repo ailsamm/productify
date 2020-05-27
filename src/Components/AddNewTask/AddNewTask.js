@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProjectsSidebar from '../ProjectsSidebar/ProjectsSidebar';
+import ValidationError from '../ValidationError/ValidationError';
 import ProductifyContext from '../../ProductifyContext';
 import './AddNewTask.css';
 
@@ -8,11 +9,18 @@ export default class AddNewTask extends Component {
     constructor(props){
         super(props);
         this.state = {
-            title: null,
-            assignee: null,
-            project: null,
-            description: null,
-            deadline: null
+            title: {touched: false, value: null},
+            assignee: {touched: false, value: null},
+            project: {touched: false, value: null},
+            description: {touched: false, value: null},
+            deadline: {touched: false, value: null}
+        }
+    }
+
+    validateTitle = () => {
+        const title = this.state.title.value.trim();
+        if (title.length === 0) {
+            return '**Title is required';
         }
     }
 
@@ -20,49 +28,69 @@ export default class AddNewTask extends Component {
         this.props.history.push("/projects");
     }
 
-    handleSubmit = (e) => {
+    addTaskRequest = (e) => {
         e.preventDefault();
         const newTask = {
-            title: this.state.title,
-            assignee: this.state.assignee,
-            project: this.state.project,
-            description: this.state.description,
-            deadline: this.state.deadline
+            title: this.state.title.value,
+            assignee: this.state.assignee.value,
+            project: this.state.project.value,
+            description: this.state.description.value,
+            deadline: this.state.deadline.value
         }
+        this.context.onAddTask(newTask);
+    
+        /*fetch('https://damp-journey-21967.herokuapp.com/api/notes', {
+          method: 'POST',
+          body: JSON.stringify(newNote),
+          headers: {
+            'content-type': 'application/json'
+          },
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('An error occurred while attempting to add the note')
+          }
+          return response.json();
+        })
+        .then(() => {
+            this.context.onAddTask(newTask);
+            this.props.history.push("/");
+        })
+        .catch(e => console.log(e));*/
     }
 
     updateTitle = val => {
         this.setState({
             ...this.state,
-            title: val
+            title: {touched: true, value: val}
         })
     }
 
     updateAssignee = val => {
         this.setState({
             ...this.state,
-            assignee: parseInt(val)
+            assignee: {touched: true, value: parseInt(val)}
         })
     }
 
     updateProject = val => {
         this.setState({
             ...this.state,
-            project: parseInt(val)
+            project: {touched: true, value: parseInt(val)}
         })
     }
 
     updateDescription = val => {
         this.setState({
             ...this.state,
-            description: val
+            description: {touched: true, value: val}
         })
     }
 
     updateDeadline = val => {
         this.setState({
             ...this.state,
-            deadline: val
+            deadline: {touched: true, value: val}
         })
     }
 
@@ -73,14 +101,16 @@ export default class AddNewTask extends Component {
                     <div className="addNewTask">
                         <ProjectsSidebar/>
                         <div className="addNewTask__formContainer">
-                            <form className="addNewTask__form">
+                            <form className="addNewTask__form" onSubmit={e => this.addTaskRequest(e)}>
                                 <label htmlFor="addNewTask__title">title:</label>
                                 <input name="addNewTask__title" 
                                     id="addNewTask__title" 
                                     onChange={e => this.updateTitle(e.target.value)}
                                     placeholder="buy milk" 
-                                    type="text">
+                                    type="text"
+                                    aria-required="true">
                                 </input>
+                                {this.state.title.touched && <ValidationError message={this.validateTitle()}/>}
                                 <label htmlFor="addNewTask__assignee">assignee:</label>
                                 <select 
                                     className="addNewTask__select"
@@ -109,17 +139,19 @@ export default class AddNewTask extends Component {
                                 <textarea name="addNewTask__description" 
                                     id="addNewTask__description" 
                                     onChange={e => this.updateDescription(e.target.value)}
-                                    placeholder="Go to the store and buy the milk">
+                                    placeholder="Go to the store and buy the milk"
+                                    aria-required="true">
                                 </textarea>
                                 <label htmlFor="addNewTask__deadline">deadline:</label>
                                 <input name="addNewTask__deadline" 
                                     id="addNewTask__deadline" 
                                     onChange={e => this.updateDeadline(e.target.value)}
-                                    placeholder="20/06/2020">
+                                    placeholder="20/06/2020"
+                                    aria-required="true">
                                 </input>
                                 <div className="addNewTask__buttonContainer">
-                                    <button type="submit" onClick={this.handleGoBack} className="button addNewTask__backButton">back</button>
-                                    <button type="submit" onClick={e => this.handleSubmit(e)} className="button addNewTask__saveButton">save</button>
+                                    <button type="button" onClick={this.handleGoBack} className="button addNewTask__backButton">back</button>
+                                    <button type="submit" className="button addNewTask__saveButton">save</button>
                                 </div>
                             </form>
                         </div>
