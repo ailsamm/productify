@@ -6,6 +6,8 @@ import './AddNewTask.css';
 
 export default class AddNewTask extends Component {
 
+    static contextType = ProductifyContext;
+
     constructor(props){
         super(props);
         this.state = {
@@ -31,13 +33,16 @@ export default class AddNewTask extends Component {
     addTaskRequest = (e) => {
         e.preventDefault();
         const newTask = {
-            title: this.state.title.value,
+            name: this.state.title.value,
             assignee: this.state.assignee.value,
             project: this.state.project.value,
             description: this.state.description.value,
-            deadline: this.state.deadline.value
+            deadline: this.state.deadline.value,
+            status: "backlog",
+            id: 44
         }
         this.context.onAddTask(newTask);
+        this.props.history.push("/projects");
     
         /*fetch('https://damp-journey-21967.herokuapp.com/api/notes', {
           method: 'POST',
@@ -150,8 +155,8 @@ export default class AddNewTask extends Component {
                                     aria-required="true">
                                 </input>
                                 <div className="addNewTask__buttonContainer">
-                                    <button type="button" onClick={this.handleGoBack} className="button addNewTask__backButton">back</button>
-                                    <button type="submit" className="button addNewTask__saveButton">save</button>
+                                    <button type="button" onClick={this.handleGoBack} className="button stopButton">back</button>
+                                    <button type="submit" className="button goButton">save</button>
                                 </div>
                             </form>
                         </div>

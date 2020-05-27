@@ -20,6 +20,22 @@
       }
     }
 
+    addTask = (task) => {
+      const updatedTasks = [...this.state.tasks, task];
+      this.setState({
+        ...this.state,
+        tasks: updatedTasks
+      })
+    }
+
+    deleteTask = (taskToDelete) => {
+      const updatedTasks = this.state.tasks.filter(task => task.id !== taskToDelete);
+      this.setState({
+        ...this.state,
+        tasks: updatedTasks
+      })
+    }
+
     onDrop = (e, status) => {
       e.preventDefault();
       const taskId = parseInt(e.dataTransfer.getData("id"));
@@ -71,6 +87,8 @@
         tasks: this.state.tasks,
         currentProject: this.state.currentProject,
         onDrop: this.onDrop,
+        onAddTask: this.addTask,
+        onDeleteTask: this.deleteTask,
         updateCurrentProject: this.updateCurrentProject
       }
       return (

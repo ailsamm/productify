@@ -87,3 +87,19 @@ form > input {
     border-left: 0;
     border-right: 0;
 }
+
+.stopButton {
+    background-color: var(--button-back);
+}
+
+.stopButton:hover {
+    background-color: var(--button-back-hover);
+}
+
+.goButton {
+    background-color: var(--button-go);
+}
+
+.goButton:hover {
+    background-color: var(--button-go-hover);
+}

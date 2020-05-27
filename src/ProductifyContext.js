@@ -5,9 +5,11 @@ const ProductifyContext = React.createContext({
   members: [],
   projects: [],
   tasks: [],
-  onDrop: () => {},
   loggedInUser: {},
+  onDrop: () => {},
+  onAddTask: () => {},
   updateCurrentProject: () => {},
+  onDeleteTask: () => {},
   isLoggedIn: false,
   currentProject: null
 });

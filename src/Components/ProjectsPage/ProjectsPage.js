@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import ProjectsSidebar from '../ProjectsSidebar/ProjectsSidebar';
 import ProjectsColumn from '../ProjectsColumn/ProjectsColumn';
-import ProductifyContext from '../../ProductifyContext';
 import './ProjectsPage.css';
 
 export default class ProjectsPage extends Component {
-
-    static contextType = ProductifyContext;
 
     constructor(props){
         super(props);
