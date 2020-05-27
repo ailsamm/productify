@@ -1,6 +1,6 @@
 const STORE = {
     teamName: '<Team Name>',
-    isLoggedIn: true,
+    isLoggedIn: false,
     loggedInUser: {
         firstName: "Ailsa",
         lastName:"Meechan-Maddon",

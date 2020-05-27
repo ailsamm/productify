@@ -27,6 +27,7 @@
       const { firstName, lastName, teamId } = userInfo;
       this.setState({
         ...this.state,
+        isLoggedIn: true,
         loggedInUser: {
           firstName,
           lastName,
