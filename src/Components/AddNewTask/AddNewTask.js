@@ -141,7 +141,7 @@ export default class AddNewTask extends Component {
             <ProductifyContext.Consumer>
                 {context => (
                     <div className="addNewTask">
-                        <ProjectsSidebar/>
+                        <ProjectsSidebar addTask={true}/>
                         <div className="addNewTask__formContainer">
                             <form className="addNewTask__form" onSubmit={e => this.addTaskRequest(e)}>
                                 <label htmlFor="addNewTask__title">title:</label>

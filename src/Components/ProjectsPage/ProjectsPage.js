@@ -15,7 +15,7 @@ export default class ProjectsPage extends Component {
     render() {
         return (
             <div className="projects">
-                <ProjectsSidebar/>
+                <ProjectsSidebar addTask={false}/>
                 {this.state.columns.map(column => <ProjectsColumn 
                     key={column} 
                     name={column}

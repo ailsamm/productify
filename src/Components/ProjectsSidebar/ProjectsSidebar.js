@@ -142,6 +142,18 @@ export default class ProjectsSidebar extends Component {
             </div>
     }
 
+    getProjectDetails() {
+        return (
+            <div>
+                <h3>Projects:</h3>
+                <div className="projects__sidebar_members">
+                    {this.getProjects()}
+                </div>
+                {this.getContent()}
+            </div>
+        )
+    }
+
     render() {
         return (
             <div className="projects__sidebar projects__column">
@@ -153,11 +165,7 @@ export default class ProjectsSidebar extends Component {
                     </NavLink>
                 </div>
                 <h2 className="projects__sidebar_teamName">Team name</h2>
-                <h3>Projects:</h3>
-                <div className="projects__sidebar_members">
-                    {this.getProjects()}
-                </div>
-                {this.getContent()}          
+                {!this.props.addTask ? this.getProjectDetails() : <></>}    
             </div>
         )
     }
