@@ -17,7 +17,8 @@ export default class LogInPage extends Component {
             password: {
                 touched: false,
                 value: "",
-            }
+            },
+            failedLogInError: null
         }
     }
 
@@ -26,18 +27,23 @@ export default class LogInPage extends Component {
         const context = this.context;
         const user = context.usersLogin.find(user => user.emailAddress === this.state.email.value);
         if (user){
-            console.log("FOUND EMAIL")
             if (user.password === this.state.password.value){
-                console.log("LOGGING IN!")
                 context.onLogInUser(user);
                 this.props.history.push("/projects");
+                return;
             }
             else {
-                console.log("PASSWORD DOESN'T MATCH!")
+                this.setState({
+                    ...this.state,
+                    failedLogInError: "Password does not match the supplied email address."
+                })
             }
         }
         else{
-            console.log("NO EMAIL")
+            this.setState({
+                ...this.state,
+                failedLogInError: "No account found for the supplied email address."
+            })
         }
     }
 
@@ -82,7 +88,7 @@ export default class LogInPage extends Component {
                     <input name="logIn__email" 
                         id="logIn__email" 
                         placeholder="ada.lovelace@gmail.com" 
-                        onChange={e => this.updateEmail(e.target.value)}
+                        onChange={e => this.updateEmail(e.target.value.toLowerCase())}
                         type="text">
                     </input>
                     {this.state.email.touched && <ValidationError message={this.validateEmail()}/>}
@@ -94,6 +100,7 @@ export default class LogInPage extends Component {
                         type="password">
                     </input>
                     {this.state.password.touched && <ValidationError message={this.validatePassword()}/>}
+                    {this.state.failedLogInError && <ValidationError message={this.state.failedLogInError}/>}
                     <button type="submit" className="button logIn__submitButton">sign in</button>
                 </form>
             </div>

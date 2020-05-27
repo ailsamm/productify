@@ -1,4 +1,5 @@
 .validationError {
     color: red;
     font-size: 0.75em;
+    max-width: 35vw;
 }
