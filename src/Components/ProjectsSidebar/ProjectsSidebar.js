@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import TeamMember from '../TeamMember/TeamMember';
-import Project from '../Project/Project';
+import { NavLink } from 'react-router-dom';
 import { Pie, Doughnut } from 'react-chartjs-2';
 import ProductifyContext from '../../ProductifyContext';
+import TeamMember from '../TeamMember/TeamMember';
+import Project from '../Project/Project';
 import './ProjectsSidebar.css';
 
 export default class ProjectsSidebar extends Component {
@@ -19,7 +20,7 @@ export default class ProjectsSidebar extends Component {
 
     getMembers(){
         const members = this.context.members || [];
-        return members.map(teamMember => <TeamMember key={teamMember.name} member={teamMember}></TeamMember>);
+        return members.map(teamMember => <TeamMember key={teamMember.firstName} member={teamMember}></TeamMember>);
     }
 
     getProjects(){
@@ -74,7 +75,7 @@ export default class ProjectsSidebar extends Component {
     createCharts(){
         const datasets = this.calculateChartDatasets();
         return (
-            <div className="projects__sidebar__charts">
+            <div className="projects__sidebar_charts">
                 <Pie
                     data={{
                         labels: this.state.pieLabels,
@@ -126,9 +127,16 @@ export default class ProjectsSidebar extends Component {
     render() {
         return (
             <div className="projects__sidebar projects__column">
-                <h2>Team name</h2>
+                <div className="newTaskButtonContainer">
+                    <NavLink 
+                        to="/newTask" 
+                        className="button projects__sidebar_newTaskButton">
+                            + new task
+                    </NavLink>
+                </div>
+                <h2 className="projects__sidebar_teamName">Team name</h2>
                 <h3>Projects:</h3>
-                <div className="projects__sidebar__members">
+                <div className="projects__sidebar_members">
                     {this.getProjects()}
                 </div>
                 {this.getContent()}          

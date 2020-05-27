@@ -1,6 +1,6 @@
   import React, { Component } from 'react';
   import Header from '../Header/Header';
-  import MainContent from '../MainContent/MainContent';
+  import MainContentRouter from '../MainContentRouter/MainContentRouter';
   import ProductifyContext from '../../ProductifyContext';
   import STORE from '../../STORE';
   import './App.css';
@@ -77,7 +77,7 @@
         <ProductifyContext.Provider value={contextValue}>
           <div className="app">
             <Header isLoggedIn={this.state.isLoggedIn} user={this.state.loggedInUser}/>
-            <MainContent/>
+            <MainContentRouter/>
           </div>
         </ProductifyContext.Provider>
       );

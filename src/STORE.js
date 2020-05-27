@@ -6,11 +6,11 @@ const STORE = {
         lastName:"Meechan-Maddon"
     },
     members: [
-        {name:'Ada', jobTitle:'UI designer'},
-        {name:'Joe', jobTitle:'Business lead'},
-        {name:'Caroline', jobTitle:'Project manager'},
-        {name:'Blake', jobTitle:'Backend developer'},
-        {name:'Julia', jobTitle:'Frontend developer'}
+        {id:2, firstName:'Ada', lastName: "A", jobTitle:'UI designer'},
+        {id:3, firstName:'Joe', lastName: "B", jobTitle:'Business lead'},
+        {id:4, firstName:'Caroline', lastName: "C", jobTitle:'Project manager'},
+        {id:5, firstName:'Blake', lastName: "D", jobTitle:'Backend developer'},
+        {id:6, firstName:'Julia', lastName: "E", jobTitle:'Frontend developer'}
     ],
     projects: [{name: "First project", id:1}, {name:"Second project", id:2}],
     tasks: [

@@ -3,10 +3,12 @@ import './TeamMember.css';
 
 export default class TeamMember extends Component {
     render() {
+        const member = this.props.member;
+        const lastInitial = member.lastName[0] + ".";
         return (
             <div className="teamMember">
-                <h3 className="teamMember__name">{this.props.member.name}</h3>
-                <h4 className="teamMember__jobTitle">{this.props.member.jobTitle}</h4>
+                <h3 className="teamMember__name">{member.firstName} {lastInitial}</h3>
+                <h4 className="teamMember__jobTitle">{member.jobTitle}</h4>
             </div>
         )
     }

@@ -5,10 +5,11 @@ import AboutPage from '../AboutPage/AboutPage';
 import SignUpPage from '../SignUpPage/SignUpPage.js';
 import LogInPage from '../LogInPage/LogInPage.js';
 import TaskPage from '../TaskPage/TaskPage';
+import AddNewTask from '../AddNewTask/AddNewTask';
 import ProjectsPage from '../ProjectsPage/ProjectsPage.js';
-import './MainContent.css'
+import './MainContentRouter.css'
 
-export default class MainContent extends Component {
+export default class MainContentRouter extends Component {
     render(){
         return (
             <div className="mainContent">
@@ -35,6 +36,12 @@ export default class MainContent extends Component {
                     key='/login'
                     path='/login' 
                     component={LogInPage}
+                />
+                <Route 
+                    exact 
+                    key='addNewTask'
+                    path='/newTask' 
+                    component={AddNewTask}
                 />
                 <Route 
                     exact 

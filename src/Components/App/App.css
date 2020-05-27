@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap');
 
 :root {
     --main-accent-color: #7fdae1;
@@ -16,6 +17,10 @@
     --productify-pink: #ffc0c092;
     --productify-blue: #c0d7ff6e;
     --div-background: #ebebeb87;
+    --button-go: #7ce86187;
+    --button-go-hover: #46c62787;
+    --button-back: #f5b1b1b7;
+    --button-back-hover: #f47f7fd2;
 }
 
 * {
@@ -52,4 +57,33 @@ body {
 
 input::placeholder {
     color: var(--placeholder-text-color);
+}
+
+form  {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+}
+
+form > button {
+    font-size: 0.75em;
+    padding: 8px;
+    margin: 2vh auto;
+    width: 60%;
+}
+
+form > label {
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 2vh;
+    font-size: 0.9em;
+}
+
+form > input {
+    font-size: 0.75em;
+    padding: 1vh 0 1vh 0;
+    width: 35vw;
+    margin: 0.5vh 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
 }

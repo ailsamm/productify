@@ -1,10 +1,32 @@
+@import '../App/App.css';
 
 .projects__sidebar {
     overflow-y: auto;
 }
 
-.projects__sidebar__charts {
+.projects__sidebar_charts {
     background: #FFF;
     border-radius: 5px;
     padding: 2vh 0;
+}
+
+.projects__sidebar_newTaskButton {
+    background-color: var(--button-go);
+    color: var(--main-text-color);
+    margin: 0px auto;
+}
+
+.projects__sidebar_newTaskButton:hover {
+    background-color: var(--button-go-hover);
+}
+
+.newTaskButtonContainer {
+    display: flex;
+    justify-self: center;
+    padding: 2vh 0vw;
+}
+
+.projects__sidebar_teamName {
+    margin: 0;
+    text-align: center;
 }
