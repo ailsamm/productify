@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProjectsSidebar from '../ProjectsSidebar/ProjectsSidebar';
 import ValidationError from '../ValidationError/ValidationError';
+import { notNull } from '../../ValidationHelper';
 import DatePicker from 'react-date-picker';
 import ProductifyContext from '../../ProductifyContext';
 import './AddNewTask.css';
@@ -12,25 +13,36 @@ export default class AddNewTask extends Component {
     constructor(props){
         super(props);
         this.state = {
-            title: {touched: false, value: null},
-            assignee: {touched: false, value: null},
-            project: {touched: false, value: null},
-            description: {touched: false, value: null},
-            deadline: {touched: false, value: null}
-        }
-    }
-
-    validateTitle = () => {
-        const title = this.state.title.value.trim();
-        if (title.length === 0) {
-            return '**Title is required';
-        }
-    }
-
-    validateDeadline = () => {
-        const deadline = this.state.deadline.value.trim();
-        if (deadline.length === 0) {
-            return '**Title is required';
+            title: {
+                touched: false,
+                validationMessage: "",
+                isValid: false, 
+                value: null
+            },
+            assignee: {
+                touched: false, 
+                validationMessage: "",
+                isValid: false,
+                value: null
+            },
+            project: {
+                touched: false, 
+                validationMessage: "",
+                isValid: false,
+                value: null
+            },
+            description: {
+                touched: false, 
+                validationMessage: "",
+                isValid: true,
+                value: null
+            },
+            deadline: {
+                touched: false, 
+                validationMessage: "",
+                isValid: false,
+                value: null
+            }
         }
     }
 
@@ -72,38 +84,62 @@ export default class AddNewTask extends Component {
         .catch(e => console.log(e));*/
     }
 
-    updateTitle = val => {
+    updateTitle = value => {
+        const validation = notNull(value);
         this.setState({
             ...this.state,
-            title: {touched: true, value: val}
+            title: {
+                touched: true, 
+                validationMessage: validation,
+                isValid: !validation,
+                value
+            }
         })
     }
 
-    updateAssignee = val => {
+    updateAssignee = value => {
+        const validation = notNull(value);
         this.setState({
             ...this.state,
-            assignee: {touched: true, value: parseInt(val)}
+            assignee: {
+                touched: true, 
+                validationMessage: validation,
+                isValid: !validation,
+                value: parseInt(value)
+            }
         })
     }
 
-    updateProject = val => {
+    updateProject = value => {
+        const validation = notNull(value);
         this.setState({
             ...this.state,
-            project: {touched: true, value: parseInt(val)}
+            project: {
+                touched: true,
+                validationMessage: validation,
+                isValid: !validation, 
+                value: parseInt(value)
+            }
         })
     }
 
-    updateDescription = val => {
+    updateDescription = value => {
         this.setState({
             ...this.state,
-            description: {touched: true, value: val}
+            description: {
+                touched: true, 
+                value
+            }
         })
     }
 
-    updateDeadline = val => {
+    updateDeadline = value => {
         this.setState({
             ...this.state,
-            deadline: {touched: true, value: val.toString()}
+            deadline: {
+                touched: true, 
+                value: value.toString()
+            }
         })
     }
 
@@ -152,7 +188,7 @@ export default class AddNewTask extends Component {
                                     type="text"
                                     aria-required="true">
                                 </input>
-                                {this.state.title.touched && <ValidationError message={this.validateTitle()}/>}
+                                {this.state.title.touched && <ValidationError message={this.state.title.validationMessage}/>}
                                 <label htmlFor="addNewTask__assignee">assignee:</label>
                                 <select 
                                     className="addNewTask__select"
@@ -163,6 +199,7 @@ export default class AddNewTask extends Component {
                                     <option value=""></option>
                                     {this.getMembers()}
                                 </select>
+                                {this.state.assignee.touched && <ValidationError message={this.state.assignee.validationMessage}/>}
                                 <label htmlFor="addNewTask__project">project:</label>
                                 <select 
                                     className="addNewTask__select"
@@ -173,6 +210,7 @@ export default class AddNewTask extends Component {
                                     <option value=""></option>
                                     {this.getProjects()}
                                 </select>
+                                {this.state.project.touched && <ValidationError message={this.state.project.validationMessage}/>}
                                 <label htmlFor="addNewTask__description">description:</label>
                                 <textarea name="addNewTask__description" 
                                     id="addNewTask__description" 

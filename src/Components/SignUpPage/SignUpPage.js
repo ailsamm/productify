@@ -86,9 +86,9 @@ export default class SignUpPage extends Component {
     }
 
     titleCase(s) {
-        s = s.toLowerCase();
-        s = s.charAt(0).toUpperCase() + s.slice(1);
-        return s;
+        let updatedS = s.toLowerCase();
+        updatedS = s.charAt(0).toUpperCase() + s.slice(1);
+        return updatedS;
     }
 
     updateFirstName(value) {
