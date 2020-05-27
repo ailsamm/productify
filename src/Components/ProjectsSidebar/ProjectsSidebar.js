@@ -18,20 +18,38 @@ export default class ProjectsSidebar extends Component {
         }
     } 
 
+    getTeamMember = (memberId) => {
+        const teamMember = this.context.usersInfo.find(user => user.id === memberId);
+        return (
+            <TeamMember key={teamMember.firstName} member={teamMember}></TeamMember>
+        )
+    }
+
     getMembers(){
-        const members = this.context.members || [];
-        return members.map(teamMember => <TeamMember key={teamMember.firstName} member={teamMember}></TeamMember>);
+        const context = this.context;
+        if (context.teams.length > 0){
+            const teamId = context.loggedInUser.teamId;
+            const members = context.teams.find(team => team.id === teamId).members;
+            return members.map(this.getTeamMember);
+        }
     }
 
     getProjects(){
-        const projects = this.context.projects || [];
         const context = this.context;
-        return projects.map(project => {
-            let className= ""
-            if (context.currentProject === project.id){
-                className = " selectedProject"
-            }
-            return <Project className={className} updateCurrentProject={context.updateCurrentProject} key={project.id} project={project}></Project>})
+        if (context.projects.length > 0){
+            const teamId = context.loggedInUser.teamId;
+            const projectIds = context.teams.find(team => team.id === teamId).projects;
+            return projectIds.map(projectId => {
+                const project = this.context.projects.find(project => project.id === projectId);
+                let className= ""
+                if (context.currentProject === project.id){
+                    className = " selectedProject"
+                }
+                return (
+                    <Project className={className} updateCurrentProject={context.updateCurrentProject} key={project.id} project={project}></Project>
+                )
+            });
+        }
     }
 
     calculateChartDatasets() {

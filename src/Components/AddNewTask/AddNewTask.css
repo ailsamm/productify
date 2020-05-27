@@ -64,22 +64,10 @@
     justify-content: center;
 }   
 
-.addNewTask__backButton {
-    background-color: var(--button-back);
-}
-
-.addNewTask__backButton:hover {
-    background-color: var(--button-back-hover);
-}
-
-.addNewTask__saveButton {
-    background-color: var(--button-go);
-}
-
-.addNewTask__saveButton:hover {
-    background-color: var(--button-go-hover);
-}
-
 .addNewTask__buttonContainer > .button {
     font-size: 0.75em;
+}
+
+.react-date-picker__inputGroup__input:invalid {
+    background-color: #FFF;
 }

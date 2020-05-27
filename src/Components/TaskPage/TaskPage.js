@@ -22,7 +22,7 @@ export default class TaskPage extends Component {
             <ProductifyContext.Consumer>
                 {context => {
                     const currentTask = context.tasks.find(task => task.id === parseInt(this.props.match.params.taskId)) || {};
-                    const assignee = context.members.find(member => member.id === currentTask.assignee) || "";
+                    const assignee = context.usersInfo.find(user => user.id === currentTask.assignee) || "";
                     const assigneeName = assignee.firstName || "";
                     return (
                     <div className="taskPage">

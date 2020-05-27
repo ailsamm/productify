@@ -3,16 +3,33 @@ const STORE = {
     isLoggedIn: true,
     loggedInUser: {
         firstName: "Ailsa",
-        lastName:"Meechan-Maddon"
+        lastName:"Meechan-Maddon",
+        teamId: 1
     },
-    members: [
-        {id:2, firstName:'Ada', lastName: "A", jobTitle:'UI designer'},
-        {id:3, firstName:'Joe', lastName: "B", jobTitle:'Business lead'},
-        {id:4, firstName:'Caroline', lastName: "C", jobTitle:'Project manager'},
-        {id:5, firstName:'Blake', lastName: "D", jobTitle:'Backend developer'},
-        {id:6, firstName:'Julia', lastName: "E", jobTitle:'Frontend developer'}
+    usersLogin: [
+        {userId: 1, emailAddress: "aaa@gmail.com", password: "aaa"},
+        {userId: 2, emailAddress: "bbb@gmail.com", password: "bbb"},
+        {userId: 3, emailAddress: "ccc@gmail.com", password: "ccc"},
+        {userId: 4, emailAddress: "ddd@gmail.com", password: "ddd"},
+        {userId: 5, emailAddress: "eee@gmail.com", password: "eee"},
+        {userId: 6, emailAddress: "fff@gmail.com", password: "fff"}
     ],
-    projects: [{name: "First project", id:1}, {name:"Second project", id:2}],
+    usersInfo: [
+        {id:1, firstName: "Ada", lastName: "A", jobTitle:'UI designer'},
+        {id:2, firstName:'Billie', lastName: "B", jobTitle:'Business lead'},
+        {id:3, firstName:'Caroline', lastName: "C", jobTitle:'Project manager'},
+        {id:4, firstName:'Dani', lastName: "D", jobTitle:'Backend developer'},
+        {id:5, firstName:'Emily', lastName: "E", jobTitle:'Frontend developer'},
+        {id:6, firstName:'Fiona', lastName: "F", jobTitle:'UI designer'}
+    ],
+    teams: [
+        {id:1, members: [1,2,3,4,5,6], projects: [1,2]}
+    ],
+    projects: [
+        {name: "First project", id:1}, 
+        {name:"Second project", id:2},
+        {name:"Third project", id:3}
+    ],
     tasks: [
         {id:1, project:1, name:'Add time tracking components', description:'blah...', deadline:'06/02/2020', status:'backlog', assignee:2},
         {id:2, project:1, name:'Deploy app', description:'blah...', deadline:'29/02/2020', status:'backlog', assignee:1},

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProjectsSidebar from '../ProjectsSidebar/ProjectsSidebar';
 import ValidationError from '../ValidationError/ValidationError';
+import DatePicker from 'react-date-picker';
 import ProductifyContext from '../../ProductifyContext';
 import './AddNewTask.css';
 
@@ -22,6 +23,13 @@ export default class AddNewTask extends Component {
     validateTitle = () => {
         const title = this.state.title.value.trim();
         if (title.length === 0) {
+            return '**Title is required';
+        }
+    }
+
+    validateDeadline = () => {
+        const deadline = this.state.deadline.value.trim();
+        if (deadline.length === 0) {
             return '**Title is required';
         }
     }
@@ -95,11 +103,40 @@ export default class AddNewTask extends Component {
     updateDeadline = val => {
         this.setState({
             ...this.state,
-            deadline: {touched: true, value: val}
+            deadline: {touched: true, value: val.toString()}
         })
     }
 
+    getMembers(){
+        const context = this.context;
+        if (context.teams.length > 0){
+            const teamId = context.loggedInUser.teamId;
+            const memberIds = context.teams.find(team => team.id === teamId).members;
+            return memberIds.map(memberId => {
+                const member = this.context.usersInfo.find(user => user.id === memberId);
+                return (
+                    <option key={member.id} value={member.id}>{member.firstName} {member.lastName}</option>
+                )
+            });
+        }
+    }
+
+    getProjects(){
+        const context = this.context;
+        if (context.projects.length > 0){
+            const teamId = context.loggedInUser.teamId;
+            const projectIds = context.teams.find(team => team.id === teamId).projects;
+            return projectIds.map(projectId => {
+                const project = this.context.projects.find(project => project.id === projectId);
+                return (
+                    <option key={project.id} value={project.id}>{project.name}</option>
+                )
+            });
+        }
+    }
+
     render() {
+        const today = new Date();
         return (
             <ProductifyContext.Consumer>
                 {context => (
@@ -124,9 +161,7 @@ export default class AddNewTask extends Component {
                                     aria-required="true"
                                     onChange={e => this.updateAssignee(e.target.value)}>
                                     <option value=""></option>
-                                    {context.members.map(member => (
-                                        <option key={member.id} value={member.id}>{member.firstName} {member.lastName}</option>
-                                    ))}
+                                    {this.getMembers()}
                                 </select>
                                 <label htmlFor="addNewTask__project">project:</label>
                                 <select 
@@ -136,9 +171,7 @@ export default class AddNewTask extends Component {
                                     aria-required="true"
                                     onChange={e => this.updateProject(e.target.value)}>
                                     <option value=""></option>
-                                    {context.projects.map(project => (
-                                        <option key={project.id} value={project.id}>{project.name}</option>
-                                    ))}
+                                    {this.getProjects()}
                                 </select>
                                 <label htmlFor="addNewTask__description">description:</label>
                                 <textarea name="addNewTask__description" 
@@ -148,12 +181,16 @@ export default class AddNewTask extends Component {
                                     aria-required="true">
                                 </textarea>
                                 <label htmlFor="addNewTask__deadline">deadline:</label>
-                                <input name="addNewTask__deadline" 
+                                <DatePicker name="addNewTask__deadline" 
                                     id="addNewTask__deadline" 
-                                    onChange={e => this.updateDeadline(e.target.value)}
-                                    placeholder="20/06/2020"
-                                    aria-required="true">
-                                </input>
+                                    onChange={value => this.updateDeadline(value)} 
+                                    dayPlaceholder={today.getUTCDate().toString()}
+                                    monthPlaceholder={(today.getUTCMonth() + 1).toString()}
+                                    yearPlaceholder={today.getUTCFullYear().toString()}
+                                    aria-required="true"
+                                    format="MM-dd-y"
+                                    minDate={today}
+                                />
                                 <div className="addNewTask__buttonContainer">
                                     <button type="button" onClick={this.handleGoBack} className="button stopButton">back</button>
                                     <button type="submit" className="button goButton">save</button>

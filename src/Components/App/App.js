@@ -13,7 +13,9 @@
         teamName: "", 
         isLoggedIn: false, 
         loggedInUser: {}, 
-        members: [], 
+        usersInfo: [],
+        usersLogin: [],
+        teams: [],
         projects: [],
         tasks: [],
         currentProject: null
@@ -66,12 +68,14 @@
   }
     
     componentDidMount(){
-      const {teamName, isLoggedIn, loggedInUser, projects, members, tasks} = STORE;
+      const {teamName, isLoggedIn, loggedInUser, projects, usersInfo, usersLogin, teams, tasks} = STORE;
       this.setState({
         teamName, 
         isLoggedIn, 
         loggedInUser, 
-        members, 
+        usersInfo,
+        usersLogin,
+        teams, 
         projects,
         tasks
       })
@@ -82,7 +86,9 @@
         teamName: this.state.teamName, 
         isLoggedIn: this.state.isLoggedIn, 
         loggedInUser: this.state.loggedInUser, 
-        members: this.state.members, 
+        teams: this.state.teams,
+        usersInfo: this.state.usersInfo,
+        usersLogin: this.state.usersLogin, 
         projects: this.state.projects,
         tasks: this.state.tasks,
         currentProject: this.state.currentProject,
