@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ValidationError from '../ValidationError/ValidationError';
 import ProductifyContext from '../../ProductifyContext';
+import { validateEmail, notNull } from '../../ValidationHelper';
 import './LogInPage.css';
 
 export default class LogInPage extends Component {
@@ -67,19 +68,6 @@ export default class LogInPage extends Component {
         })
     }
 
-    validateEmail(){
-        const isValid = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.email.value);
-        if (!isValid) {
-            return "Please ensure that the email address entered is valid."
-        }
-    }
-
-    validatePassword(){
-        if (this.state.password.value.length < 1) {
-            return "Please enter a password."
-        }
-    }
-
     render(){
         return (
             <div className="logIn centeredContent">
@@ -91,7 +79,7 @@ export default class LogInPage extends Component {
                         onChange={e => this.updateEmail(e.target.value.toLowerCase())}
                         type="text">
                     </input>
-                    {this.state.email.touched && <ValidationError message={this.validateEmail()}/>}
+                    {this.state.email.touched && <ValidationError message={validateEmail(this.state.email.value)}/>}
                     <label htmlFor="logIn__password">password:</label>
                     <input name="logIn__password" 
                         id="logIn__password" 
@@ -99,7 +87,7 @@ export default class LogInPage extends Component {
                         onChange={e => this.updatePassword(e.target.value)}
                         type="password">
                     </input>
-                    {this.state.password.touched && <ValidationError message={this.validatePassword()}/>}
+                    {this.state.password.touched && <ValidationError message={notNull(this.state.password.value)}/>}
                     {this.state.failedLogInError && <ValidationError message={this.state.failedLogInError}/>}
                     <button type="submit" className="button logIn__submitButton">sign in</button>
                 </form>
