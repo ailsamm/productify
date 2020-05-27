@@ -13,10 +13,14 @@ export default class LogInPage extends Component {
         this.state = {
             email: {
                 touched: false,
+                validationMessage: "",
+                isValid: false,
                 value: "",
             },
             password: {
                 touched: false,
+                validationMessage: "",
+                isValid: false,
                 value: "",
             },
             failedLogInError: null
@@ -26,43 +30,60 @@ export default class LogInPage extends Component {
     handleLogInAttempt = (e) => {
         e.preventDefault();
         const context = this.context;
-        const user = context.usersLogin.find(user => user.emailAddress === this.state.email.value);
-        if (user){
-            if (user.password === this.state.password.value){
-                context.onLogInUser(user);
-                this.props.history.push("/projects");
-                return;
+        const formIsValid = this.state.email.isValid &&
+            this.state.password.isValid;
+
+        if (formIsValid) {
+            const user = context.usersLogin.find(user => user.emailAddress === this.state.email.value);
+            if (user){
+                if (user.password === this.state.password.value){
+                    context.onLogInUser(user);
+                    this.props.history.push("/projects");
+                    return;
+                }
+                else {
+                    this.setState({
+                        ...this.state,
+                        failedLogInError: "Password does not match the supplied email address."
+                    })
+                }
             }
             else {
                 this.setState({
                     ...this.state,
-                    failedLogInError: "Password does not match the supplied email address."
+                    failedLogInError: "No account found for the supplied email address."
                 })
             }
         }
-        else{
+        else {
             this.setState({
                 ...this.state,
-                failedLogInError: "No account found for the supplied email address."
+                failedLogInError: "Please fix the errors in red before proceeding."
             })
         }
     }
 
     updateEmail = (value) => {
+        const validation = validateEmail(value);
         this.setState({
             ...this.state,
             email: {
                 touched: true,
+                validationMessage: validation,
+                isValid: !validation,
                 value
             }
         })
     }
 
     updatePassword = (value) => {
+        const validation = notNull(value);
         this.setState({
             ...this.state,
             password: {
                 touched: true,
+                validationMessage: validation,
+                isValid: !validation,
                 value
             }
         })

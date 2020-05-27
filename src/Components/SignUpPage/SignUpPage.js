@@ -19,22 +19,32 @@ export default class SignUpPage extends Component {
             },
             lastName: {
                 touched: false,
+                validationMessage: "",
+                isValid: false,
                 value: ""
             },
             email: {
                 touched: false,
+                validationMessage: "",
+                isValid: false,
                 value: ""
             },
             jobTitle: {
                 touched: false,
+                validationMessage: "",
+                isValid: false,
                 value: ""
             },
             password: {
                 touched: false,
+                validationMessage: "",
+                isValid: false,
                 value: ""
             },
             repeatPassword: {
                 touched: false,
+                validationMessage: "",
+                isValid: false,
                 value: ""
             },
             failedSignUpError: null
