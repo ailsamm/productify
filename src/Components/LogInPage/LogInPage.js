@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import ValidationError from '../ValidationError/ValidationError';
+import ProductifyContext from '../../ProductifyContext';
 import './LogInPage.css';
 
 export default class LogInPage extends Component {
+
+    static contextType = ProductifyContext;
 
     constructor(props){
         super(props);
@@ -18,9 +21,22 @@ export default class LogInPage extends Component {
         }
     }
 
-    handleSubmit = (e) => {
+    handleLogInAttempt = (e) => {
         e.preventDefault();
-        console.log("submitted!")
+        const context = this.context;
+        const user = context.usersLogin.find(user => user.emailAddress === this.state.email.value);
+        if (user){
+            console.log("FOUND EMAIL")
+            if (user.password === this.state.password.value){
+                console.log("LOGGING IN!")
+            }
+            else {
+                console.log("PASSWORD DOESN'T MATCH!")
+            }
+        }
+        else{
+            console.log("NO EMAIL")
+        }
     }
 
     updateEmail = (value) => {
@@ -59,7 +75,7 @@ export default class LogInPage extends Component {
     render(){
         return (
             <div className="logIn centeredContent">
-                <form className="logIn__form">
+                <form className="logIn__form" onSubmit={this.handleLogInAttempt}>
                     <label htmlFor="logIn__email">email address:</label>
                     <input name="logIn__email" 
                         id="logIn__email" 
@@ -76,7 +92,7 @@ export default class LogInPage extends Component {
                         type="password">
                     </input>
                     {this.state.password.touched && <ValidationError message={this.validatePassword()}/>}
-                    <button type="submit" onClick={this.handleSubmit} className="button logIn__submitButton">sign in</button>
+                    <button type="submit" className="button logIn__submitButton">sign in</button>
                 </form>
             </div>
         )
