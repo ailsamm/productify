@@ -180,7 +180,7 @@ export default class SignUpPage extends Component {
                         id="signUp__firstName" 
                         type="text">
                     </input>
-                    {this.state.firstName.touched && <ValidationError message={notNull(this.state.firstName.value)}/>}
+                    {this.state.firstName.touched && <ValidationError message={this.state.firstName.validationMessage}/>}
                     <label htmlFor="signUp__lastName">last name:</label>
                     <input name="signUp__lastName" 
                         onChange={e => this.updateLastName(e.target.value)}
@@ -188,7 +188,7 @@ export default class SignUpPage extends Component {
                         placeholder="Lovelace" 
                         type="text">
                     </input>
-                    {this.state.lastName.touched && <ValidationError message={notNull(this.state.lastName.value)}/>}
+                    {this.state.lastName.touched && <ValidationError message={this.state.lastName.validationMessage}/>}
                     <label htmlFor="signUp__email">email address:</label>
                     <input name="signUp__email" 
                         onChange={e => this.updateEmail(e.target.value)}
@@ -196,7 +196,7 @@ export default class SignUpPage extends Component {
                         placeholder="ada.lovelace@gmail.com" 
                         type="text">
                     </input>
-                    {this.state.email.touched && <ValidationError message={validateEmail(this.state.email.value)}/>}
+                    {this.state.email.touched && <ValidationError message={this.state.email.validationMessage}/>}
                     <label htmlFor="signUp__job">job title:</label>
                     <input name="signUp__job" 
                         onChange={e => this.updateJobTitle(e.target.value)}
@@ -204,7 +204,7 @@ export default class SignUpPage extends Component {
                         placeholder="Software developer" 
                         type="text">
                     </input>
-                    {this.state.jobTitle.touched && <ValidationError message={notNull(this.state.jobTitle.value)}/>}
+                    {this.state.jobTitle.touched && <ValidationError message={this.state.jobTitle.validationMessage}/>}
                     <label htmlFor="signUp__password">password:</label>
                     <input name="signUp__password" 
                         onChange={e => this.updatePassword(e.target.value)}
@@ -212,7 +212,7 @@ export default class SignUpPage extends Component {
                         placeholder="************" 
                         type="password">
                     </input>
-                    {this.state.password.touched && <ValidationError message={validatePassword(this.state.password.value)}/>}
+                    {this.state.password.touched && <ValidationError message={this.state.password.validationMessage}/>}
                     <label htmlFor="signUp__passwordRepeat">repeat password:</label>
                     <input name="signUp__passwordRepeat" 
                         onChange={e => this.updateRepeatPassword(e.target.value)}
@@ -220,7 +220,7 @@ export default class SignUpPage extends Component {
                         placeholder="************" 
                         type="password">
                     </input>
-                    {this.state.repeatPassword.touched && <ValidationError message={validateRepeatPassword(this.state.password.value, this.state.repeatPassword.value)}/>}
+                    {this.state.repeatPassword.touched && <ValidationError message={this.state.repeatPassword.validationMessage}/>}
                     {this.state.failedSignUpError && <ValidationError message={this.state.failedSignUpError}/>}
                     <button type="submit" onClick={this.handleSubmit} className="button signUp__submitButton">submit</button>
                 </form>

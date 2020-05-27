@@ -100,7 +100,7 @@ export default class LogInPage extends Component {
                         onChange={e => this.updateEmail(e.target.value.toLowerCase())}
                         type="text">
                     </input>
-                    {this.state.email.touched && <ValidationError message={validateEmail(this.state.email.value)}/>}
+                    {this.state.email.touched && <ValidationError message={this.state.email.validationMessage}/>}
                     <label htmlFor="logIn__password">password:</label>
                     <input name="logIn__password" 
                         id="logIn__password" 
@@ -108,7 +108,7 @@ export default class LogInPage extends Component {
                         onChange={e => this.updatePassword(e.target.value)}
                         type="password">
                     </input>
-                    {this.state.password.touched && <ValidationError message={notNull(this.state.password.value)}/>}
+                    {this.state.password.touched && <ValidationError message={this.state.password.validationMessage}/>}
                     {this.state.failedLogInError && <ValidationError message={this.state.failedLogInError}/>}
                     <button type="submit" className="button logIn__submitButton">sign in</button>
                 </form>
