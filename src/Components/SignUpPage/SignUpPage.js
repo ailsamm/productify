@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
+import ProductifyContext from '../../ProductifyContext';
 import { validateEmail, notNull, validatePassword, validateRepeatPassword } from '../../ValidationHelper';
 import ValidationError from '../ValidationError/ValidationError';
 import './SignUpPage.css';
 
 export default class SignUpPage extends Component {
 
+    static contextType = ProductifyContext;
+
     constructor(props){
         super(props);
         this.state = {
             firstName: {
                 touched: false,
+                validationMessage: "",
+                isValid: false,
                 value: ""
             },
             lastName: {
@@ -38,64 +43,117 @@ export default class SignUpPage extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log("submitted!")
+        const formIsValid = this.state.firstName.isValid &&
+            this.state.lastName.isValid &&
+            this.state.email.isValid &&
+            this.state.jobTitle.isValid &&
+            this.state.password.isValid &&
+            this.state.repeatPassword.isValid;
+
+        if (formIsValid) {
+            const id = 55; /* CHANGE LATER */ 
+            const newUserLogIn = {
+                userId: id,
+                email: this.state.email.value.toLowerCase(),
+                password: this.state.password.value,
+            }
+            const newUserInfo = {
+                id,
+                firstName: this.titleCase(this.state.firstName.value),
+                lastName: this.titleCase(this.state.lastName.value),
+                jobTitle: this.state.jobTitle.value,
+                teamId: 1 /* CHANGE LATER */ 
+            }
+            this.context.onSignUpUser(newUserLogIn, newUserInfo);
+            this.props.history.push("/projects");
+        }
+        else {
+            this.setState({
+                ...this.state,
+                failedSignUpError: "Please fix the errors in red before proceeding."
+            })
+        }
+    }
+
+    titleCase(s) {
+        s = s.toLowerCase();
+        s = s.charAt(0).toUpperCase() + s.slice(1);
+        return s;
     }
 
     updateFirstName(value) {
+        const validation = notNull(value);
         this.setState({
             ...this.state,
             firstName: {
                 touched: true,
+                validationMessage: validation,
+                isValid: !validation,
                 value
             }
         })
     }
 
     updateLastName(value) {
+        const validation = notNull(value);
         this.setState({
             ...this.state,
             lastName: {
                 touched: true,
+                validationMessage: validation,
+                isValid: !validation,
                 value
             }
         })
     }
 
     updateEmail(value) {
+        const validation = validateEmail(value);
         this.setState({
             ...this.state,
             email: {
                 touched: true,
+                validationMessage: validation,
+                isValid: !validation,
                 value
             }
         })
     }
 
     updateJobTitle(value) {
+        const validation = notNull(value);
         this.setState({
             ...this.state,
             jobTitle: {
                 touched: true,
+                validationMessage: validation,
+                isValid: !validation,
                 value
             }
         })
     }
 
     updatePassword(value) {
+        const validation = validatePassword(value);
         this.setState({
             ...this.state,
             password: {
                 touched: true,
+                validationMessage: validation,
+                isValid: !validation,
                 value
             }
         })
     }
 
     updateRepeatPassword(value) {
+        const validation = validateRepeatPassword(value, this.state.password.value);
         this.setState({
             ...this.state,
             repeatPassword: {
                 touched: true,
+                validationMessage: validation,
+                isValid: !validation,
                 value
             }
         })

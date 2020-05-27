@@ -36,6 +36,22 @@
       })
     }
 
+    signUpUser = (newUserLogIn, newUserInfo) => {
+      const { firstName, lastName, teamId } = newUserInfo;
+      // Simultaneously add new user and log user in
+      this.setState({
+        ...this.state,
+        usersLogin: [...this.state.usersLogin, newUserLogIn],
+        usersInfo: [...this.state.usersInfo, newUserInfo],
+        isLoggedIn: true,
+        loggedInUser: {
+          firstName,
+          lastName,
+          teamId
+        }
+      })
+    }
+
     addTask = (task) => {
       const updatedTasks = [...this.state.tasks, task];
       this.setState({
@@ -107,6 +123,7 @@
         tasks: this.state.tasks,
         currentProject: this.state.currentProject,
         onLogInUser: this.logInUser,
+        onSignUpUser: this.signUpUser,
         onDrop: this.onDrop,
         onAddTask: this.addTask,
         onDeleteTask: this.deleteTask,
