@@ -29,6 +29,8 @@ export default class LogInPage extends Component {
             console.log("FOUND EMAIL")
             if (user.password === this.state.password.value){
                 console.log("LOGGING IN!")
+                context.onLogInUser(user);
+                this.props.history.push("/projects");
             }
             else {
                 console.log("PASSWORD DOESN'T MATCH!")

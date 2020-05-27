@@ -22,6 +22,19 @@
       }
     }
 
+    logInUser = (userToLogIn) => {
+      const userInfo = this.state.usersInfo.find(user => user.id === userToLogIn.userId);
+      const { firstName, lastName, teamId } = userInfo;
+      this.setState({
+        ...this.state,
+        loggedInUser: {
+          firstName,
+          lastName,
+          teamId
+        }
+      })
+    }
+
     addTask = (task) => {
       const updatedTasks = [...this.state.tasks, task];
       this.setState({
@@ -92,6 +105,7 @@
         projects: this.state.projects,
         tasks: this.state.tasks,
         currentProject: this.state.currentProject,
+        onLogInUser: this.logInUser,
         onDrop: this.onDrop,
         onAddTask: this.addTask,
         onDeleteTask: this.deleteTask,
