@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import '../App/App.css';
+
 .userProfile {
     display: grid;
     grid-template-columns: 20vw 80vw;
@@ -5,4 +8,25 @@
 
 .userProfile__main {
     padding: 0 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--main-text-color);
+}
+
+.userProfile__userInfo {
+    margin-top: 5vh;
+}
+
+.userProfile__key {
+    font-weight: 700;
+}
+
+.userProfile__title {
+    font-family: "Righteous", sans-serif;
+    letter-spacing: 1.5px;
+}
+
+#userProfile__check {
+    color: rgb(65, 201, 65);
 }

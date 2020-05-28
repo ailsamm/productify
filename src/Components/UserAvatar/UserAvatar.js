@@ -52,11 +52,12 @@ export default class UserAvatar extends Component {
             <Menu
                 id="simple-menu"
                 anchorEl={this.state.anchorEl}
+                className="userAvatar__menu"
                 keepMounted
                 open={Boolean(this.state.anchorEl)}
                 onClose={this.handleClose}
             >
-            <NavLink to="/profile">
+            <NavLink to="/profile" className="userAvatar__link">
                 <MenuItem onClick={this.handleClose}>My Profile</MenuItem>
             </NavLink>
             <MenuItem onClick={this.handleLogOut}>Logout</MenuItem>

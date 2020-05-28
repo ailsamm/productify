@@ -17,3 +17,12 @@
     font-family: "Nunito", monospace;
     font-weight: bold;
 }
+
+.userAvatar__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.userAvatar__menu {
+  margin-top: 4vh;
+}
