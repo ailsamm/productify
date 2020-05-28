@@ -11,7 +11,7 @@
       super(props);
       this.state = {
         isLoggedIn: false, 
-        loggedInUser: {}, 
+        loggedInUser: null, 
         usersInfo: [],
         usersLogin: [],
         teams: [],

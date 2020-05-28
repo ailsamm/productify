@@ -2,22 +2,10 @@ import React, { Component } from 'react';
 import ProjectSidebar from '../ProjectsSidebar/ProjectsSidebar';
 import ProjectifyContext from '../../ProductifyContext';
 import  { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import './UserProfile.css';
 
 export default class UserProfile extends Component {
-
-    handleClickName = () => {
-        console.log("name")
-    }
-
-    handleClickEmail = () => {
-        console.log("email")
-    }
-
-    handleClickJob = () => {
-        console.log("job")
-    }
 
     render(){
         return (
@@ -34,10 +22,10 @@ export default class UserProfile extends Component {
                             <div className="userProfile__main">  
                                 <div className="userProfile__userInfo">
                                     <h2 className="userProfile__title">my profile</h2>
-                                    <h3><span className="userProfile__key">first name:</span> {userInfo.firstName} <FontAwesomeIcon onClick={this.handleClickFirstName} className="userProfile__icon" icon={faEdit}/></h3>
-                                    <h3><span className="userProfile__key">last name:</span> {userInfo.lastName} <FontAwesomeIcon onClick={this.handleClickLastName} className="userProfile__icon" icon={faEdit}/></h3>
-                                    <h3><span className="userProfile__key">job title:</span> {userInfo.jobTitle} <FontAwesomeIcon onClick={this.handleClickJob} className="userProfile__icon" icon={faEdit}/></h3>
-                                    <h3><span className="userProfile__key">email:</span>  {email} <FontAwesomeIcon onClick={this.handleClickEmail} className="userProfile__icon" icon={faEdit}/></h3>
+                                    <h3><span className="userProfile__key">first name:</span> {userInfo.firstName}</h3>
+                                    <h3><span className="userProfile__key">last name:</span> {userInfo.lastName}</h3>
+                                    <h3><span className="userProfile__key">job title:</span> {userInfo.jobTitle}</h3>
+                                    <h3><span className="userProfile__key">email:</span>  {email}</h3>
                                     <h3><span className="userProfile__key">team:</span>  {teamName}</h3>
                                     <h3><span className="userProfile__key">profile status:</span> active <FontAwesomeIcon id="userProfile__check" icon={faCheck}/></h3>
                                 </div>
