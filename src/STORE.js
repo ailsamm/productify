@@ -1,5 +1,4 @@
 const STORE = {
-    teamName: '<Team Name>',
     isLoggedIn: true,
     loggedInUser: 1,
     usersLogin: [
@@ -19,7 +18,7 @@ const STORE = {
         {id:6, firstName:'Fiona', lastName: "F", jobTitle:'UI designer', teamId: 1}
     ],
     teams: [
-        {id:1, members: [1,2,3,4,5,6], projects: [1,2]}
+        {id:1, teamName: 'Best Team Ever', members: [1,2,3,4,5,6], projects: [1,2]}
     ],
     projects: [
         {name: "First project", id:1}, 
