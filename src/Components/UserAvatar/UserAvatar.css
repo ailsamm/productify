@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes shrink {
+  0% {
+    width: 95%;
+  }
+  100% {
+    width: 90%;
+  }
+}
+
+.userAvatar {
+    width: 60px;
+    height: 60px;
+    background-color: var(--main-accent-color);
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+.userAvatar__initials {
+    position: relative;
+    top: 15px;
+    font-size: 30px;
+    line-height: 30px;
+    color: #FFF;
+    font-family: "Nunito", monospace;
+    font-weight: bold;
+}

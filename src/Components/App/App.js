@@ -141,7 +141,7 @@
       return (
         <ProductifyContext.Provider value={contextValue}>
           <div className="app">
-            <Header isLoggedIn={this.state.isLoggedIn} user={this.state.loggedInUser}/>
+            <Header/>
             <MainContentRouter/>
           </div>
         </ProductifyContext.Provider>

@@ -30,23 +30,3 @@
     text-decoration: none;
     color: var(--title-gray);
 }
-
-.header__avatar {
-    width: 60px;
-    height: 60px;
-    background-color: var(--main-accent-color);
-    text-align: center;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-}
-
-.header__avatar__initials {
-    position: relative;
-    top: 15px;
-    font-size: 30px;
-    line-height: 30px;
-    color: #FFF;
-    font-family: "Nunito", monospace;
-    font-weight: bold;
-}

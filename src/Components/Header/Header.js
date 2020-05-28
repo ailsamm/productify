@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
 import  { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket } from '@fortawesome/free-solid-svg-icons';
+import UserAvatar from '../UserAvatar/UserAvatar';
+import ProductifyContext from '../../ProductifyContext';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 export default class Header extends Component {
 
-    getUserInitials = () => {
-        const { firstName, lastName } = this.props.user;
-        const initials = firstName.charAt(0) + lastName.charAt(0);
-        return initials;
-    }
+    static contextType = ProductifyContext;
 
     getLinks = () => {
-        if (this.props.isLoggedIn){
-            return (
-                <div className="header__buttons">
-                    <div className="header__avatar">
-                            <span className="header__avatar__initials">{this.getUserInitials()}</span>
-                    </div>
-                </div>
-            )
+        if (this.context.isLoggedIn){
+            return <UserAvatar/>
         }
         return (
             <div className="header__buttons">
