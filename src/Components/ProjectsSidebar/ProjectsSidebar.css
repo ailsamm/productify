@@ -2,6 +2,7 @@
 
 .projects__sidebar {
     overflow-y: auto;
+    line-height: normal;
 }
 
 .projects__sidebar_charts {

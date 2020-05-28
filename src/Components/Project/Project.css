@@ -8,18 +8,20 @@
     border-radius: 5px;
 }
 
+.project:hover {
+    background-color: #ffffff;
+    font-weight: 700;
+}
+
 .project__nav {
     text-decoration: none;
     color: var(--main-text-color);  
 }
 
-.project__nav:hover {
-    text-decoration: underline;
-    font-weight: 700;
-}
-
 .project__name {
     letter-spacing: 1px;
+    line-height: normal;
+    margin: 0.5em 0;
 }
 
 .selectedProject {
