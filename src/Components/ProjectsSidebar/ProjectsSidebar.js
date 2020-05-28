@@ -19,6 +19,22 @@ export default class ProjectsSidebar extends Component {
         }
     } 
 
+    componentDidMount() {
+        this.updatePredicate();
+        window.addEventListener("resize", this.updatePredicate);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("resize", this.updatePredicate);
+    }
+
+    updatePredicate = () => {
+        this.setState({ 
+            ...this.state,
+            isDesktop: window.innerWidth > 750 
+        });
+    }
+
     getTeamMember = (memberId) => {
         const teamMember = this.context.usersInfo.find(user => user.id === memberId);
         return (
@@ -146,7 +162,6 @@ export default class ProjectsSidebar extends Component {
     }
 
     getProjectDetails() {
-        console.log(this.state.isDesktop)
         return (
             <div>
                 <h3>Projects:</h3>
