@@ -7,6 +7,10 @@ import './UserProfile.css';
 
 export default class UserProfile extends Component {
 
+    handleGoBack = () => {
+        this.props.history.push("/projects");
+    }
+
     render(){
         return (
             <ProjectifyContext.Consumer>
@@ -28,6 +32,9 @@ export default class UserProfile extends Component {
                                     <h3><span className="userProfile__key">email:</span>  {email}</h3>
                                     <h3><span className="userProfile__key">team:</span>  {teamName}</h3>
                                     <h3><span className="userProfile__key">profile status:</span> active <FontAwesomeIcon id="userProfile__check" icon={faCheck}/></h3>
+                                </div>
+                                <div className="userProfile__buttons">
+                                    <button type="button" onClick={this.handleGoBack} className="button stopButton">back</button>
                                 </div>
                             </div>
                         </div>

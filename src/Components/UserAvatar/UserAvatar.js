@@ -32,7 +32,6 @@ export default class UserAvatar extends Component {
 
     handleLogOut = () => {
         this.context.onSignOutUser();
-        this.props.history.push("/");
     }
 
     getUserInitials = () => {
@@ -60,7 +59,9 @@ export default class UserAvatar extends Component {
             <NavLink to="/profile" className="userAvatar__link">
                 <MenuItem onClick={this.handleClose}>My Profile</MenuItem>
             </NavLink>
-            <MenuItem onClick={this.handleLogOut}>Logout</MenuItem>
+            <NavLink to="/" className="userAvatar__link">
+                <MenuItem onClick={this.handleLogOut}>Sign out</MenuItem>
+            </NavLink>
             </Menu>
         </div>
         )
