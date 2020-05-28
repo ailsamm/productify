@@ -6,6 +6,7 @@ import SignUpPage from '../SignUpPage/SignUpPage.js';
 import LogInPage from '../LogInPage/LogInPage.js';
 import TaskPage from '../TaskPage/TaskPage';
 import AddNewTask from '../AddNewTask/AddNewTask';
+import UserProfile from '../UserProfile/UserProfile';
 import ProjectsPage from '../ProjectsPage/ProjectsPage.js';
 import './MainContentRouter.css'
 
@@ -53,6 +54,11 @@ export default class MainContentRouter extends Component {
                     key='taskPage'
                     path='/projects/:taskId' 
                     component={TaskPage}
+                />
+                <Route 
+                    key='profile'
+                    path='/profile' 
+                    component={UserProfile}
                 />
             </div>
         )

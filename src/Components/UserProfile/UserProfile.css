@@ -1,0 +1,8 @@
+.userProfile {
+    display: grid;
+    grid-template-columns: 20vw 80vw;
+}
+
+.userProfile__main {
+    padding: 0 2vw;
+}

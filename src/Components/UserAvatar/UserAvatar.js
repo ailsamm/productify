@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import ProductifyContext from '../../ProductifyContext';
 import Menu from '@material-ui/core/Menu';
@@ -49,14 +50,15 @@ export default class UserAvatar extends Component {
                 </div>
             </Button>
             <Menu
-            id="simple-menu"
-            anchorEl={this.state.anchorEl}
-            keepMounted
-            open={Boolean(this.state.anchorEl)}
-            onClose={this.handleClose}
+                id="simple-menu"
+                anchorEl={this.state.anchorEl}
+                keepMounted
+                open={Boolean(this.state.anchorEl)}
+                onClose={this.handleClose}
             >
-            <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-            <MenuItem onClick={this.handleClose}>My team</MenuItem>
+            <NavLink to="/profile">
+                <MenuItem onClick={this.handleClose}>My Profile</MenuItem>
+            </NavLink>
             <MenuItem onClick={this.handleLogOut}>Logout</MenuItem>
             </Menu>
         </div>
