@@ -1,11 +1,7 @@
 const STORE = {
     teamName: '<Team Name>',
     isLoggedIn: true,
-    loggedInUser: {
-        firstName: "Ailsa",
-        lastName:"Meechan-Maddon",
-        teamId: 1
-    },
+    loggedInUser: 1,
     usersLogin: [
         {userId: 1, emailAddress: "aaa@gmail.com", password: "aaa"},
         {userId: 2, emailAddress: "bbb@gmail.com", password: "bbb"},

@@ -28,11 +28,7 @@
       this.setState({
         ...this.state,
         isLoggedIn: true,
-        loggedInUser: {
-          firstName,
-          lastName,
-          teamId
-        }
+        loggedInUser: userToLogIn.userId
       })
     }
 
@@ -40,23 +36,19 @@
       this.setState({
         ...this.state,
         isLoggedIn: false,
-        loggedInUser: {}
+        loggedInUser: null
       })
     }
 
     signUpUser = (newUserLogIn, newUserInfo) => {
-      const { firstName, lastName, teamId } = newUserInfo;
+      const { id } = newUserInfo;
       // Simultaneously add new user and log user in
       this.setState({
         ...this.state,
         usersLogin: [...this.state.usersLogin, newUserLogIn],
         usersInfo: [...this.state.usersInfo, newUserInfo],
         isLoggedIn: true,
-        loggedInUser: {
-          firstName,
-          lastName,
-          teamId
-        }
+        loggedInUser: id
       })
     }
 

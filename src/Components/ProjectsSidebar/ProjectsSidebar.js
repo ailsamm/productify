@@ -28,7 +28,8 @@ export default class ProjectsSidebar extends Component {
     getMembers(){
         const context = this.context;
         if (context.teams.length > 0){
-            const teamId = context.loggedInUser.teamId;
+            const user = context.usersInfo.find(user => user.id === context.loggedInUser);
+            const teamId = user.teamId;
             const members = context.teams.find(team => team.id === teamId).members;
             return members.map(this.getTeamMember);
         }
@@ -37,7 +38,8 @@ export default class ProjectsSidebar extends Component {
     getProjects(){
         const context = this.context;
         if (context.projects.length > 0){
-            const teamId = context.loggedInUser.teamId;
+            const user = context.usersInfo.find(user => user.id === context.loggedInUser);
+            const teamId = user.teamId;
             const projectIds = context.teams.find(team => team.id === teamId).projects;
             return projectIds.map(projectId => {
                 const project = this.context.projects.find(project => project.id === projectId);
