@@ -14,7 +14,8 @@ export default class ProjectsSidebar extends Component {
         super(props);
         this.state = {
             pieLabels: ['Backlog', 'In Progress', 'In Review', 'Complete'],
-            doughnutLabels: ['Complete', 'Incomplete']
+            doughnutLabels: ['Complete', 'Incomplete'],
+            isDesktop: false
         }
     } 
 
@@ -145,13 +146,14 @@ export default class ProjectsSidebar extends Component {
     }
 
     getProjectDetails() {
+        console.log(this.state.isDesktop)
         return (
             <div>
                 <h3>Projects:</h3>
                 <div className="projects__sidebar_members">
                     {this.getProjects()}
                 </div>
-                {this.getContent()}
+                {this.state.isDesktop ? this.getContent() : <></>}
             </div>
         )
     }
