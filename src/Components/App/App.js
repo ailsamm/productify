@@ -10,7 +10,6 @@
     constructor(props){
       super(props);
       this.state = {
-        teamName: "", 
         isLoggedIn: false, 
         loggedInUser: {}, 
         usersInfo: [],
@@ -23,8 +22,6 @@
     }
 
     logInUser = (userToLogIn) => {
-      const userInfo = this.state.usersInfo.find(user => user.id === userToLogIn.userId);
-      const { firstName, lastName, teamId } = userInfo;
       this.setState({
         ...this.state,
         isLoggedIn: true,
@@ -98,9 +95,8 @@
   }
     
     componentDidMount(){
-      const {teamName, isLoggedIn, loggedInUser, projects, usersInfo, usersLogin, teams, tasks} = STORE;
+      const {isLoggedIn, loggedInUser, projects, usersInfo, usersLogin, teams, tasks} = STORE;
       this.setState({
-        teamName, 
         isLoggedIn, 
         loggedInUser, 
         usersInfo,
@@ -113,7 +109,6 @@
 
     render() {
       const contextValue = {
-        teamName: this.state.teamName, 
         isLoggedIn: this.state.isLoggedIn, 
         loggedInUser: this.state.loggedInUser, 
         teams: this.state.teams,
