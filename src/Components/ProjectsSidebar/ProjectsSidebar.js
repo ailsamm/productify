@@ -173,7 +173,7 @@ export default class ProjectsSidebar extends Component {
                                 </NavLink>
                             </div>
                             <h2 className="projects__sidebar_teamName">{teamName}</h2>
-                            {!this.props.addTask ? this.getProjectDetails() : <></>}    
+                            {this.props.displayProjectInfo ? this.getProjectDetails() : <></>}    
                         </div>
                     )
                 }}

@@ -18,6 +18,11 @@
     margin-top: 5vh;
 }
 
+.userProfile__icon {
+    color: var(--main-accent-color);
+    cursor: pointer;
+}
+
 .userProfile__key {
     font-weight: 700;
 }
@@ -28,5 +33,5 @@
 }
 
 #userProfile__check {
-    color: rgb(65, 201, 65);
+    color: var(--button-go-hover);
 }

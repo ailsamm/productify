@@ -30,7 +30,7 @@ export default class UserProfile extends Component {
                     const teamName = team.name || "";
                     return (
                         <div className="userProfile">
-                            <ProjectSidebar/>
+                            <ProjectSidebar displayProjectInfo={false}/>
                             <div className="userProfile__main">  
                                 <div className="userProfile__userInfo">
                                     <h2 className="userProfile__title">my profile</h2>
@@ -39,7 +39,7 @@ export default class UserProfile extends Component {
                                     <h3><span className="userProfile__key">job title:</span> {userInfo.jobTitle} <FontAwesomeIcon onClick={this.handleClickJob} className="userProfile__icon" icon={faEdit}/></h3>
                                     <h3><span className="userProfile__key">email:</span>  {email} <FontAwesomeIcon onClick={this.handleClickEmail} className="userProfile__icon" icon={faEdit}/></h3>
                                     <h3><span className="userProfile__key">team:</span>  {teamName}</h3>
-                                    <h3><span className="userProfile__key">profile status:</span> active <FontAwesomeIcon className="userProfile__icon" id="userProfile__check" icon={faCheck}/></h3>
+                                    <h3><span className="userProfile__key">profile status:</span> active <FontAwesomeIcon id="userProfile__check" icon={faCheck}/></h3>
                                 </div>
                             </div>
                         </div>
