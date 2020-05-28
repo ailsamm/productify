@@ -158,17 +158,26 @@ export default class ProjectsSidebar extends Component {
 
     render() {
         return (
-            <div className="projects__sidebar projects__column">
-                <div className="newTaskButtonContainer">
-                    <NavLink 
-                        to="/newTask" 
-                        className="button projects__sidebar_newTaskButton">
-                            + new task
-                    </NavLink>
-                </div>
-                <h2 className="projects__sidebar_teamName">Team name</h2>
-                {!this.props.addTask ? this.getProjectDetails() : <></>}    
-            </div>
+            <ProductifyContext.Consumer>
+                {context => {
+                    const user = context.usersInfo.find(user => user.id === context.loggedInUser) || {};
+                    const team = context.teams.find(team => team.id === user.teamId) || "";
+                    const teamName = team.name || "";
+                    return (
+                        <div className="projects__sidebar projects__column">
+                            <div className="newTaskButtonContainer">
+                                <NavLink 
+                                    to="/newTask" 
+                                    className="button projects__sidebar_newTaskButton">
+                                        + new task
+                                </NavLink>
+                            </div>
+                            <h2 className="projects__sidebar_teamName">{teamName}</h2>
+                            {!this.props.addTask ? this.getProjectDetails() : <></>}    
+                        </div>
+                    )
+                }}
+            </ProductifyContext.Consumer>
         )
     }
 }

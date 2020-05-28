@@ -7,12 +7,14 @@ export default class UserProfile extends Component {
 
     render(){
         return (
-            <ProjectifyContext>
+            <ProjectifyContext.Consumer>
                 {context => {
                     console.log(context)
-                    const userInfo = context.usersInfo.find(user => user.id === context.loggedInUser);
-                    const email = context.usersLogin.find(user => user.userId === context.loggedInUser).emailAddress;
-                    const teamName = context.teams.find(team => team.id === userInfo.teamId).teamName;
+                    const userInfo = context.usersInfo.find(user => user.id === context.loggedInUser) || {};
+                    const e = context.usersLogin.find(user => user.userId === context.loggedInUser) || {};
+                    const email = e.emailAddress || "";
+                    const team = context.teams.find(team => team.id === userInfo.teamId) || {};
+                    const teamName = team.name || "";
                     return (
                         <div className="userProfile">
                             <ProjectSidebar/>
@@ -25,7 +27,7 @@ export default class UserProfile extends Component {
                         </div>
                     )
                 }}
-            </ProjectifyContext>
+            </ProjectifyContext.Consumer>
         )
     }
 }
