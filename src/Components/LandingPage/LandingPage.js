@@ -8,7 +8,7 @@ export default class LandingPage extends Component {
         return (
             <div className="landingPage centeredContent">
                 <p>meet</p>
-                <h1 className="landingPage_title">PRODUCTIFY</h1>
+                <h1 className="landingPage_title productifyGradient">PRODUCTIFY</h1>
                 <p>your new favorite tool for organizing projects and increasing productivity</p>
                 <NavLink to="/about" className="button landingPage_button">LEARN MORE</NavLink>
             </div>

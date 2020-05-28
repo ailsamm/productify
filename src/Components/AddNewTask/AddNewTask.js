@@ -46,6 +46,10 @@ export default class AddNewTask extends Component {
         }
     }
 
+    handleGoBack = () => {
+        this.props.history.push("/projects");
+    }
+
     addTaskRequest = (e) => {
         e.preventDefault();
         const newTask = {

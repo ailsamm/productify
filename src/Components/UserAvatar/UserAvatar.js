@@ -44,7 +44,7 @@ export default class UserAvatar extends Component {
     return (
         <div className="header__buttons">
             <Button aria-controls="simple-menu" aria-haspopup="true" onClick={this.handleClick}>
-                <div className="userAvatar">
+                <div className="userAvatar productifyGradient">
                     <span className="userAvatar__initials">{this.getUserInitials()}</span>
                 </div>
             </Button>
@@ -58,6 +58,9 @@ export default class UserAvatar extends Component {
             >
             <NavLink to="/profile" className="userAvatar__link">
                 <MenuItem onClick={this.handleClose}>My Profile</MenuItem>
+            </NavLink>
+            <NavLink to="/projects" className="userAvatar__link">
+                <MenuItem onClick={this.handleClose}>Projects</MenuItem>
             </NavLink>
             <NavLink to="/" className="userAvatar__link">
                 <MenuItem onClick={this.handleLogOut}>Sign out</MenuItem>

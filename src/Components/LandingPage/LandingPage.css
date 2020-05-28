@@ -1,13 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import '../App/App.css';
 
+.landingPage {
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+}
+
 .landingPage_title {
     font-family: 'Righteous', cursive;
-    letter-spacing: 20px;
-    color: var(--main-accent-color);
-    font-size: 3.5em;
+    letter-spacing: 2px;
+    line-height: 1;
+    font-size: 1.5em;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .landingPage_button {
     margin-top: 5vh;
+}
+
+@media only screen and (min-width: 600px) {
+    .landingPage {
+    }
+
+    .landingPage_title {
+        font-size: 3.5em;
+        letter-spacing: 20px;
+    }
 }
