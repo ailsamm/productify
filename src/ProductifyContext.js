@@ -13,6 +13,7 @@ const ProductifyContext = React.createContext({
   updateCurrentProject: () => {},
   onDeleteTask: () => {},
   onSignUpUser: () => {},
+  onSignOutUser: () => {},
   isLoggedIn: false,
   currentProject: null
 });

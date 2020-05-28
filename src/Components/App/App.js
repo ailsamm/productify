@@ -36,6 +36,14 @@
       })
     }
 
+    signOutUser = () => {
+      this.setState({
+        ...this.state,
+        isLoggedIn: false,
+        loggedInUser: {}
+      })
+    }
+
     signUpUser = (newUserLogIn, newUserInfo) => {
       const { firstName, lastName, teamId } = newUserInfo;
       // Simultaneously add new user and log user in
@@ -124,6 +132,7 @@
         currentProject: this.state.currentProject,
         onLogInUser: this.logInUser,
         onSignUpUser: this.signUpUser,
+        onSignOutUser: this.signOutUser,
         onDrop: this.onDrop,
         onAddTask: this.addTask,
         onDeleteTask: this.deleteTask,
