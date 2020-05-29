@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import moment from 'moment';
 import './TaskCard.css';
 
 export default class TaskCard extends Component {
@@ -29,6 +30,13 @@ export default class TaskCard extends Component {
           return {background: color};
     }
 
+    getDeadline(deadline) {
+        if (deadline !== null){
+            return moment(deadline).format("MMM Do YYYY"); 
+        }
+        return "Deadline not set"
+    }
+
     render() {
         const { id, name, deadline, status} = this.props.task;
         return (
@@ -41,7 +49,7 @@ export default class TaskCard extends Component {
                 title={name} 
                 style={this.getColor(status)}>
                     <h4 className="taskCard__name">{name}</h4>
-                    <h5 className="taskCard__deadline">{deadline}</h5>
+                    <h5 className="taskCard__deadline">{this.getDeadline(deadline)}</h5>
                 </div>
             </NavLink>
         )

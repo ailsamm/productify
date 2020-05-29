@@ -177,6 +177,7 @@ export default class AddNewTask extends Component {
     }
 
     render() {
+        console.log(moment())
         return (
             <ProductifyContext.Consumer>
                 {context => (
