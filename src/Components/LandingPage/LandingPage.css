@@ -7,7 +7,7 @@
     text-align: center;
 }
 
-.landingPage_title {
+.landingPage__title {
     font-family: 'Righteous', cursive;
     letter-spacing: 2px;
     line-height: 1;
@@ -16,15 +16,31 @@
     -webkit-text-fill-color: transparent;
 }
 
-.landingPage_button {
+.landingPage__button {
     margin-top: 5vh;
 }
 
-@media only screen and (min-width: 600px) {
+.landingPage__description {
+    margin: 0 2vw;
+}
 
-    .landingPage_title {
-        font-size: 3.5em;
+@media only screen and (min-width: 450px) {
+    .landingPage__title {
+        font-size: 1.5em;
+        letter-spacing: 10px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .landingPage__title {
+        font-size: 2.5em;
         letter-spacing: 20px;
+    }
+}
+
+@media only screen and (min-width: 850px) {
+    .landingPage__title {
+        font-size: 3.5em;
     }
 }
 
