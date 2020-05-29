@@ -22,7 +22,7 @@ export default class UserProfile extends Component {
                     const teamName = team.name || "";
                     return (
                         <div className="userProfile">
-                            <ProjectSidebar displayProjectInfo={false}/>
+                            <ProjectSidebar showButton={false} displayProjectInfo={false}/>
                             <div className="userProfile__main">  
                                 <div className="userProfile__userInfo">
                                     <h2 className="userProfile__title">my profile</h2>

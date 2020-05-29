@@ -21,6 +21,7 @@
     background-color: var(--button-go-hover);
 }
 
+
 .newTaskButtonContainer {
     display: flex;
     justify-self: center;
@@ -29,5 +30,6 @@
 
 .projects__sidebar_teamName {
     margin: 0;
+    margin-top: 3vh;
     text-align: center;
 }

@@ -26,7 +26,7 @@ export default class TaskPage extends Component {
                     const assigneeName = assignee.firstName || "";
                     return (
                         <div className="taskPage">
-                            <ProjectSidebar displayProjectInfo={true}/>
+                            <ProjectSidebar showButton={true} displayProjectInfo={true}/>
                             <div className="taskPage__main">
                                 <h2>{currentTask.name}</h2>
                                 <div className="taskPage__assignee taskPage__section">

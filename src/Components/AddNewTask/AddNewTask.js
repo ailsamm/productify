@@ -161,7 +161,6 @@ export default class AddNewTask extends Component {
     getProjects(){
         const context = this.context;
         if (context.projects.length > 0){
-            console.log("in here");
             const user = context.usersInfo.find(user => user.id === context.loggedInUser) || {};
             const teamId = user.teamId;
             const project = context.teams.find(team => team.id === teamId) || {};
@@ -181,7 +180,7 @@ export default class AddNewTask extends Component {
             <ProductifyContext.Consumer>
                 {context => (
                     <div className="addNewTask">
-                        <ProjectsSidebar displayProjectInfo={false}/>
+                        <ProjectsSidebar showButton={false} displayProjectInfo={false}/>
                         <div className="addNewTask__formContainer">
                             <form className="addNewTask__form" onSubmit={e => this.addTaskRequest(e)}>
                                 <label htmlFor="addNewTask__title">title:</label>
