@@ -12,13 +12,13 @@
 }
 
 .projects__sidebar_newTaskButton {
-    background-image: linear-gradient(to bottom left, #d5e6d5, #9dd79d, var(--button-go), #d5e6d5);
+    background-image: linear-gradient(to top left, #FFF, #dcdcdc, #a9a9a9);
     color: var(--main-text-color);
     margin: 0px auto;
 }
 
 .projects__sidebar_newTaskButton:hover {
-    background-color: var(--button-go-hover);
+    background-image: linear-gradient(to top left, #d3edc4, var(--productify-green), #b1d39d);
 }
 
 

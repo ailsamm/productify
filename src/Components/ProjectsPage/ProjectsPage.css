@@ -6,17 +6,6 @@
     background: #f7f7f7;
 }
 
-.projects__column {
-    height: 100vh;
-    margin: 0 0.5vw;
-    padding: 0.5vh 0.5vw;
-    color: #343434;
-}
-
-.projects__sidebar {
-    background: #e3e3e3;
-}
-
 @media only screen and (min-width: 600px) {
     .projects {
         display: grid;

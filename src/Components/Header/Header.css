@@ -11,6 +11,7 @@
     top: 0;
     width: 100%;
     display: flex;
+    align-items: center;
     font-size: 0.8em;
 }
 
@@ -25,6 +26,7 @@
 
 .header .logo {
     color: var(--title-gray);
+    margin: 0;
 }
 
 .header__productify {

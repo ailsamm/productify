@@ -27,7 +27,7 @@ export default class ProjectsColumn extends Component {
                     return (
                         <div onDragOver={(e) => this.onDragOver(e)} 
                         onDrop={(e)=>{context.onDrop(e, this.getStatusName(name))}} 
-                        className={`projects__tasks${name.replace(" ", "")} projects__column`}>
+                        className={`projects__tasks projects__tasks${name.replace(" ", "")} projects__column`}>
                             <h2>{name}</h2>
                             {tasks.map(task => {
                                 if (task.status === this.getStatusName(name)){

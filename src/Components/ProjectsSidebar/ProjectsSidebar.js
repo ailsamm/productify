@@ -86,7 +86,7 @@ export default class ProjectsSidebar extends Component {
         const pieDataset = [
             {
                 label: 'Tasks',
-                backgroundColor: ['#ffc0cb8a', '#c0fffb95', '#ebeb7d6e', '#a8f7944d'],
+                backgroundColor: ['#ffebeb', '#e1fcfb', '#ffffd9', '#e0ffd9'],
                 borderWidth: 0.4,
                 borderColor: '#767676',
                 data: [backlogCount, inProgressCount, inReviewCount, completeCount]
@@ -95,7 +95,7 @@ export default class ProjectsSidebar extends Component {
         const doughnutDataset = [
             {
                 label: 'Tasks',
-                backgroundColor: ['#a8f7944d', '#f4f4f497'],
+                backgroundColor: ['#e0ffd9', '#f4f4f497'],
                 borderWidth: 0.4,
                 borderColor: '#767676',
                 data: [completeCount, incompleteCount]
@@ -132,7 +132,7 @@ export default class ProjectsSidebar extends Component {
                 />
                 <Doughnut
                     data={{
-                        labels: this.state.pieLabels,
+                        labels: this.state.doughnutLabels,
                         datasets: datasets.doughnutDataset
                     }}
                     height={300}
@@ -194,8 +194,8 @@ export default class ProjectsSidebar extends Component {
                     const teamName = team.name || "";
                     return (
                         <div className="projects__sidebar projects__column">
-                            {this.props.showButton && this.getNewTaskButton()}
                             <h2 className="projects__sidebar_teamName">{teamName}</h2>
+                            {this.props.showButton && this.getNewTaskButton()}
                             {this.props.displayProjectInfo ? this.getProjectDetails() : <></>}    
                         </div>
                     )
