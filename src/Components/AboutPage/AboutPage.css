@@ -12,13 +12,20 @@
     text-align: center;
 }
 
+.aboutPage__useCaseItems {
+    font-size: 1.5em;
+}
+
 .aboutPage__useCaseItem {
-    font-size: 0.75em;
     border-radius: 10px;
     width: 66vw;
     height: 5vh;
     margin: 1vh 1vw;
     overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .aboutPage__section {
@@ -65,14 +72,15 @@
     background: var(--productify-blue);
 }
 
-@media only screen and (max-width: 600px) {
-    h5.aboutPage__useCaseItemName > * {
-        font-size: 2em !;
-    }
+.aboutPage__useCaseItems .aboutPage__useCaseItem{
+    font-size: 40px;
 }
 
+@media only screen and (min-width: 800px) {
+    .aboutPage__sectionHeader {
+        font-size: 2em;
+    }
 
-@media only screen and (min-width: 600px) {
     .aboutPage__useCaseItem {
         width: 30vw;
         height: 5vh;

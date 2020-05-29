@@ -109,10 +109,3 @@ form > input {
 .goButton:hover {
     background-color: var(--button-go-hover);
 }
-
-@media only screen and (min-width: 800px) {
-    .centeredContent {
-        font-size: 2em;
-    }
-    
-}

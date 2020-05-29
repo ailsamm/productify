@@ -8,7 +8,7 @@ export default class AboutPage extends Component {
         return (
             <div className="aboutPage centeredContent">
                 <div className="aboutPage__section aboutPage__section1">
-                    <h2>increase productivity, any time, anywhere</h2>
+                    <h2 className="aboutPage__sectionHeader">increase productivity, any time, anywhere</h2>
                     <div className="aboutPage__useCaseItems">
                         <div className="aboutPage__useCaseItem aboutPage__useCaseItem1">
                             <h5 className="aboutPage__useCaseItemName">Remote Work <FontAwesomeIcon className="aboutPage__icon" icon={faLaptopHouse}/></h5>

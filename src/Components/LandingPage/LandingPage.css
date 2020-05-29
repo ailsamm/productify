@@ -21,11 +21,15 @@
 }
 
 @media only screen and (min-width: 600px) {
-    .landingPage {
-    }
 
     .landingPage_title {
         font-size: 3.5em;
         letter-spacing: 20px;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .landingPage {
+        font-size: 2em;
     }
 }
