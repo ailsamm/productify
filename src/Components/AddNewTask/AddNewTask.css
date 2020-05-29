@@ -71,3 +71,13 @@
 .react-date-picker__inputGroup__input:invalid {
     background-color: #FFF;
 }
+
+div.SingleDatePickerInput, 
+div.DateInput,
+#addNewTask__datePicker {
+    width: 100%;
+    border-radius: 5px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+}

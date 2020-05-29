@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import ProjectsSidebar from '../ProjectsSidebar/ProjectsSidebar';
 import ValidationError from '../ValidationError/ValidationError';
 import { notNull } from '../../ValidationHelper';
-import DatePicker from 'react-date-picker';
+import 'react-dates/initialize';
+import { SingleDatePicker } from 'react-dates';
+import moment from 'moment';
 import ProductifyContext from '../../ProductifyContext';
+import 'react-dates/lib/css/_datepicker.css';
 import './AddNewTask.css';
 
 export default class AddNewTask extends Component {
@@ -38,11 +41,10 @@ export default class AddNewTask extends Component {
                 value: null
             },
             deadline: {
-                touched: false, 
-                validationMessage: "",
-                isValid: false,
+                touched: false,
                 value: null
-            }
+            },
+            focused: false
         }
     }
 
@@ -137,8 +139,8 @@ export default class AddNewTask extends Component {
         this.setState({
             ...this.state,
             deadline: {
-                touched: true, 
-                value: value.toString()
+                touched: true,
+                value
             }
         })
     }
@@ -175,7 +177,6 @@ export default class AddNewTask extends Component {
     }
 
     render() {
-        const today = new Date();
         return (
             <ProductifyContext.Consumer>
                 {context => (
@@ -222,15 +223,12 @@ export default class AddNewTask extends Component {
                                     aria-required="true">
                                 </textarea>
                                 <label htmlFor="addNewTask__deadline">deadline:</label>
-                                <DatePicker name="addNewTask__deadline" 
-                                    id="addNewTask__deadline" 
-                                    onChange={value => this.updateDeadline(value)} 
-                                    dayPlaceholder={today.getUTCDate().toString()}
-                                    monthPlaceholder={(today.getUTCMonth() + 1).toString()}
-                                    yearPlaceholder={today.getUTCFullYear().toString()}
-                                    aria-required="true"
-                                    format="MM-dd-y"
-                                    minDate={today}
+                                <SingleDatePicker
+                                    date={this.state.deadline.value} // momentPropTypes.momentObj or null
+                                    onDateChange={date => this.updateDeadline(date)} // PropTypes.func.isRequired
+                                    focused={this.state.focused} // PropTypes.bool
+                                    onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+                                    id="addNewTask__datePicker" // PropTypes.string.isRequired,
                                 />
                                 <div className="addNewTask__buttonContainer">
                                     <button type="button" onClick={this.handleGoBack} className="button stopButton">back</button>
