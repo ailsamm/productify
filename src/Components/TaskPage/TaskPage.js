@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProjectSidebar from '../ProjectsSidebar/ProjectsSidebar';
 import ProductifyContext from '../../ProductifyContext';
+import moment from 'moment';
 import './TaskPage.css';
 
 export default class TaskPage extends Component {
@@ -15,6 +16,10 @@ export default class TaskPage extends Component {
         const taskId = this.props.match.params.taskId;
         this.context.onDeleteTask(parseInt(taskId));
         this.props.history.goBack();
+    }
+
+    getDeadline(deadline){
+        return moment(deadline).format("MMM Do YYYY");
     }
 
     render() {
@@ -38,7 +43,7 @@ export default class TaskPage extends Component {
                                 </div>
                                 <div className="taskPage__deadline taskPage__section">
                                     <h3 className="taskPage__section__title">Deadline:</h3>
-                                    <h4>{currentTask.deadline}</h4>
+                                    <h4>{this.getDeadline(currentTask.deadline)}</h4>
                                 </div>
                                 <div className="taskPage__buttons">
                                     <button type="submit" onClick={this.handleGoBack} className="button">back</button>

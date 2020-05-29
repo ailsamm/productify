@@ -28,14 +28,14 @@ const STORE = {
         {name:"Third project", id:3}
     ],
     tasks: [
-        {id:1, project:1, name:'Add time tracking components', description:'blah...', deadline: moment(), status:'backlog', assignee:2},
-        {id:2, project:1, name:'Deploy app', description:'blah...', deadline: moment(), status:'backlog', assignee:1},
-        {id:3, project:1, name:'Set up server', description:'blah...', deadline: moment(), status:'inProgress', assignee:3},
-        {id:4, project:1, name:'Create endpoints', description:'blah...', deadline: moment(), status:'inReview', assignee:4},
-        {id:5, project:1, name:'Add CRUD functionality', description:'blah...', deadline: moment(), status:'complete', assignee:5},
-        {id:6, project:2, name:'Make endpoints protected', description:'blah...', deadline: moment(), status:'complete', assignee:6},
-        {id:7, project:2, name:'Test with small group', description:'blah...', deadline: moment(), status:'backlog', assignee:1},
-        {id:8, project:2, name:'Add animations to UI', description:'blah...', deadline: moment(), status:'inProgress', assignee:2}
+        {id:1, project:1, name:'Add time tracking components', description:'blah...', deadline: moment().toISOString(), status:'backlog', assignee:2},
+        {id:2, project:1, name:'Deploy app', description:'blah...', deadline: moment().toISOString(), status:'backlog', assignee:1},
+        {id:3, project:1, name:'Set up server', description:'blah...', deadline: moment().toISOString(), status:'inProgress', assignee:3},
+        {id:4, project:1, name:'Create endpoints', description:'blah...', deadline: moment().toISOString(), status:'inReview', assignee:4},
+        {id:5, project:1, name:'Add CRUD functionality', description:'blah...', deadline: moment().toISOString(), status:'complete', assignee:5},
+        {id:6, project:2, name:'Make endpoints protected', description:'blah...', deadline: moment().toISOString(), status:'complete', assignee:6},
+        {id:7, project:2, name:'Test with small group', description:'blah...', deadline: moment().toISOString(), status:'backlog', assignee:1},
+        {id:8, project:2, name:'Add animations to UI', description:'blah...', deadline: moment().toISOString(), status:'inProgress', assignee:2}
     ]
 }
 
