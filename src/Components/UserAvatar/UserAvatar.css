@@ -1,7 +1,6 @@
 .userAvatar {
     width: 60px;
     height: 60px;
-    background-color: var(--main-accent-color);
     text-align: center;
     border-radius: 50%;
     -webkit-border-radius: 50%;
@@ -25,4 +24,21 @@
 
 .userAvatar__menu {
   margin-top: 4vh;
+}
+
+@media only screen and (min-width: 600px) {
+  .userAvatar {
+    width: 90px;
+    height: 90px;
+  }
+
+  .userAvatar__initials {
+    top: 22.5px;
+    font-size: 45px;
+    line-height: 45px;
+  }
+
+  li.MuiButtonBase-root.MuiListItem-root {
+    font-size: 1.5em;
+  }
 }

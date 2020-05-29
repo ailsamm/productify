@@ -32,6 +32,7 @@ export default class UserAvatar extends Component {
 
     handleLogOut = () => {
         this.context.onSignOutUser();
+        this.handleClose();
     }
 
     getUserInitials = () => {

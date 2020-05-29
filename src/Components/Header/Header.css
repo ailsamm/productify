@@ -14,6 +14,7 @@
     z-index: 999;
     width: 100%;
     display: flex;
+    font-size: 0.8em;
 }
 
 .header__buttons {
@@ -32,4 +33,10 @@
 .header__productify {
     text-decoration: none;
     color: var(--title-gray);
+}
+
+@media only screen and (min-width: 600px) {
+    .header {
+        font-size: 1.5em;
+    }
 }
