@@ -161,7 +161,9 @@ export default class AddNewTask extends Component {
     getProjects(){
         const context = this.context;
         if (context.projects.length > 0){
-            const teamId = context.loggedInUser.teamId;
+            console.log("in here");
+            const user = context.usersInfo.find(user => user.id === context.loggedInUser) || {};
+            const teamId = user.teamId;
             const project = context.teams.find(team => team.id === teamId) || {};
             const projectIds = project.projects || [];
             return projectIds.map(projectId => {
