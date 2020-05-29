@@ -17,6 +17,10 @@
     border: 1px solid;
 }
 
+.projects__column__heading {
+    text-align: center;
+}
+
 .projects__tasksBacklog {
     border-color: #c45466;
     color: #c45466;
