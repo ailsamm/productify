@@ -6,17 +6,18 @@ import './Project.css';
 export default class Project extends Component {
 
     render() {
+        const project = this.props.project;
         return (
             <ProductifyContext.Consumer>
                 {context => {
                     return (
                         <Link to="" className="project__nav" 
-                            id={this.props.project.id} 
-                            onClick={e => context.updateCurrentProject(e, this.props.project.id)}>
-                            <div context={this.props.project.id} 
-                                id={this.props.project.id} 
+                            id={project.id} 
+                            onClick={e => context.updateCurrentProject(e, project.id)}>
+                            <div context={project.id} 
+                                id={project.id} 
                                 className={`project${this.props.className}`}>
-                                <h3 context={this.props.project.id} className="project__name">{this.props.project.name}</h3>
+                                <h3 context={project.id} className="project__name">{project.projectName}</h3>
                             </div>
                         </Link>
                     )

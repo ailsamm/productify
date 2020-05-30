@@ -38,17 +38,17 @@ export default class TaskCard extends Component {
     }
 
     render() {
-        const { id, name, deadline, status} = this.props.task;
+        const { id, taskName, deadline, status} = this.props.task;
         return (
             <NavLink to={`/projects/${id}`} className="taskCard__nav">
-                <div key={name} 
+                <div key={taskName} 
                 value={id}
                 draggable 
                 onDragStart = {(e) => this.onDragStart(e, id)}
                 className="taskCard" 
-                title={name} 
+                title={taskName} 
                 style={this.getColor(status)}>
-                    <h4 className="taskCard__name">{name}</h4>
+                    <h4 className="taskCard__name">{taskName}</h4>
                     <h5 className="taskCard__deadline">{this.getDeadline(deadline)}</h5>
                 </div>
             </NavLink>

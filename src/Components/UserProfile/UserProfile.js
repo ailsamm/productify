@@ -19,7 +19,7 @@ export default class UserProfile extends Component {
                     const userLogInInfo = context.usersLogin.find(user => user.userId === context.loggedInUser) || {};
                     const email = userLogInInfo.emailAddress || "";
                     const team = context.teams.find(team => team.id === userInfo.teamId) || {};
-                    const teamName = team.name || "";
+                    const teamName = team.teamName || "";
                     return (
                         <div className="userProfile">
                             <ProjectSidebar showButton={false} displayProjectInfo={false}/>

@@ -170,7 +170,7 @@ export default class AddNewTask extends Component {
             return projectIds.map(projectId => {
                 const project = this.context.projects.find(project => project.id === projectId);
                 return (
-                    <option key={project.id} value={project.id}>{project.name}</option>
+                    <option key={project.id} value={project.id}>{project.projectName}</option>
                 )
             });
         }

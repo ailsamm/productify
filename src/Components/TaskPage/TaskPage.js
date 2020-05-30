@@ -33,7 +33,7 @@ export default class TaskPage extends Component {
                         <div className="taskPage">
                             <ProjectSidebar showButton={true} displayProjectInfo={true}/>
                             <div className="taskPage__main">
-                                <h2>{currentTask.name}</h2>
+                                <h2>{currentTask.taskName}</h2>
                                 <div className="taskPage__assignee taskPage__section">
                                     <h3><span className="taskPage__section__title">Assignee: </span> {assigneeName}</h3>
                                 </div>

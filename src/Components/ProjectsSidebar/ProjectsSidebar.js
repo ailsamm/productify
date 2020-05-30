@@ -35,20 +35,15 @@ export default class ProjectsSidebar extends Component {
         });
     }
 
-    getTeamMember = (memberId) => {
-        const teamMember = this.context.usersInfo.find(user => user.id === memberId);
-        return (
-            <TeamMember key={teamMember.firstName} member={teamMember}></TeamMember>
-        )
-    }
-
     getMembers(){
         const context = this.context;
         if (context.teams.length > 0){
             const user = context.usersInfo.find(user => user.id === context.loggedInUser);
             const teamId = user.teamId;
-            const members = context.teams.find(team => team.id === teamId).members;
-            return members.map(this.getTeamMember);
+            const members = context.usersInfo.filter(user => user.teamId === teamId);
+            return members.map(member => (
+                <TeamMember key={member.id} member={member}></TeamMember>
+            ));
         }
     }
 
@@ -57,15 +52,18 @@ export default class ProjectsSidebar extends Component {
         if (context.projects.length > 0){
             const user = context.usersInfo.find(user => user.id === context.loggedInUser);
             const teamId = user.teamId;
-            const projectIds = context.teams.find(team => team.id === teamId).projects;
-            return projectIds.map(projectId => {
-                const project = this.context.projects.find(project => project.id === projectId);
+            const projects = context.projects.filter(project => project.teamId === teamId);
+            return projects.map(project => {
                 let className= ""
                 if (context.currentProject === project.id){
                     className = " selectedProject"
                 }
                 return (
-                    <Project className={className} updateCurrentProject={context.updateCurrentProject} key={project.id} project={project}></Project>
+                    <Project className={className} 
+                        updateCurrentProject={context.updateCurrentProject} 
+                        key={project.id} 
+                        project={project}>
+                    </Project>
                 )
             });
         }
@@ -74,13 +72,13 @@ export default class ProjectsSidebar extends Component {
     calculateChartDatasets() {
         let context = this.context;
         const backlogCount = context.tasks.filter(task => 
-            task.status === "backlog" && task.project === context.currentProject).length;
+            task.status === "backlog" && task.projectId === context.currentProject).length;
         const inProgressCount = context.tasks.filter(task => 
-            task.status === "inProgress" && task.project === context.currentProject).length;
+            task.status === "inProgress" && task.projectId === context.currentProject).length;
         const inReviewCount = context.tasks.filter(task => 
-            task.status === "inReview" && task.project === context.currentProject).length;
+            task.status === "inReview" && task.projectId === context.currentProject).length;
         const completeCount = context.tasks.filter(task => 
-            task.status === "complete" && task.project === context.currentProject).length;
+            task.status === "complete" && task.projectId === context.currentProject).length;
         const incompleteCount = backlogCount + inProgressCount + inReviewCount;
 
         const pieDataset = [
@@ -191,7 +189,7 @@ export default class ProjectsSidebar extends Component {
                 {context => {
                     const user = context.usersInfo.find(user => user.id === context.loggedInUser) || {};
                     const team = context.teams.find(team => team.id === user.teamId) || "";
-                    const teamName = team.name || "";
+                    const teamName = team.teamName || "";
                     return (
                         <div className="projects__sidebar projects__column">
                             <h2 className="projects__sidebar_teamName">{teamName}</h2>
