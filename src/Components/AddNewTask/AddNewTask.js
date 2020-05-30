@@ -150,9 +150,8 @@ export default class AddNewTask extends Component {
         if (context.teams.length > 0){
             const user = context.usersInfo.find(user => user.id === context.loggedInUser);
             const teamId = user.teamId;
-            const memberIds = context.teams.find(team => team.id === teamId).members;
-            return memberIds.map(memberId => {
-                const member = this.context.usersInfo.find(user => user.id === memberId);
+            const members = context.usersInfo.filter(member => member.teamId === teamId);
+            return members.map(member => {
                 return (
                     <option key={member.id} value={member.id}>{member.firstName} {member.lastName}</option>
                 )
@@ -165,10 +164,8 @@ export default class AddNewTask extends Component {
         if (context.projects.length > 0){
             const user = context.usersInfo.find(user => user.id === context.loggedInUser) || {};
             const teamId = user.teamId;
-            const project = context.teams.find(team => team.id === teamId) || {};
-            const projectIds = project.projects || [];
-            return projectIds.map(projectId => {
-                const project = this.context.projects.find(project => project.id === projectId);
+            const projects = context.projects.filter(project => project.teamId === teamId) || {};
+            return projects.map(project => {
                 return (
                     <option key={project.id} value={project.id}>{project.projectName}</option>
                 )
@@ -177,7 +174,6 @@ export default class AddNewTask extends Component {
     }
 
     render() {
-        console.log(moment())
         return (
             <ProductifyContext.Consumer>
                 {context => (
