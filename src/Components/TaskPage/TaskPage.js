@@ -28,12 +28,12 @@ export default class TaskPage extends Component {
                 {context => {
                     const currentTask = context.tasks.find(task => task.id === parseInt(this.props.match.params.taskId)) || {};
                     const assignee = context.usersInfo.find(user => user.id === currentTask.assignee) || "";
-                    const assigneeName = assignee.firstName || "";
+                    const assigneeName = assignee.first_name || "";
                     return (
                         <div className="taskPage">
                             <ProjectSidebar showButton={true} displayProjectInfo={true}/>
                             <div className="taskPage__main">
-                                <h2>{currentTask.taskName}</h2>
+                                <h2>{currentTask.task_name}</h2>
                                 <div className="taskPage__assignee taskPage__section">
                                     <h3><span className="taskPage__section__title">Assignee: </span> {assigneeName}</h3>
                                 </div>

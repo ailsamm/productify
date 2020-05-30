@@ -39,8 +39,8 @@ export default class ProjectsSidebar extends Component {
         const context = this.context;
         if (context.teams.length > 0){
             const user = context.usersInfo.find(user => user.id === context.loggedInUser);
-            const teamId = user.teamId;
-            const members = context.usersInfo.filter(user => user.teamId === teamId);
+            const teamId = user.team_id;
+            const members = context.usersInfo.filter(user => user.team_id === teamId);
             return members.map(member => (
                 <TeamMember key={member.id} member={member}></TeamMember>
             ));
@@ -51,8 +51,8 @@ export default class ProjectsSidebar extends Component {
         const context = this.context;
         if (context.projects.length > 0){
             const user = context.usersInfo.find(user => user.id === context.loggedInUser);
-            const teamId = user.teamId;
-            const projects = context.projects.filter(project => project.teamId === teamId);
+            const teamId = user.team_id;
+            const projects = context.projects.filter(project => project.team_id === teamId);
             return projects.map(project => {
                 let className= ""
                 if (context.currentProject === project.id){
@@ -72,13 +72,13 @@ export default class ProjectsSidebar extends Component {
     calculateChartDatasets() {
         let context = this.context;
         const backlogCount = context.tasks.filter(task => 
-            task.status === "backlog" && task.projectId === context.currentProject).length;
+            task.status === "backlog" && task.project_id === context.currentProject).length;
         const inProgressCount = context.tasks.filter(task => 
-            task.status === "inProgress" && task.projectId === context.currentProject).length;
+            task.status === "inProgress" && task.project_id === context.currentProject).length;
         const inReviewCount = context.tasks.filter(task => 
-            task.status === "inReview" && task.projectId === context.currentProject).length;
+            task.status === "inReview" && task.project_id === context.currentProject).length;
         const completeCount = context.tasks.filter(task => 
-            task.status === "complete" && task.projectId === context.currentProject).length;
+            task.status === "complete" && task.project_id === context.currentProject).length;
         const incompleteCount = backlogCount + inProgressCount + inReviewCount;
 
         const pieDataset = [
@@ -188,8 +188,8 @@ export default class ProjectsSidebar extends Component {
             <ProductifyContext.Consumer>
                 {context => {
                     const user = context.usersInfo.find(user => user.id === context.loggedInUser) || {};
-                    const team = context.teams.find(team => team.id === user.teamId) || "";
-                    const teamName = team.teamName || "";
+                    const team = context.teams.find(team => team.id === user.team_id) || "";
+                    const teamName = team.team_name || "";
                     return (
                         <div className="projects__sidebar projects__column">
                             <h2 className="projects__sidebar_teamName">{teamName}</h2>

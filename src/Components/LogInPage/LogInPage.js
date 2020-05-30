@@ -34,7 +34,7 @@ export default class LogInPage extends Component {
             this.state.password.isValid;
 
         if (formIsValid) {
-            const user = context.usersLogin.find(user => user.emailAddress === this.state.email.value);
+            const user = context.usersLogin.find(user => user.email_address === this.state.email.value);
             if (user){
                 if (user.password === this.state.password.value){
                     context.onLogInUser(user);

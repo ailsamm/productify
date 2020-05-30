@@ -4,7 +4,6 @@ import ValidationError from '../ValidationError/ValidationError';
 import { notNull } from '../../ValidationHelper';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
-import moment from 'moment';
 import ProductifyContext from '../../ProductifyContext';
 import 'react-dates/lib/css/_datepicker.css';
 import './AddNewTask.css';
@@ -149,11 +148,11 @@ export default class AddNewTask extends Component {
         const context = this.context;
         if (context.teams.length > 0){
             const user = context.usersInfo.find(user => user.id === context.loggedInUser);
-            const teamId = user.teamId;
-            const members = context.usersInfo.filter(member => member.teamId === teamId);
+            const teamId = user.team_id;
+            const members = context.usersInfo.filter(member => member.team_id === teamId);
             return members.map(member => {
                 return (
-                    <option key={member.id} value={member.id}>{member.firstName} {member.lastName}</option>
+                    <option key={member.id} value={member.id}>{member.first_name} {member.last_name}</option>
                 )
             });
         }
@@ -163,11 +162,11 @@ export default class AddNewTask extends Component {
         const context = this.context;
         if (context.projects.length > 0){
             const user = context.usersInfo.find(user => user.id === context.loggedInUser) || {};
-            const teamId = user.teamId;
-            const projects = context.projects.filter(project => project.teamId === teamId) || {};
+            const teamId = user.team_id;
+            const projects = context.projects.filter(project => project.team_id === teamId) || {};
             return projects.map(project => {
                 return (
-                    <option key={project.id} value={project.id}>{project.projectName}</option>
+                    <option key={project.id} value={project.id}>{project.project_name}</option>
                 )
             });
         }
@@ -221,11 +220,11 @@ export default class AddNewTask extends Component {
                                 </textarea>
                                 <label htmlFor="addNewTask__deadline">deadline:</label>
                                 <SingleDatePicker
-                                    date={this.state.deadline.value} // momentPropTypes.momentObj or null
-                                    onDateChange={date => this.updateDeadline(date)} // PropTypes.func.isRequired
-                                    focused={this.state.focused} // PropTypes.bool
-                                    onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
-                                    id="addNewTask__datePicker" // PropTypes.string.isRequired,
+                                    date={this.state.deadline.value} 
+                                    onDateChange={date => this.updateDeadline(date)}
+                                    focused={this.state.focused}
+                                    onFocusChange={({ focused }) => this.setState({ focused })}
+                                    id="addNewTask__datePicker"
                                 />
                                 <div className="addNewTask__buttonContainer">
                                     <button type="button" onClick={this.handleGoBack} className="button stopButton">back</button>

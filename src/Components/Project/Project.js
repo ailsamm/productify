@@ -17,7 +17,7 @@ export default class Project extends Component {
                             <div context={project.id} 
                                 id={project.id} 
                                 className={`project${this.props.className}`}>
-                                <h3 context={project.id} className="project__name">{project.projectName}</h3>
+                                <h3 context={project.id} className="project__name">{project.project_name}</h3>
                             </div>
                         </Link>
                     )

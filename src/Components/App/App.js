@@ -25,7 +25,7 @@
       this.setState({
         ...this.state,
         isLoggedIn: true,
-        loggedInUser: userToLogIn.userId
+        loggedInUser: userToLogIn.user_id
       })
     }
 

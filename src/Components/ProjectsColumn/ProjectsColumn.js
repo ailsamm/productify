@@ -22,7 +22,7 @@ export default class ProjectsColumn extends Component {
                 {context => {
                     let tasks = context.tasks || [];
                     if (context.currentProject){
-                        tasks = tasks.filter(task => task.projectId === context.currentProject);
+                        tasks = tasks.filter(task => task.project_id === context.currentProject);
                     }
                     return (
                         <div onDragOver={(e) => this.onDragOver(e)} 
