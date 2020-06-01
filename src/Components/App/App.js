@@ -28,11 +28,6 @@
         })
     }
 
-    afetchData(){
-      
-     
-    }
-
     logInUser = (userToLogIn) => {
       this.setState({
         ...this.state,
@@ -51,8 +46,6 @@
 
     signUpUser = (newUserLogin, newUserInfo) => {
       const { id } = newUserInfo;
-      console.log(newUserInfo)
-      console.log(newUserLogin)
       // Simultaneously add new user and log user in
       addNewUser(newUserInfo, newUserLogin);
       this.setState({
