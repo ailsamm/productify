@@ -63,16 +63,16 @@ export default class SignUpPage extends Component {
         if (formIsValid) {
             const id = 55; /* CHANGE LATER */ 
             const newUserLogIn = {
-                userId: id,
-                email: this.state.email.value.toLowerCase(),
+                user_id: id,
+                email_address: this.state.email.value.toLowerCase(),
                 password: this.state.password.value,
             }
             const newUserInfo = {
                 id,
-                firstName: this.titleCase(this.state.firstName.value),
-                lastName: this.titleCase(this.state.lastName.value),
-                jobTitle: this.state.jobTitle.value,
-                teamId: 1 /* CHANGE LATER */ 
+                first_name: this.titleCase(this.state.firstName.value),
+                last_name: this.titleCase(this.state.lastName.value),
+                job_title: this.state.jobTitle.value,
+                team_id: 1 /* CHANGE LATER */ 
             }
             this.context.onSignUpUser(newUserLogIn, newUserInfo);
             this.props.history.push("/projects");
