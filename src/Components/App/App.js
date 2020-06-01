@@ -2,7 +2,7 @@
   import Header from '../Header/Header';
   import MainContentRouter from '../MainContentRouter/MainContentRouter';
   import ProductifyContext from '../../ProductifyContext';
-  import STORE from '../../STORE';
+  import config from '../../config';
   import './App.css';
 
   export default class App extends Component {
@@ -19,6 +19,63 @@
         tasks: [],
         currentProject: null
       }
+    }
+
+    componentDidMount(){
+      /*const {isLoggedIn, loggedInUser, projects, usersInfo, usersLogin, teams, tasks} = STORE;
+      this.setState({
+        isLoggedIn, 
+        loggedInUser, 
+        usersInfo,
+        usersLogin,
+        teams, 
+        projects,
+        tasks
+      })
+      const {isLoggedIn, loggedInUser } = STORE;
+      this.setState({
+        isLoggedIn, 
+        loggedInUser
+      })*/
+      this.fetchData();
+    }
+
+    fetchData(){
+      Promise.all([
+        fetch(`${config.serverUrl}/teams`),
+        fetch(`${config.serverUrl}/projects`),
+        fetch(`${config.serverUrl}/users-info`),
+        fetch(`${config.serverUrl}/users-login`),
+        fetch(`${config.serverUrl}/tasks`),
+      ])
+      .then(([teamsRes, projectsRes, usersInfoRes, usersLoginRes, tasksRes]) => {
+          if (!teamsRes.ok) {
+            throw new Error("Could not fetch teams")
+          }
+          if (!projectsRes.ok) {
+            throw new Error("Could not fetch projects")
+          }
+          if (!usersInfoRes.ok) {
+            throw new Error("Could not fetch projects")
+          }
+          if (!usersLoginRes.ok) {
+            throw new Error("Could not fetch projects")
+          }
+          if (!tasksRes.ok) {
+            throw new Error("Could not fetch projects")
+          }
+          return Promise.all([
+            teamsRes.json(), 
+            projectsRes.json(),
+            usersInfoRes.json(),
+            usersLoginRes.json(),
+            tasksRes.json()
+          ]);
+      })
+      .then(([teams, projects, usersInfo, usersLogin, tasks]) => {
+        this.setState({teams, projects, usersInfo, usersLogin, tasks})
+      })
+      .catch(e => console.log(e));
     }
 
     logInUser = (userToLogIn) => {
@@ -93,19 +150,6 @@
           currentProject: updatedProjectId
       })
   }
-    
-    componentDidMount(){
-      const {isLoggedIn, loggedInUser, projects, usersInfo, usersLogin, teams, tasks} = STORE;
-      this.setState({
-        isLoggedIn, 
-        loggedInUser, 
-        usersInfo,
-        usersLogin,
-        teams, 
-        projects,
-        tasks
-      })
-    }
 
     render() {
       const contextValue = {

@@ -1,7 +1,6 @@
 import React from 'react'
 
 const ProductifyContext = React.createContext({
-  teamName: "",
   usersLogin: [],
   usersInfo: [],
   projects: [],

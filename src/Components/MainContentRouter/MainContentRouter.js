@@ -8,9 +8,13 @@ import TaskPage from '../TaskPage/TaskPage';
 import AddNewTask from '../AddNewTask/AddNewTask';
 import UserProfile from '../UserProfile/UserProfile';
 import ProjectsPage from '../ProjectsPage/ProjectsPage.js';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import ProductifyContext from '../../ProductifyContext';
+import Unauthorized from '../Unauthorized/Unauthorized';
 import './MainContentRouter.css'
-
 export default class MainContentRouter extends Component {
+
+    static contextType = ProductifyContext;
     render(){
         return (
             <div className="mainContent">
@@ -40,24 +44,35 @@ export default class MainContentRouter extends Component {
                 />
                 <Route 
                     exact 
+                    key='unauthorized'
+                    path='/unauthorized' 
+                    component={Unauthorized}
+                />
+                <ProtectedRoute  
+                    exact 
                     key='addNewTask'
                     path='/newTask' 
+                    isLoggedIn={this.context.isLoggedIn} 
                     component={AddNewTask}
                 />
-                <Route 
+                <ProtectedRoute 
                     exact 
-                    key='/projects'
+                    key="projects"
                     path='/projects' 
-                    component={ProjectsPage}
-                />
-                <Route 
+                    isLoggedIn={this.context.isLoggedIn} 
+                    component={ProjectsPage} 
+                />               
+                <ProtectedRoute 
                     key='taskPage'
                     path='/projects/:taskId' 
+                    isLoggedIn={this.context.isLoggedIn} 
                     component={TaskPage}
                 />
-                <Route 
+                <ProtectedRoute 
+                    exact
                     key='profile'
                     path='/profile' 
+                    isLoggedIn={this.context.isLoggedIn} 
                     component={UserProfile}
                 />
             </div>
