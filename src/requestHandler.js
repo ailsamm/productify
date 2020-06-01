@@ -1,5 +1,9 @@
 import config from './config';
 
+export function getRandomId(){
+    return new Date().getTime() & 0xffff;
+}
+
 export function fetchData(){
     return Promise.all([
         fetch(`${config.serverUrl}/teams`),
@@ -63,8 +67,7 @@ export function deleteTaskInDb(taskId) {
       .catch(e => console.log(e));
 }
 
-export function addNewUser(userInfo, userLogin) {
-    console.log("made it to request method")
+export function addNewUser2(userInfo, userLogin) {
     Promise.all([
             fetch(`${config.serverUrl}/users-info/`, {
             method: 'POST',
@@ -90,6 +93,35 @@ export function addNewUser(userInfo, userLogin) {
             }
         })
         .catch(e => console.log(e));
+}
+
+export function addNewUser(userInfo, userLogin) {
+        fetch(`${config.serverUrl}/users-info/`, {
+            method: 'POST',
+            body: JSON.stringify(userInfo),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+        .then(usersInfoRes => {
+            if (!usersInfoRes.ok) {
+                throw new Error('An error occurred while attempting to add new user info')
+            }
+            fetch(`${config.serverUrl}/users-login/`, {
+                method: 'POST',
+                body: JSON.stringify(userLogin),
+                headers: {
+                    'content-type': 'application/json'
+                },
+            })
+            .then(usersLoginRes => {
+                if (!usersLoginRes.ok) {
+                    throw new Error('An error occurred while attempting to add new user login')
+                }
+            })
+            .catch(e => console.log(e));
+        })
+        .catch(e => console.log(e));   
 }
 
 export function updateUserInfoInDb(userId, userInfoFields){
