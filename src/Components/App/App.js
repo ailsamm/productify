@@ -2,8 +2,7 @@
   import Header from '../Header/Header';
   import MainContentRouter from '../MainContentRouter/MainContentRouter';
   import ProductifyContext from '../../ProductifyContext';
-  import config from '../../config';
-  import { updateTask } from '../../requestHandler';
+  import { fetchData, updateTaskInDb, deleteTaskInDb, addNewUser } from '../../requestHandler';
   import './App.css';
 
   export default class App extends Component {
@@ -23,45 +22,15 @@
     }
 
     componentDidMount(){
-      this.fetchData();
+      fetchData()
+        .then(([teams, projects, usersInfo, usersLogin, tasks]) => {
+          this.setState({teams, projects, usersInfo, usersLogin, tasks})
+        })
     }
 
-    fetchData(){
-      Promise.all([
-        fetch(`${config.serverUrl}/teams`),
-        fetch(`${config.serverUrl}/projects`),
-        fetch(`${config.serverUrl}/users-info`),
-        fetch(`${config.serverUrl}/users-login`),
-        fetch(`${config.serverUrl}/tasks`),
-      ])
-      .then(([teamsRes, projectsRes, usersInfoRes, usersLoginRes, tasksRes]) => {
-          if (!teamsRes.ok) {
-            throw new Error("Could not fetch teams")
-          }
-          if (!projectsRes.ok) {
-            throw new Error("Could not fetch projects")
-          }
-          if (!usersInfoRes.ok) {
-            throw new Error("Could not fetch projects")
-          }
-          if (!usersLoginRes.ok) {
-            throw new Error("Could not fetch projects")
-          }
-          if (!tasksRes.ok) {
-            throw new Error("Could not fetch projects")
-          }
-          return Promise.all([
-            teamsRes.json(), 
-            projectsRes.json(),
-            usersInfoRes.json(),
-            usersLoginRes.json(),
-            tasksRes.json()
-          ]);
-      })
-      .then(([teams, projects, usersInfo, usersLogin, tasks]) => {
-        this.setState({teams, projects, usersInfo, usersLogin, tasks})
-      })
-      .catch(e => console.log(e));
+    afetchData(){
+      
+     
     }
 
     logInUser = (userToLogIn) => {
@@ -80,12 +49,15 @@
       })
     }
 
-    signUpUser = (newUserLogIn, newUserInfo) => {
+    signUpUser = (newUserLogin, newUserInfo) => {
       const { id } = newUserInfo;
+      console.log(newUserInfo)
+      console.log(newUserLogin)
       // Simultaneously add new user and log user in
+      addNewUser(newUserInfo, newUserLogin);
       this.setState({
         ...this.state,
-        usersLogin: [...this.state.usersLogin, newUserLogIn],
+        usersLogin: [...this.state.usersLogin, newUserLogin],
         usersInfo: [...this.state.usersInfo, newUserInfo],
         isLoggedIn: true,
         loggedInUser: id
@@ -102,6 +74,7 @@
 
     deleteTask = (taskToDelete) => {
       const updatedTasks = this.state.tasks.filter(task => task.id !== taskToDelete);
+      deleteTaskInDb(taskToDelete);
       this.setState({
         ...this.state,
         tasks: updatedTasks
@@ -119,7 +92,7 @@
           return task;
       }));
 
-      updateTask(taskId, { status });
+      updateTaskInDb(taskId, { status });
 
       this.setState({
           ...this.state,
