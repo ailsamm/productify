@@ -3,6 +3,7 @@
   import MainContentRouter from '../MainContentRouter/MainContentRouter';
   import ProductifyContext from '../../ProductifyContext';
   import config from '../../config';
+  import { updateTask } from '../../requestHandler';
   import './App.css';
 
   export default class App extends Component {
@@ -107,23 +108,6 @@
       })
     }
 
-    updateTask = (taskId, taskFields) => {
-      console.log("here!")
-      fetch(`${config.serverUrl}/tasks/${taskId}`, {
-        method: 'PATCH',
-        body: JSON.stringify(taskFields),
-        headers: {
-          'content-type': 'application/json'
-        },
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('An error occurred while attempting to update the task')
-        }
-      })
-      .catch(e => console.log(e));
-    }
-
     onDrop = (e, status) => {
       e.preventDefault();
       const taskId = parseInt(e.dataTransfer.getData("id"));
@@ -135,7 +119,7 @@
           return task;
       }));
 
-      this.updateTask(taskId, { status });
+      updateTask(taskId, { status });
 
       this.setState({
           ...this.state,
