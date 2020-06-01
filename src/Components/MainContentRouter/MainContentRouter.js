@@ -10,8 +10,7 @@ import UserProfile from '../UserProfile/UserProfile';
 import ProjectsPage from '../ProjectsPage/ProjectsPage.js';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import ProductifyContext from '../../ProductifyContext';
-import Unauthorized from '../Unauthorized/Unauthorized';
-import NotFound from '../NotFound/NotFound';
+import ErrorPage from '../ErrorPage/ErrorPage';
 import './MainContentRouter.css'
 export default class MainContentRouter extends Component {
 
@@ -48,7 +47,7 @@ export default class MainContentRouter extends Component {
                         exact 
                         key='unauthorized'
                         path='/unauthorized' 
-                        component={Unauthorized}
+                        render={() => <ErrorPage error={{code: "403", message:"Access forbidden"}}/>}
                     />
                     <ProtectedRoute  
                         exact 
@@ -79,7 +78,7 @@ export default class MainContentRouter extends Component {
                     />
                     <Route
                         key="notFound"
-                        component={NotFound}
+                        render={() => <ErrorPage error={{code: "404", message:"Page not found"}}/>}
                     />
                 </Switch>
             </main>

@@ -1,0 +1,11 @@
+@import '../App/App.css';
+
+.errorPage {
+    text-align: center;
+}
+
+.errorPage__errorCode {
+    color: var(--main-accent-color);
+    font-size: 6em;
+    line-height: 0;
+}

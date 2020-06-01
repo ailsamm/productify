@@ -109,9 +109,3 @@ form > input {
 .goButton:hover {
     background-color: var(--button-go-hover);
 }
-
-.errorCode {
-    color: var(--main-accent-color);
-    font-size: 6em;
-    line-height: 0;
-}
