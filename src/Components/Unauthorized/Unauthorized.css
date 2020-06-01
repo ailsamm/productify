@@ -3,9 +3,3 @@
 .unauthorized {
     text-align: center;
 }
-
-.errorCode {
-    color: var(--main-accent-color);
-    font-size: 6em;
-    line-height: 0;
-}
