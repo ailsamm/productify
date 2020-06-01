@@ -92,3 +92,19 @@ export function addNewUser(userInfo, userLogin) {
         .catch(e => console.log(e));
 }
 
+export function updateUserInfoInDb(userId, userInfoFields){
+    fetch(`${config.serverUrl}/users-info/${userId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(userInfoFields),
+        headers: {
+            'content-type': 'application/json'
+        },
+    })
+    .then(userInfoRes => {
+        if (!userInfoRes.ok) {
+          throw new Error('An error occurred while attempting to update user info')
+        }
+    })
+    .catch(e => console.log(e));
+}
+
