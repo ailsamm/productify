@@ -36,8 +36,11 @@ export default class UserAvatar extends Component {
     }
 
     getUserInitials = () => {
-        const user = this.context.usersInfo.find(user => user.id === this.context.loggedInUser);
-        const initials = user.first_name.charAt(0) + user.last_name.charAt(0);
+        console.log(typeof this.context.loggedInUser)
+        const user = this.context.usersInfo.find(user => user.id === this.context.loggedInUser) || {};
+        const firstName = user.first_name || "";
+        const lastName = user.last_name || "";
+        const initials = firstName.charAt(0) + lastName.charAt(0);
         return initials;
     }
     

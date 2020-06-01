@@ -54,9 +54,9 @@ export default class AddNewTask extends Component {
     addTaskRequest = (e) => {
         e.preventDefault();
         const newTask = {
-            name: this.state.title.value,
+            task_name: this.state.title.value,
             assignee: this.state.assignee.value,
-            project: this.state.project.value,
+            project_id: this.state.project.value,
             description: this.state.description.value,
             deadline: this.state.deadline.value,
             status: "backlog",
