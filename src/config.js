@@ -1,5 +1,5 @@
 const CONFIG = {
-    serverUrl: "https://pure-citadel-94245.herokuapp.com/api"
+    serverUrl: "https://peaceful-escarpment-33332.herokuapp.com/api"
 }
 
 export default CONFIG;
