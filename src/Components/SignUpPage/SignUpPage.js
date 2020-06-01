@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProductifyContext from '../../ProductifyContext';
 import { validateEmail, notNull, validatePassword, validateRepeatPassword } from '../../ValidationHelper';
 import ValidationError from '../ValidationError/ValidationError';
+import { getRandomId } from '../../requestHandler';
 import './SignUpPage.css';
 
 export default class SignUpPage extends Component {
@@ -61,7 +62,7 @@ export default class SignUpPage extends Component {
             this.state.repeatPassword.isValid;
 
         if (formIsValid) {
-            const id = 55; /* CHANGE LATER */ 
+            const id = getRandomId();
             const newUserLogIn = {
                 user_id: id,
                 email_address: this.state.email.value.toLowerCase(),
@@ -72,7 +73,7 @@ export default class SignUpPage extends Component {
                 first_name: this.titleCase(this.state.firstName.value),
                 last_name: this.titleCase(this.state.lastName.value),
                 job_title: this.state.jobTitle.value,
-                team_id: 1 /* CHANGE LATER */ 
+                team_id: 1 /* to-do: make dynamic */ 
             }
             this.context.onSignUpUser(newUserLogIn, newUserInfo);
             this.props.history.push("/projects");

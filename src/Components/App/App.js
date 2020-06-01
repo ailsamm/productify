@@ -46,6 +46,7 @@
 
     signUpUser = (newUserLogin, newUserInfo) => {
       const { id } = newUserInfo;
+      console.log(newUserLogin);
       // Simultaneously add new user and log user in
       addNewUser(newUserInfo, newUserLogin);
       this.setState({
