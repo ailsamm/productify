@@ -4,6 +4,7 @@ import ValidationError from '../ValidationError/ValidationError';
 import { notNull } from '../../ValidationHelper';
 import 'react-dates/initialize';
 import config from '../../config';
+import { getRandomId } from '../../requestHandler';
 import { SingleDatePicker } from 'react-dates';
 import ProductifyContext from '../../ProductifyContext';
 import 'react-dates/lib/css/_datepicker.css';
@@ -61,7 +62,7 @@ export default class AddNewTask extends Component {
             description: this.state.description.value,
             deadline: this.state.deadline.value,
             status: "backlog",
-            id: 44
+            id: getRandomId()
         }
     
         fetch(`${config.serverUrl}/tasks`, {
