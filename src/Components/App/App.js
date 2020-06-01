@@ -22,21 +22,6 @@
     }
 
     componentDidMount(){
-      /*const {isLoggedIn, loggedInUser, projects, usersInfo, usersLogin, teams, tasks} = STORE;
-      this.setState({
-        isLoggedIn, 
-        loggedInUser, 
-        usersInfo,
-        usersLogin,
-        teams, 
-        projects,
-        tasks
-      })
-      const {isLoggedIn, loggedInUser } = STORE;
-      this.setState({
-        isLoggedIn, 
-        loggedInUser
-      })*/
       this.fetchData();
     }
 
@@ -122,6 +107,23 @@
       })
     }
 
+    updateTask = (taskId, taskFields) => {
+      console.log("here!")
+      fetch(`${config.serverUrl}/tasks/${taskId}`, {
+        method: 'PATCH',
+        body: JSON.stringify(taskFields),
+        headers: {
+          'content-type': 'application/json'
+        },
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('An error occurred while attempting to update the task')
+        }
+      })
+      .catch(e => console.log(e));
+    }
+
     onDrop = (e, status) => {
       e.preventDefault();
       const taskId = parseInt(e.dataTransfer.getData("id"));
@@ -132,6 +134,8 @@
           }
           return task;
       }));
+
+      this.updateTask(taskId, { status });
 
       this.setState({
           ...this.state,

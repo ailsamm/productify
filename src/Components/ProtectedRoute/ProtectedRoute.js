@@ -5,7 +5,6 @@ const ProtectedRoute = ({ component: Component, isLoggedIn, ...rest }) => {
     return (
       <Route {...rest} render={
         props => {
-            console.log(isLoggedIn)
           if (isLoggedIn) {
             return <Component {...rest} {...props} />
           } else {

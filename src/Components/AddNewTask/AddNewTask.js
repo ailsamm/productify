@@ -3,6 +3,7 @@ import ProjectsSidebar from '../ProjectsSidebar/ProjectsSidebar';
 import ValidationError from '../ValidationError/ValidationError';
 import { notNull } from '../../ValidationHelper';
 import 'react-dates/initialize';
+import config from '../../config';
 import { SingleDatePicker } from 'react-dates';
 import ProductifyContext from '../../ProductifyContext';
 import 'react-dates/lib/css/_datepicker.css';
@@ -62,27 +63,25 @@ export default class AddNewTask extends Component {
             status: "backlog",
             id: 44
         }
-        this.context.onAddTask(newTask);
-        this.props.history.push("/projects");
     
-        /*fetch('https://damp-journey-21967.herokuapp.com/api/notes', {
+        fetch(`${config.serverUrl}/tasks`, {
           method: 'POST',
-          body: JSON.stringify(newNote),
+          body: JSON.stringify(newTask),
           headers: {
             'content-type': 'application/json'
           },
         })
         .then(response => {
           if (!response.ok) {
-            throw new Error('An error occurred while attempting to add the note')
+            throw new Error('An error occurred while attempting to add the task')
           }
           return response.json();
         })
         .then(() => {
             this.context.onAddTask(newTask);
-            this.props.history.push("/");
+            this.handleGoBack();
         })
-        .catch(e => console.log(e));*/
+        .catch(e => console.log(e));
     }
 
     updateTitle = value => {
