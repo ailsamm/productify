@@ -11,6 +11,14 @@ export default class UserProfile extends Component {
         this.props.history.push("/projects");
     }
 
+    getMembers(curUser, members){
+        const teamId = curUser.team_id;
+        const teamMembers = members.filter(user => user.team_id === teamId && user.id !== curUser.id);
+        return teamMembers.map(member => (
+            <li><h3>{member.first_name} {member.last_name}</h3><h4> || {member.job_title}</h4></li>
+        ))
+    }
+
     render(){
         return (
             <ProjectifyContext.Consumer>
@@ -23,7 +31,7 @@ export default class UserProfile extends Component {
                     return (
                         <div className="userProfile">
                             <ProjectSidebar showButton={false} displayProjectInfo={false}/>
-                            <div className="userProfile__main">  
+                            <section className="userProfile__section">  
                                 <div className="userProfile__userInfo">
                                     <h2 className="userProfile__title">my profile</h2>
                                     <h3><span className="userProfile__key">first name:</span> {userInfo.first_name}</h3>
@@ -36,8 +44,15 @@ export default class UserProfile extends Component {
                                 <div className="userProfile__buttons">
                                     <button type="button" onClick={this.handleGoBack} className="button stopButton">back</button>
                                 </div>
-                            </div>
+                            </section>
+                            <section className="userProfile__section">
+                                <h2 className="userProfile__title">my team</h2>
+                                <ul className="userProfile__teamMemberList">
+                                    {this.getMembers(userInfo, context.usersInfo)}
+                                </ul>
+                            </section>
                         </div>
+                        
                     )
                 }}
             </ProjectifyContext.Consumer>

@@ -1,21 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:500&display=swap');
 @import '../App/App.css';
 
 .userProfile {
     display: grid;
-    grid-template-columns: 20vw 80vw;
+    grid-template-columns: 20vw 40vw 40vw;
 }
 
-.userProfile__main {
+.userProfile__section {
     padding: 0 2vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: var(--main-text-color);
+    margin-top: 5vh;
 }
 
-.userProfile__userInfo {
-    margin-top: 5vh;
+ul.userProfile__teamMemberList {
+    list-style-type: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.userProfile__teamMemberList h3 {
+    margin: 0 auto;
+}
+
+.userProfile__teamMemberList h4 {
+    margin: 0 auto 3vh auto;
 }
 
 .userProfile__icon {
@@ -28,7 +39,7 @@
 }
 
 .userProfile__title {
-    font-family: "Righteous", sans-serif;
+    font-family: "Poppins", sans-serif;
     letter-spacing: 1.5px;
 }
 
@@ -37,5 +48,5 @@
 }
 
 #userProfile__check {
-    color: var(--button-go-hover);
+    color: var(--button-go);
 }

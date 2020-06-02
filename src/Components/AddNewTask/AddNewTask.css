@@ -52,6 +52,11 @@
     height: 10vh;
 }
 
+input::placeholder, textarea::placeholder {
+    font-family: Arial;
+    color: rgb(222, 222, 222);
+}
+
 .addNewTask__form .button {
     font-size: 1em;
     width: auto;

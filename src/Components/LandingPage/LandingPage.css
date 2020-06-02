@@ -7,6 +7,10 @@
     text-align: center;
 }
 
+.landingPage__meet {
+    margin: 0 auto;
+}
+
 .landingPage__title {
     font-family: 'Righteous', cursive;
     letter-spacing: 2px;
@@ -17,8 +21,16 @@
 }
 
 .landingPage__learnMorebutton {
-    margin-top: 5vh;
+    margin-top: 8vh;
     font-size: 0.75em;
+    border: 2px solid #49c0c8;
+    color: #49c0c8;
+    background-color: #FFF;
+}
+
+.landingPage__learnMorebutton:hover {
+    color: white;
+    background-color: #49c0c8;
 }
 
 .landingPage__description {

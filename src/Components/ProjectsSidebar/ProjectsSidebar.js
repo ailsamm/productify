@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Pie, Doughnut } from 'react-chartjs-2';
 import ProductifyContext from '../../ProductifyContext';
-import TeamMember from '../TeamMember/TeamMember';
 import Project from '../Project/Project';
 import './ProjectsSidebar.css';
 
@@ -33,18 +32,6 @@ export default class ProjectsSidebar extends Component {
             ...this.state,
             isDesktop: window.innerWidth > 750 
         });
-    }
-
-    getMembers(){
-        const context = this.context;
-        if (context.teams.length > 0){
-            const user = context.usersInfo.find(user => user.id === context.loggedInUser);
-            const teamId = user.team_id;
-            const members = context.usersInfo.filter(user => user.team_id === teamId);
-            return members.map(member => (
-                <TeamMember key={member.id} member={member}></TeamMember>
-            ));
-        }
     }
 
     getProjects(){
@@ -150,13 +137,7 @@ export default class ProjectsSidebar extends Component {
     }
 
     getContent(){
-        return this.context.currentProject != null ? this.createCharts() :
-            <div>
-                <h3>Members:</h3>
-                <div className="projects__sidebar__members">
-                    {this.getMembers()}
-                </div> 
-            </div>
+        return this.context.currentProject != null ? this.createCharts() : <div></div>
     }
 
     getProjectDetails() {
@@ -192,7 +173,7 @@ export default class ProjectsSidebar extends Component {
                     const teamName = team.team_name || "";
                     return (
                         <div className="projects__sidebar projects__column">
-                            <h2 className="projects__sidebar_teamName">{teamName}</h2>
+                            <h2 className="projects__sidebar_teamName projects__column__heading">{teamName}</h2>
                             {this.props.showButton && this.getNewTaskButton()}
                             {this.props.displayProjectInfo ? this.getProjectDetails() : <></>}    
                         </div>
