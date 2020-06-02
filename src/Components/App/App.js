@@ -10,8 +10,8 @@
     constructor(props){
       super(props);
       this.state = {
-        isLoggedIn: true, 
-        loggedInUser: 2, 
+        isLoggedIn: false, 
+        loggedInUser: null, 
         usersInfo: [],
         usersLogin: [],
         teams: [],
