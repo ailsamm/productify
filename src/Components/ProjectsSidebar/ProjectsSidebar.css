@@ -11,10 +11,20 @@
     padding: 2vh 0;
 }
 
+.projects__sidebar_filterButton {
+    background: #dcdcdc;
+    color: var(--main-text-color);
+    margin: 1vh auto;
+}
+
+.projects__sidebar_filterButton:hover {
+    background: #FFF;
+}
+
 .projects__sidebar_button {
     background-image: linear-gradient(to top left, #FFF, #dcdcdc, #a9a9a9);
     color: var(--main-text-color);
-    margin: 0px auto;
+    margin: 1vh auto;
 }
 
 .projects__sidebar_button:hover {

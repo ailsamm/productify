@@ -58,8 +58,11 @@ export default class ProjectsSidebar extends Component {
 
     calculateChartDatasets(category) {
         let context = this.context;
-        let tasks = context.tasks.filter(task => 
-            task.status === category && task.project_id === context.currentProject);
+        let tasks = context.tasks.filter(task => task.status === category);
+        if (context.currentProject){
+            tasks = tasks.filter(task => 
+                task.project_id === context.currentProject);
+        }
         if (!this.context.showAllUserTasks){
             tasks = tasks.filter(task => task.assignee === context.loggedInUser);
         }
@@ -141,10 +144,6 @@ export default class ProjectsSidebar extends Component {
         )
     }
 
-    getContent(){
-        return this.context.currentProject != null ? this.createCharts() : <div></div>
-    }
-
     getProjectDetails() {
         return (
             <div>
@@ -152,7 +151,7 @@ export default class ProjectsSidebar extends Component {
                 <div className="projects__sidebar_members">
                     {this.getProjects()}
                 </div>
-                {this.state.isDesktop ? this.getContent() : <></>}
+                {this.state.isDesktop ? this.createCharts() : <></>}
             </div>
         )
     }
@@ -166,7 +165,7 @@ export default class ProjectsSidebar extends Component {
                     className="button projects__sidebar_button">
                         + new task
                 </NavLink>
-                <button className="button projects__sidebar_button" onClick={this.context.updateFilterByAssignee}>
+                <button className="button projects__sidebar_filterButton" onClick={this.context.updateFilterByAssignee}>
                     {buttonText}
                 </button>
             </div>
