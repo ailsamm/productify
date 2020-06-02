@@ -147,8 +147,8 @@ export default class ProjectsSidebar extends Component {
     getProjectDetails() {
         return (
             <div>
-                <h3>Projects:</h3>
-                <div className="projects__sidebar_members">
+                <h3 className="project__sidebar_projectTitle">Projects:</h3>
+                <div className="projects__sidebar_projects">
                     {this.getProjects()}
                 </div>
                 {this.state.isDesktop ? this.createCharts() : <></>}
@@ -162,10 +162,10 @@ export default class ProjectsSidebar extends Component {
             <div className="buttonsContainer">
                 <NavLink 
                     to="/newTask" 
-                    className="button projects__sidebar_button">
+                    className="button projects__sidebar_button projects__sidebar_newTaskButton">
                         + new task
                 </NavLink>
-                <button className="button projects__sidebar_filterButton" onClick={this.context.updateFilterByAssignee}>
+                <button className="button projects__sidebar_button projects__sidebar_filterButton" onClick={this.context.updateFilterByAssignee}>
                     {buttonText}
                 </button>
             </div>

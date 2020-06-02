@@ -11,14 +11,8 @@
     padding: 2vh 0;
 }
 
-.projects__sidebar_filterButton {
-    background: #dcdcdc;
-    color: var(--main-text-color);
-    margin: 1vh auto;
-}
-
-.projects__sidebar_filterButton:hover {
-    background: #FFF;
+.projects__sidebar_projects {
+    margin-bottom: 3vh;
 }
 
 .projects__sidebar_button {
@@ -27,8 +21,16 @@
     margin: 1vh auto;
 }
 
-.projects__sidebar_button:hover {
-    background-image: linear-gradient(to top left, #d3edc4, var(--productify-green), #b1d39d);
+.projects__sidebar_newTaskButton:hover {
+    background: var(--productify-green);
+}
+
+.project__sidebar_projectTitle {
+    margin-top: 0;
+}
+
+.projects__sidebar_filterButton:hover {
+    background: #FFF;
 }
 
 .buttonsContainer {
