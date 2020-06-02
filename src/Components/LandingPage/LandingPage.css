@@ -16,8 +16,9 @@
     -webkit-text-fill-color: transparent;
 }
 
-.landingPage__button {
+.landingPage__learnMorebutton {
     margin-top: 5vh;
+    font-size: 0.75em;
 }
 
 .landingPage__description {
