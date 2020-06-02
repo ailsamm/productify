@@ -12,7 +12,10 @@ export default class Header extends Component {
 
     getLinks = () => {
         if (this.context.isLoggedIn){
-            return <UserAvatar/>
+            return <UserAvatar 
+                userId={this.context.loggedInUser} 
+                class={"headerAvatar"}
+            />
         }
         return (
             <div className="header__buttons">

@@ -31,7 +31,7 @@ export default class UserProfile extends Component {
                     return (
                         <div className="userProfile">
                             <ProjectSidebar showButton={false} displayProjectInfo={false}/>
-                            <section className="userProfile__section">  
+                            <section className="userProfile__section userProfile__section_info">  
                                 <div className="userProfile__userInfo">
                                     <h2 className="userProfile__title">my profile</h2>
                                     <h3><span className="userProfile__key">first name:</span> {userInfo.first_name}</h3>

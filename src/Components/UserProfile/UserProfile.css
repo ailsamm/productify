@@ -15,6 +15,11 @@
     margin-top: 5vh;
 }
 
+.userProfile__section_info {
+    border-right: 1px solid rgb(203, 203, 203);
+    height: 60%;
+}
+
 ul.userProfile__teamMemberList {
     list-style-type: none;
     margin-top: 0;

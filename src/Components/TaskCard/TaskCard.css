@@ -18,3 +18,33 @@
     white-space: nowrap;
     line-height: normal;
 }
+
+.assignee {
+    margin: 0;
+}
+
+.assigneeAvatarContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vh;
+}
+
+.assigneeAvatar {
+    background: -webkit-linear-gradient( #d0e9eb, #c2c2c2, #a2a2a2,#d0e9eb);
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+.assigneeAvatar__initials {
+    position: relative;
+    top: 7.5px;
+    font-size: 15px;
+    line-height: 15px;
+    color: #FFF;
+    font-family: "Nunito", monospace;
+    font-weight: bold;
+}
