@@ -5,6 +5,7 @@
 :root {
     --main-accent-color: #7fdae1;
     --title-gray: #767676;
+    --button-hover-color: #6fc3c9;
     --main-text-color: #3a3a3a;
     --accent-gradient-color: #f0c7f0c1;
     --placeholder-text-color: #b6b6b6;
@@ -35,12 +36,14 @@ body {
     font-size: 1em;
     background-color: var(--main-accent-color);
     padding: 10px;
+    border: 0;
     border-radius: 10px;
     text-decoration: none;
     color: #FFF;
 }
 
 .button:hover {
+    background-color: var(--button-hover-color);
     cursor: pointer;
 }
 
