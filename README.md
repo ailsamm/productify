@@ -16,6 +16,9 @@ Password: aaa
 Simply clone the repo and run ```npm i```
 You will also need to connect this client to a server. A modifiable version can be found [here](https://github.com/ailsamm/productify-server) (simply clone, run ```npm i``` and then, in this app, change the URL in the ./src/config.js) or work with the already-deployed version that is specified already in ./src/config.js.
 
+## Tech Stack
+Productify is written with ReactJS, Javascript, HTML5, CSS3.
+
 ## Usage
 See the following screenshots for an overview of how Productify can be used.
 
