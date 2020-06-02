@@ -33,9 +33,11 @@ body {
 .button {
     font-family: 'Nunito', sans-serif;
     font-size: 1em;
+    background-color: var(--main-accent-color);
     padding: 10px;
     border-radius: 10px;
     text-decoration: none;
+    color: #FFF;
 }
 
 .button:hover {
