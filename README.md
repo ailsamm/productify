@@ -11,6 +11,8 @@ Username: aaa@gmail.
 
 Password: aaa
 
+Please note that this demo version is intended for demo purposes only. For security purposes, we do not recommend that you sign up using your own personal information.
+
 ## Installation
 
 Simply clone the repo and run ```npm i```
