@@ -6,7 +6,9 @@ Productify is your new favorite tool for organizing projects and increasing prod
 
 A demo version is available [here](https://productify-app.now.sh/).
 Use the following dummy credentials to log in and take a tour:
-Username: aaa@gmail.com
+
+Username: aaa@gmail.
+
 Password: aaa
 
 ## Installation
