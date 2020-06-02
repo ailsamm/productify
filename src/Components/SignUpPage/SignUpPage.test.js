@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import SignUpPage from './SignUpPage';
 
-it.skip('renders without crashing', () => {
+it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<SignUpPage/>, div);
   ReactDOM.unmountComponentAtNode(div);
 });
