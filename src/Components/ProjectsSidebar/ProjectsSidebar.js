@@ -56,16 +56,21 @@ export default class ProjectsSidebar extends Component {
         }
     }
 
-    calculateChartDatasets() {
+    calculateChartDatasets(category) {
         let context = this.context;
-        const backlogCount = context.tasks.filter(task => 
-            task.status === "backlog" && task.project_id === context.currentProject).length;
-        const inProgressCount = context.tasks.filter(task => 
-            task.status === "inProgress" && task.project_id === context.currentProject).length;
-        const inReviewCount = context.tasks.filter(task => 
-            task.status === "inReview" && task.project_id === context.currentProject).length;
-        const completeCount = context.tasks.filter(task => 
-            task.status === "complete" && task.project_id === context.currentProject).length;
+        let tasks = context.tasks.filter(task => 
+            task.status === category && task.project_id === context.currentProject);
+        if (!this.context.showAllUserTasks){
+            tasks = tasks.filter(task => task.assignee === context.loggedInUser);
+        }
+        return tasks.length;
+    }
+
+    getChartDatasets() {
+        const backlogCount = this.calculateChartDatasets("backlog");
+        const inProgressCount = this.calculateChartDatasets("inProgress");
+        const inReviewCount = this.calculateChartDatasets("inReview");
+        const completeCount = this.calculateChartDatasets("complete");
         const incompleteCount = backlogCount + inProgressCount + inReviewCount;
 
         const pieDataset = [
@@ -95,7 +100,7 @@ export default class ProjectsSidebar extends Component {
     }
 
     createCharts(){
-        const datasets = this.calculateChartDatasets();
+        const datasets = this.getChartDatasets();
         return (
             <div className="projects__sidebar_charts">
                 <Pie
