@@ -17,7 +17,8 @@
         teams: [],
         projects: [],
         tasks: [],
-        currentProject: null
+        currentProject: null,
+        showAllUserTasks: true,
       }
     }
 
@@ -103,7 +104,14 @@
           ...this.state,
           currentProject: updatedProjectId
       })
-  }
+    }
+
+    updateFilterByAssignee = () => {
+      this.setState({
+          ...this.state,
+          showAllUserTasks: !(this.state.showAllUserTasks)
+      })
+    }
 
     render() {
       const contextValue = {
@@ -115,13 +123,15 @@
         projects: this.state.projects,
         tasks: this.state.tasks,
         currentProject: this.state.currentProject,
+        showAllUserTasks: this.state.showAllUserTasks,
         onLogInUser: this.logInUser,
         onSignUpUser: this.signUpUser,
         onSignOutUser: this.signOutUser,
         onDrop: this.onDrop,
         onAddTask: this.addTask,
         onDeleteTask: this.deleteTask,
-        updateCurrentProject: this.updateCurrentProject
+        updateCurrentProject: this.updateCurrentProject,
+        updateFilterByAssignee: this.updateFilterByAssignee
       }
       return (
         <ProductifyContext.Provider value={contextValue}>

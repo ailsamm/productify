@@ -24,6 +24,9 @@ export default class ProjectsColumn extends Component {
                     if (context.currentProject){
                         tasks = tasks.filter(task => task.project_id === context.currentProject);
                     }
+                    if (!context.showAllUserTasks){
+                        tasks = tasks.filter(task => task.assignee === context.loggedInUser);
+                    }
                     return (
                         <div onDragOver={(e) => this.onDragOver(e)} 
                         onDrop={(e)=>{context.onDrop(e, this.getStatusName(name))}} 

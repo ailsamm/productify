@@ -14,7 +14,7 @@ export default class ProjectsSidebar extends Component {
         this.state = {
             pieLabels: ['Backlog', 'In Progress', 'In Review', 'Complete'],
             doughnutLabels: ['Complete', 'Incomplete'],
-            isDesktop: false
+            isDesktop: false,
         }
     } 
 
@@ -152,14 +152,18 @@ export default class ProjectsSidebar extends Component {
         )
     }
 
-    getNewTaskButton() {
+    getButtons() {
+        let buttonText = this.context.showAllUserTasks ? "show only mine" : "show all";
         return (
-            <div className="newTaskButtonContainer">
+            <div className="buttonsContainer">
                 <NavLink 
                     to="/newTask" 
-                    className="button projects__sidebar_newTaskButton">
+                    className="button projects__sidebar_button">
                         + new task
                 </NavLink>
+                <button className="button projects__sidebar_button" onClick={this.context.updateFilterByAssignee}>
+                    {buttonText}
+                </button>
             </div>
         )
     }
@@ -174,7 +178,7 @@ export default class ProjectsSidebar extends Component {
                     return (
                         <div className="projects__sidebar projects__column">
                             <h2 className="projects__sidebar_teamName projects__column__heading">{teamName}</h2>
-                            {this.props.showButton && this.getNewTaskButton()}
+                            {this.props.showButton && this.getButtons()}
                             {this.props.displayProjectInfo ? this.getProjectDetails() : <></>}    
                         </div>
                     )

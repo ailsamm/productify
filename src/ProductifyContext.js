@@ -13,6 +13,7 @@ const ProductifyContext = React.createContext({
   onDeleteTask: () => {},
   onSignUpUser: () => {},
   onSignOutUser: () => {},
+  updateFilterByAssignee: () => {},
   isLoggedIn: false,
   currentProject: null
 });

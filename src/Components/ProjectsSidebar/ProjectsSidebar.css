@@ -11,19 +11,19 @@
     padding: 2vh 0;
 }
 
-.projects__sidebar_newTaskButton {
+.projects__sidebar_button {
     background-image: linear-gradient(to top left, #FFF, #dcdcdc, #a9a9a9);
     color: var(--main-text-color);
     margin: 0px auto;
 }
 
-.projects__sidebar_newTaskButton:hover {
+.projects__sidebar_button:hover {
     background-image: linear-gradient(to top left, #d3edc4, var(--productify-green), #b1d39d);
 }
 
-
-.newTaskButtonContainer {
+.buttonsContainer {
     display: flex;
+    flex-direction: column;
     justify-self: center;
     padding: 2vh 0vw;
 }
