@@ -3,8 +3,8 @@
 
 
 .projects__column {
-    height: 100vh;
-    margin: 0.5vh 0.5vw;
+    height: 100%;
+    margin: 1vh 0.5vw;
     padding: 0.5vh 0.5vw;
     color: #343434;
     border-radius: 5px;

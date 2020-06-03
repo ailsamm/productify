@@ -1,8 +1,8 @@
 @import '../App/App.css';
 
-.projects__sidebar {
-    overflow-y: auto;
+.projects__sidebar.projects__column {
     line-height: normal;
+    height: 100%;
 }
 
 .projects__sidebar_charts {
