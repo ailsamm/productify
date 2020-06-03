@@ -14,7 +14,7 @@ export default class ProjectsPage extends Component {
     
     render() {
         return (
-            <div className="projects">
+            <div className="projects swipeView">
                 <ProjectsSidebar showButton={true} displayProjectInfo={true}/>
                 {this.state.columns.map(column => <ProjectsColumn 
                     key={column} 
