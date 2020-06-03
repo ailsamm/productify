@@ -48,6 +48,8 @@ body {
 }
 
 .centeredContent {
+    justify-self: center;
+    align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -2,11 +2,5 @@
     margin-top: 15vh;
     height: 80vh;
     display: flex;
-    
-}
-
-@media only screen and (min-width: 600px) {
-    .mainContent {
-        flex-direction: column;
-    }
+    flex-direction: column;
 }
