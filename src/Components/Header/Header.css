@@ -18,10 +18,13 @@
 .header__buttons {
     align-self: center; 
     margin-left: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-.header__signUp, .header__logIn {
-    margin: 0 0.5vw;
+.header__buttons > a {
+    text-align: center;
+    margin: 0.25vh 0.5vw;
 }
 
 .header .logo {
@@ -32,6 +35,13 @@
 .header__productify {
     text-decoration: none;
     color: var(--title-gray);
+}
+
+@media only screen and (min-width: 400px) {
+    .header__buttons {
+        flex-direction: row;
+        text-align: center;
+    }
 }
 
 @media only screen and (min-width: 600px) {
