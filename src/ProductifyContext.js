@@ -14,7 +14,6 @@ const ProductifyContext = React.createContext({
   onSignUpUser: () => {},
   onSignOutUser: () => {},
   updateFilterByAssignee: () => {},
-  isLoggedIn: false,
   currentProject: null
 });
 

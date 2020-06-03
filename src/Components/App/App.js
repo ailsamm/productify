@@ -10,7 +10,6 @@
     constructor(props){
       super(props);
       this.state = {
-        isLoggedIn: false, 
         loggedInUser: null, 
         usersInfo: [],
         usersLogin: [],
@@ -32,7 +31,6 @@
     logInUser = (userToLogIn) => {
       this.setState({
         ...this.state,
-        isLoggedIn: true,
         loggedInUser: userToLogIn.user_id
       })
     }
@@ -40,7 +38,6 @@
     signOutUser = () => {
       this.setState({
         ...this.state,
-        isLoggedIn: false,
         loggedInUser: null
       })
     }
@@ -53,7 +50,6 @@
         ...this.state,
         usersLogin: [...this.state.usersLogin, newUserLogin],
         usersInfo: [...this.state.usersInfo, newUserInfo],
-        isLoggedIn: true,
         loggedInUser: id
       })
     }
@@ -115,7 +111,6 @@
 
     render() {
       const contextValue = {
-        isLoggedIn: this.state.isLoggedIn, 
         loggedInUser: this.state.loggedInUser, 
         teams: this.state.teams,
         usersInfo: this.state.usersInfo,

@@ -11,7 +11,7 @@ export default class Header extends Component {
     static contextType = ProductifyContext;
 
     getLinks = () => {
-        if (this.context.isLoggedIn){
+        if (this.context.loggedInUser !== null){
             return <UserAvatar 
                 userId={this.context.loggedInUser} 
                 class={"headerAvatar"}

@@ -53,27 +53,27 @@ export default class MainContentRouter extends Component {
                         exact 
                         key='addNewTask'
                         path='/newTask' 
-                        isLoggedIn={this.context.isLoggedIn} 
+                        loggedInUser={this.context.loggedInUser} 
                         component={AddNewTask}
                     />
                     <ProtectedRoute 
                         exact 
                         key="projects"
                         path='/projects' 
-                        isLoggedIn={this.context.isLoggedIn} 
+                        loggedInUser={this.context.loggedInUser} 
                         component={ProjectsPage} 
                     />               
                     <ProtectedRoute 
                         key='taskPage'
                         path='/projects/:taskId' 
-                        isLoggedIn={this.context.isLoggedIn} 
+                        loggedInUser={this.context.loggedInUser} 
                         component={TaskPage}
                     />
                     <ProtectedRoute 
                         exact
                         key='profile'
                         path='/profile' 
-                        isLoggedIn={this.context.isLoggedIn} 
+                        loggedInUser={this.context.loggedInUser} 
                         component={UserProfile}
                     />
                     <Route
