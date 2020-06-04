@@ -11,7 +11,7 @@
     constructor(props){
       super(props);
       this.state = {
-        loggedInUser: null, 
+        loggedInUser: 1, 
         usersInfo: [],
         usersLogin: [],
         teams: [],

@@ -20,7 +20,7 @@
     
     .swipeView > div {
         width: 100vw;
-        flex:0 0 100vw;
+        flex:0 0 90vw;
         scroll-snap-align: start;
     }
 }
