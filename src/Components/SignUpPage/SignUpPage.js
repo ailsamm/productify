@@ -3,6 +3,7 @@ import ProductifyContext from '../../ProductifyContext';
 import { validateEmail, notNull, validatePassword, validateRepeatPassword } from '../../ValidationHelper';
 import ValidationError from '../ValidationError/ValidationError';
 import { getRandomId } from '../../requestHandler';
+import CONFIG from '../../config';
 import './SignUpPage.css';
 
 export default class SignUpPage extends Component {
@@ -170,7 +171,16 @@ export default class SignUpPage extends Component {
         })
     }
 
-    render(){
+    getDemoMessage() {
+        return (
+            <div className="centeredContent">
+                <h3 class="demoMessage">In order to use <span className="demoMessage__productify">Productify</span>, you must be invited by your team administrator.
+                Please ask them to add your email address so that you may be automatically added to your team's page.</h3>
+            </div>
+        )
+    }
+
+    getSignUpForm() {
         return (
             <div className="signUp centeredContent">
                 <form className="signUp__form">
@@ -225,6 +235,14 @@ export default class SignUpPage extends Component {
                     {this.state.failedSignUpError && <ValidationError message={this.state.failedSignUpError}/>}
                     <button type="submit" onClick={this.handleSubmit} className="button signUp__submitButton">submit</button>
                 </form>
+            </div>
+        )
+    }
+
+    render(){
+        return (
+            <div>
+                {CONFIG.env === "DEMO" ? this.getDemoMessage() : this.getSignUpForm()}
             </div>
         )
     }
