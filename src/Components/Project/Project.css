@@ -1,5 +1,9 @@
 @import '../App/App.css';
 
+* {
+    font-weight: normal;
+}
+
 .project {
     background: #ffffff80;
     padding: 0.5vh 1vw;
@@ -15,12 +19,18 @@
 .project__nav {
     text-decoration: none;
     color: var(--main-text-color);  
+    text-align: center;
 }
 
 .project__name {
     letter-spacing: 1px;
     line-height: normal;
     margin: 0.5em 0;
+    font-weight:500;
+}
+
+.project__name:hover {
+    font-weight:700;
 }
 
 .selectedProject {

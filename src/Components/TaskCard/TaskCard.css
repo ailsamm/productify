@@ -12,6 +12,7 @@
 }
 
 .taskCard__name {
+    font-weight: 500;
     margin: 1vh 0;
     overflow: hidden;
     text-overflow: ellipsis;
