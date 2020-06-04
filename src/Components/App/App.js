@@ -3,6 +3,7 @@
   import MainContentRouter from '../MainContentRouter/MainContentRouter';
   import ProductifyContext from '../../ProductifyContext';
   import { fetchData, updateTaskInDb, deleteTaskInDb, addNewUser } from '../../requestHandler';
+  import CONFIG from '../../config';
   import './App.css';
 
   export default class App extends Component {
@@ -22,9 +23,10 @@
     }
 
     componentDidMount(){
+      const loggedInUser = CONFIG.env === "DEMO" ? 1 : null;
       fetchData()
         .then(([teams, projects, usersInfo, usersLogin, tasks]) => {
-          this.setState({teams, projects, usersInfo, usersLogin, tasks})
+          this.setState({teams, projects, usersInfo, usersLogin, tasks, loggedInUser})
         })
     }
 
