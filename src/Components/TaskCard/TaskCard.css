@@ -12,13 +12,20 @@
 }
 
 .taskCard__name {
+    margin: 1vh 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     line-height: normal;
 }
 
+.taskCard__deadline {
+    margin: 1vh 0;
+    color: #5b5e68;
+}
+
 .assignee {
+    color: #5b5e68;
     margin: 0;
 }
 
