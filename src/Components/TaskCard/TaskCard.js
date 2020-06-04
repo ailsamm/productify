@@ -49,10 +49,11 @@ export default class TaskCard extends Component {
     }
 
     getAssigneeAvatar = (id) => {
+        const user = this.context.usersInfo.find(user => user.id === id) || {};
         return (
             <div className="assigneeAvatarContainer">
                 <h5 className="assignee">Assignee:&nbsp;</h5>
-                <div className='assigneeAvatar'>
+                <div className='assigneeAvatar' title={user.first_name || ""}>
                     <span className="assigneeAvatar__initials">{this.getInitials(id)}</span>
                 </div>
             </div>
