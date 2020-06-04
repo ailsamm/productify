@@ -42,10 +42,12 @@ export default class AddNewTask extends Component {
                 value: null
             },
             deadline: {
+                isValid: false,
                 touched: false,
                 value: null
             },
-            focused: false
+            focused: false,
+            failedAddTaskMessage: null
         }
     }
 
@@ -53,36 +55,54 @@ export default class AddNewTask extends Component {
         this.props.history.push("/projects");
     }
 
+    formIsValid() {
+        return this.state.title.isValid &&
+        this.state.assignee.isValid &&
+        this.state.project.isValid &&
+        this.state.description.isValid &&
+        this.state.deadline.isValid;
+    }
+
     addTaskRequest = (e) => {
         e.preventDefault();
-        const newTask = {
-            task_name: this.state.title.value,
-            assignee: this.state.assignee.value,
-            project_id: this.state.project.value,
-            description: this.state.description.value,
-            deadline: this.state.deadline.value,
-            status: "backlog",
-            id: createRandomId()
+
+        if (this.formIsValid()){
+            const newTask = {
+                task_name: this.state.title.value,
+                assignee: this.state.assignee.value,
+                project_id: this.state.project.value,
+                description: this.state.description.value || "",
+                deadline: this.state.deadline.value,
+                status: "backlog",
+                id: createRandomId()
+            }
+        
+            fetch(`${config.serverUrl}/tasks`, {
+            method: 'POST',
+            body: JSON.stringify(newTask),
+            headers: {
+                'content-type': 'application/json'
+            },
+            })
+            .then(response => {
+            if (!response.ok) {
+                throw new Error('An error occurred while attempting to add the task')
+            }
+            return response.json();
+            })
+            .then(() => {
+                this.context.onAddTask(newTask);
+                this.handleGoBack();
+            })
+            .catch(e => console.log(e));
+                
         }
-    
-        fetch(`${config.serverUrl}/tasks`, {
-          method: 'POST',
-          body: JSON.stringify(newTask),
-          headers: {
-            'content-type': 'application/json'
-          },
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('An error occurred while attempting to add the task')
-          }
-          return response.json();
-        })
-        .then(() => {
-            this.context.onAddTask(newTask);
-            this.handleGoBack();
-        })
-        .catch(e => console.log(e));
+
+        else {
+            return this.setState({
+                failedAddTaskMessage: "Please ensure that you have filled out the required fields before proceeding."
+            })
+        }
     }
 
     updateTitle = value => {
@@ -128,6 +148,7 @@ export default class AddNewTask extends Component {
         this.setState({
             ...this.state,
             description: {
+                isValid: true,
                 touched: true, 
                 value
             }
@@ -138,6 +159,7 @@ export default class AddNewTask extends Component {
         this.setState({
             ...this.state,
             deadline: {
+                isValid: true,
                 touched: true,
                 value
             }
@@ -180,7 +202,7 @@ export default class AddNewTask extends Component {
                         <ProjectsSidebar showButton={false} displayProjectInfo={false}/>
                         <div className="addNewTask__formContainer">
                             <form className="addNewTask__form" onSubmit={e => this.addTaskRequest(e)}>
-                                <label htmlFor="addNewTask__title">title:</label>
+                                <label htmlFor="addNewTask__title">title*:</label>
                                 <input name="addNewTask__title" 
                                     id="addNewTask__title" 
                                     onChange={e => this.updateTitle(e.target.value)}
@@ -189,7 +211,7 @@ export default class AddNewTask extends Component {
                                     aria-required="true">
                                 </input>
                                 {this.state.title.touched && <ValidationError message={this.state.title.validationMessage}/>}
-                                <label htmlFor="addNewTask__assignee">assignee:</label>
+                                <label htmlFor="addNewTask__assignee">assignee*:</label>
                                 <select 
                                     className="addNewTask__select"
                                     name="addNewTask__assignee" 
@@ -200,7 +222,7 @@ export default class AddNewTask extends Component {
                                     {this.getMembers()}
                                 </select>
                                 {this.state.assignee.touched && <ValidationError message={this.state.assignee.validationMessage}/>}
-                                <label htmlFor="addNewTask__project">project:</label>
+                                <label htmlFor="addNewTask__project">project*:</label>
                                 <select 
                                     className="addNewTask__select"
                                     name="addNewTask__project" 
@@ -218,7 +240,7 @@ export default class AddNewTask extends Component {
                                     placeholder="Go to the store and buy the milk"
                                     aria-required="true">
                                 </textarea>
-                                <label htmlFor="addNewTask__deadline">deadline:</label>
+                                <label htmlFor="addNewTask__deadline">deadline*:</label>
                                 <SingleDatePicker
                                     date={this.state.deadline.value} 
                                     onDateChange={date => this.updateDeadline(date)}
@@ -226,6 +248,7 @@ export default class AddNewTask extends Component {
                                     onFocusChange={({ focused }) => this.setState({ focused })}
                                     id="addNewTask__datePicker"
                                 />
+                                {this.state.failedAddTaskMessage !== null && <ValidationError message={this.state.failedAddTaskMessage}/>}
                                 <div className="addNewTask__buttonContainer">
                                     <button type="submit" className="button goButton">save</button>
                                 </div>
