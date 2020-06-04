@@ -19,7 +19,7 @@ export function validateRepeatPassword(pw1, pw2) {
 }
 
 export function notNull(value) {
-    if (value.length < 1 || value === null) {
+    if (!value || value.length < 1) {
         return "Please enter a value."
     }
 }
