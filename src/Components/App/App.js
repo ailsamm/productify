@@ -28,6 +28,7 @@
         .then(([teams, projects, usersInfo, usersLogin, tasks]) => {
           this.setState({teams, projects, usersInfo, usersLogin, tasks, loggedInUser})
         })
+        .catch(e => console.log(e));
     }
 
     logInUser = (userToLogIn) => {
