@@ -10,7 +10,8 @@
     padding: 0 2vw;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /*align-items: center;*/
+    margin-left: 4vw;
     color: var(--main-text-color);
     margin-top: 5vh;
 }
@@ -21,14 +22,10 @@
     justify-content: space-evenly;
 }
 
-.userProfile__section_info {
-    height: 60%;
-}
-
 ul.userProfile__teamMemberList {
     list-style-type: none;
     margin-top: 0;
-    padding-top: 0;
+    padding: 0;
 }
 
 .userProfile__teamMemberList h3 {
@@ -61,5 +58,9 @@ ul.userProfile__teamMemberList {
     .userProfile__content {
         flex-direction: row;
         justify-content: space-evenly;
+    }
+
+    .userProfile__section {
+        margin-left: 0vw;
     }
 }
