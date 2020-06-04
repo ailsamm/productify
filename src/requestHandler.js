@@ -36,7 +36,6 @@ export function fetchData(){
             tasksRes.json()
           ]);
       })
-      .catch(e => console.log(e));
 }
 
 export function updateTaskInDb(taskId, taskFields) {
