@@ -174,7 +174,7 @@ export default class SignUpPage extends Component {
     getDemoMessage() {
         return (
             <div className="centeredContent">
-                <h3 class="demoMessage">In order to use <span className="demoMessage__productify">Productify</span>, you must be invited by your team administrator.
+                <h3 className="demoMessage">In order to use <span className="demoMessage__productify">Productify</span>, you must be invited by your team administrator.
                 Please ask them to add your email address so that you may be automatically added to your team's page.</h3>
             </div>
         )
