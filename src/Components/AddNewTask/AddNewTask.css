@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
 @import '../App/App.css';
 
 .addNewTask {
@@ -53,8 +54,12 @@
 }
 
 input::placeholder, textarea::placeholder {
-    font-family: Arial;
+    font-family: "Quicksand", sans-serif;
     color: #dedede;
+}
+
+input, textarea {
+    font-family: "Quicksand", sans-serif;
 }
 
 .addNewTask__form .button {
