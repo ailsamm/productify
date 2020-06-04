@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import ProductifyContext from '../../ProductifyContext';
+import  { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock } from '@fortawesome/free-solid-svg-icons';
 import moment from 'moment';
 import './TaskCard.css';
 
@@ -69,7 +71,7 @@ export default class TaskCard extends Component {
                 title={task_name} 
                 style={this.getColor(status)}>
                     <h4 className="taskCard__name">{task_name}</h4>
-                    <h5 className="taskCard__deadline">{this.getDeadline(deadline)}</h5>
+                    <h5 className="taskCard__deadline"><FontAwesomeIcon icon={faClock}/> {this.getDeadline(deadline)}</h5>
                     {assignee && this.getAssigneeAvatar(assignee)}
                 </div>
             </NavLink>
