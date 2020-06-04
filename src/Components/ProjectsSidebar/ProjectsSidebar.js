@@ -34,6 +34,10 @@ export default class ProjectsSidebar extends Component {
         });
     }
 
+    handleGoBack = () => {
+        this.props.history.push("/projects");
+    }
+
     getProjects(){
         const context = this.context;
         if (context.projects.length > 0){
@@ -156,7 +160,7 @@ export default class ProjectsSidebar extends Component {
         )
     }
 
-    getButtons() {
+    getFilterButtons() {
         let buttonText = this.context.showAllUserTasks ? "show only mine" : "show all";
         return (
             <div className="buttonsContainer">
@@ -172,6 +176,14 @@ export default class ProjectsSidebar extends Component {
         )
     }
 
+    getBackButton() {
+        return (
+            <div className="projectSidebar__backButton">
+                <button type="button" onClick={this.handleGoBack} className="button stopButton">back</button>
+            </div>
+        )
+    }
+
     render() {
         return (
             <ProductifyContext.Consumer>
@@ -182,8 +194,8 @@ export default class ProjectsSidebar extends Component {
                     return (
                         <div className="projects__sidebar projects__column">
                             <h2 className="projects__sidebar_teamName projects__column__heading">{teamName}</h2>
-                            {this.props.showButton && this.getButtons()}
-                            {this.props.displayProjectInfo ? this.getProjectDetails() : <></>}    
+                            {this.props.showButton ? this.getFilterButtons() : this.getBackButton()}
+                            {this.props.displayProjectInfo && this.getProjectDetails()}    
                         </div>
                     )
                 }}

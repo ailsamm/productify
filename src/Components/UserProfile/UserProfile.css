@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import '../App/App.css';
 
 .userProfile {
     display: grid;
-    grid-template-columns: 20vw 40vw 40vw;
+    grid-template-columns: 20vw 80vw;
 }
 
 .userProfile__section {
@@ -15,8 +15,13 @@
     margin-top: 5vh;
 }
 
+.userProfile__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
 .userProfile__section_info {
-    border-right: 1px solid rgb(203, 203, 203);
     height: 60%;
 }
 
@@ -48,10 +53,13 @@ ul.userProfile__teamMemberList {
     letter-spacing: 1.5px;
 }
 
-.userProfile__buttons {
-    align-self: center;
-}
-
 #userProfile__check {
     color: var(--button-go);
+}
+
+@media only screen and (min-width: 600px) {
+    .userProfile__content {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 }

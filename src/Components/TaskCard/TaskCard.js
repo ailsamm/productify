@@ -70,7 +70,7 @@ export default class TaskCard extends Component {
                 style={this.getColor(status)}>
                     <h4 className="taskCard__name">{task_name}</h4>
                     <h5 className="taskCard__deadline">{this.getDeadline(deadline)}</h5>
-                    {assignee ? this.getAssigneeAvatar(assignee) : <div/>}
+                    {assignee && this.getAssigneeAvatar(assignee)}
                 </div>
             </NavLink>
         )
