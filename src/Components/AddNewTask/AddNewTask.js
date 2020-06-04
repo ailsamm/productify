@@ -227,7 +227,6 @@ export default class AddNewTask extends Component {
                                     id="addNewTask__datePicker"
                                 />
                                 <div className="addNewTask__buttonContainer">
-                                    <button type="button" onClick={this.handleGoBack} className="button stopButton">back</button>
                                     <button type="submit" className="button goButton">save</button>
                                 </div>
                             </form>
