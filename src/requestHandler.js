@@ -1,6 +1,6 @@
 import config from './config';
 
-export function getRandomId(){
+export function createRandomId(){
     return new Date().getTime() & 0xffff;
 }
 

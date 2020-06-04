@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProductifyContext from '../../ProductifyContext';
 import { validateEmail, notNull, validatePassword, validateRepeatPassword } from '../../ValidationHelper';
 import ValidationError from '../ValidationError/ValidationError';
-import { getRandomId } from '../../requestHandler';
+import { createRandomId } from '../../requestHandler';
 import CONFIG from '../../config';
 import './SignUpPage.css';
 
@@ -63,7 +63,7 @@ export default class SignUpPage extends Component {
             this.state.repeatPassword.isValid;
 
         if (formIsValid) {
-            const id = getRandomId();
+            const id = createRandomId();
             const newUserLogIn = {
                 user_id: id,
                 email_address: this.state.email.value.toLowerCase(),
