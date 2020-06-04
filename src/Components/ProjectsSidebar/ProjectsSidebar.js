@@ -193,7 +193,9 @@ export default class ProjectsSidebar extends Component {
                     const teamName = team.team_name || "";
                     return (
                         <div className="projects__sidebar projects__column">
-                            <h2 className="projects__sidebar_teamName projects__column__heading">{teamName}</h2>
+                            <div className="projects__sidebar_teamName_container">
+                                <h2 className="projects__sidebar_teamName projects__column__heading">{teamName}</h2>
+                            </div>
                             {this.props.showButton ? this.getFilterButtons() : this.getBackButton()}
                             {this.props.displayProjectInfo && this.getProjectDetails()}    
                         </div>

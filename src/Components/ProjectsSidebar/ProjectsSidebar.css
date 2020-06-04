@@ -57,6 +57,11 @@
     writing-mode: vertical-lr;
 }
 
+.projects__sidebar_teamName_container {
+    display: flex;
+    justify-content: center;
+}
+
 @media only screen and (min-width: 500px) {
     .projects__sidebar_teamName {
         writing-mode: horizontal-tb;
