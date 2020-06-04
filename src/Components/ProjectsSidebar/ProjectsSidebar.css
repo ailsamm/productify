@@ -21,7 +21,7 @@
     justify-content: center;
 }
 
-.projectSidebar__backButton > button {
+.projectSidebar__backButton > a {
     margin-top: 2vh;
 }
 

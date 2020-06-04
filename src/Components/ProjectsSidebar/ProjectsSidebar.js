@@ -34,10 +34,6 @@ export default class ProjectsSidebar extends Component {
         });
     }
 
-    handleGoBack = () => {
-        this.props.history.push("/projects");
-    }
-
     getProjects(){
         const context = this.context;
         if (context.projects.length > 0){
@@ -179,7 +175,7 @@ export default class ProjectsSidebar extends Component {
     getBackButton() {
         return (
             <div className="projectSidebar__backButton">
-                <button type="button" onClick={this.handleGoBack} className="button stopButton">back</button>
+                <NavLink to="/projects" className="button stopButton">back</NavLink>
             </div>
         )
     }
