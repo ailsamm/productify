@@ -104,6 +104,17 @@ form > input {
     color: #FFF;
 }
 
+.deleteButton {
+    border: 2px solid #b8b823;
+    color: #b8b823;
+    background-color: #FFF;
+}
+
+.deleteButton:hover {
+    background-color: #b8b823;
+    color: #FFF;
+}
+
 .goButton {
     border: 2px solid var(--button-go);
     color: var(--button-go);

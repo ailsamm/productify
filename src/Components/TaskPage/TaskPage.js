@@ -46,8 +46,8 @@ export default class TaskPage extends Component {
                                     <h4>{this.getDeadline(currentTask.deadline)}</h4>
                                 </div>
                                 <div className="taskPage__buttons">
-                                    <button type="submit" onClick={this.handleGoBack} className="button">back</button>
-                                    <button type="submit" onClick={this.handleDelete} className="button stopButton">delete</button>
+                                    <button type="submit" onClick={this.handleGoBack} className="button stopButton">back</button>
+                                    <button type="submit" onClick={this.handleDelete} className="button deleteButton">delete</button>
                                 </div>
                             </div>
                         </div>
