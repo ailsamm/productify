@@ -50,7 +50,7 @@ export default class TaskCard extends Component {
         return (
             <div className="assigneeAvatarContainer">
                 <h5 className="assignee">Assignee:&nbsp;</h5>
-                <div className={`assigneeAvatar`}>
+                <div className='assigneeAvatar'>
                     <span className="assigneeAvatar__initials">{this.getInitials(id)}</span>
                 </div>
             </div>
