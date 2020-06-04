@@ -3,7 +3,7 @@
 @import '../App/App.css';
 
 .header {
-    font-family: 'Righteous', cursive;
+    font-family: 'Righteous', sans-serif;
     padding: 2vh 2vw;
     background: #f4f4f4;
     color: #f9f9f9;
