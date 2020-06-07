@@ -12,7 +12,7 @@ export default class UserProfile extends Component {
         const teamMembers = members.filter(user => user.team_id === teamId && user.id !== curUser.id);
         return teamMembers.map(member => (
             <li key={member.id}><h3>{member.first_name} {member.last_name}</h3><h4> || {member.job_title}</h4></li>
-        ))
+        ));
     }
 
     render(){
@@ -51,6 +51,6 @@ export default class UserProfile extends Component {
                     )
                 }}
             </ProjectifyContext.Consumer>
-        )
+        );
     }
 }

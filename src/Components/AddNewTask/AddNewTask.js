@@ -78,11 +78,11 @@ export default class AddNewTask extends Component {
             }
         
             fetch(`${config.serverUrl}/tasks`, {
-            method: 'POST',
-            body: JSON.stringify(newTask),
-            headers: {
-                'content-type': 'application/json'
-            },
+                method: 'POST',
+                body: JSON.stringify(newTask),
+                headers: {
+                    'content-type': 'application/json'
+                },
             })
             .then(response => {
             if (!response.ok) {
@@ -101,7 +101,7 @@ export default class AddNewTask extends Component {
         else {
             return this.setState({
                 failedAddTaskMessage: "Please ensure that you have filled out the required fields before proceeding."
-            })
+            });
         }
     }
 
@@ -115,7 +115,7 @@ export default class AddNewTask extends Component {
                 isValid: !validation,
                 value
             }
-        })
+        });
     }
 
     updateAssignee = value => {
@@ -128,7 +128,7 @@ export default class AddNewTask extends Component {
                 isValid: !validation,
                 value: parseInt(value)
             }
-        })
+        });
     }
 
     updateProject = value => {
@@ -141,7 +141,7 @@ export default class AddNewTask extends Component {
                 isValid: !validation, 
                 value: parseInt(value)
             }
-        })
+        });
     }
 
     updateDescription = value => {
@@ -152,7 +152,7 @@ export default class AddNewTask extends Component {
                 touched: true, 
                 value
             }
-        })
+        });
     }
 
     updateDeadline = value => {
@@ -163,7 +163,7 @@ export default class AddNewTask extends Component {
                 touched: true,
                 value
             }
-        })
+        });
     }
 
     getMembers(){
@@ -257,6 +257,6 @@ export default class AddNewTask extends Component {
                     </div>
                 )}
             </ProductifyContext.Consumer>
-        )
+        );
     }
 }

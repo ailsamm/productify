@@ -11,6 +11,6 @@ export default class ErrorPage extends Component {
                 <h1 className="errorPage__errorCode">{error.code}</h1>
                 <h2>{error.message} <FontAwesomeIcon icon={faSadCry}/></h2>
             </div>
-        )
+        );
     }
 }

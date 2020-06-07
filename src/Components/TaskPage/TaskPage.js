@@ -53,6 +53,6 @@ export default class TaskPage extends Component {
                         </div>
                 )}}
             </ProductifyContext.Consumer>
-        )
+        );
     }
 }

@@ -15,6 +15,7 @@ import './MainContentRouter.css'
 export default class MainContentRouter extends Component {
 
     static contextType = ProductifyContext;
+
     render(){
         return (
             <main className="mainContent">
@@ -82,6 +83,6 @@ export default class MainContentRouter extends Component {
                     />
                 </Switch>
             </main>
-        )
+        );
     }
 }

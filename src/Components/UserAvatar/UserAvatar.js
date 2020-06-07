@@ -70,7 +70,7 @@ export default class UserAvatar extends Component {
             </NavLink>
             </Menu>
         </div>
-        )
+        );
     }
 }
 

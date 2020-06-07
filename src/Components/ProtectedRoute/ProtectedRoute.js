@@ -19,7 +19,7 @@ const ProtectedRoute = ({ component: Component, loggedInUser, ...rest }) => {
           }
         }
       } />
-    )
+    );
   }
 
 export default ProtectedRoute;

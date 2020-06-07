@@ -26,7 +26,7 @@
       const loggedInUser = CONFIG.env === "DEMO" ? 1 : null;
       fetchData()
         .then(([teams, projects, usersInfo, usersLogin, tasks]) => {
-          this.setState({teams, projects, usersInfo, usersLogin, tasks, loggedInUser})
+          this.setState({teams, projects, usersInfo, usersLogin, tasks, loggedInUser});
         })
         .catch(e => console.log(e));
     }
@@ -35,14 +35,14 @@
       this.setState({
         ...this.state,
         loggedInUser: userToLogIn.user_id
-      })
+      });
     }
 
     signOutUser = () => {
       this.setState({
         ...this.state,
         loggedInUser: null
-      })
+      });
     }
 
     signUpUser = (newUserLogin, newUserInfo) => {
@@ -54,7 +54,7 @@
         usersLogin: [...this.state.usersLogin, newUserLogin],
         usersInfo: [...this.state.usersInfo, newUserInfo],
         loggedInUser: id
-      })
+      });
     }
 
     addTask = (task) => {
@@ -62,7 +62,7 @@
       this.setState({
         ...this.state,
         tasks: updatedTasks
-      })
+      });
     }
 
     deleteTask = (taskToDelete) => {
@@ -71,7 +71,7 @@
       this.setState({
         ...this.state,
         tasks: updatedTasks
-      })
+      });
     }
 
     onDrop = (e, status) => {
@@ -90,7 +90,7 @@
       this.setState({
           ...this.state,
           tasks
-      })
+      });
     }
 
     updateCurrentProject = (e, projectId) => {
@@ -102,14 +102,14 @@
       this.setState({
           ...this.state,
           currentProject: updatedProjectId
-      })
+      });
     }
 
     updateFilterByAssignee = () => {
       this.setState({
           ...this.state,
           showAllUserTasks: !(this.state.showAllUserTasks)
-      })
+      });
     }
 
     render() {
@@ -140,5 +140,4 @@
         </ProductifyContext.Provider>
       );
     }
-    
   }

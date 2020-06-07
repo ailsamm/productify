@@ -22,7 +22,7 @@ export default class Header extends Component {
                 <NavLink to="/signup" className="button header__signUp">sign up</NavLink>
                 <NavLink to="/login" className="button header__logIn">log in</NavLink>
             </div>
-        )
+        );
     }
 
     render(){
@@ -31,6 +31,6 @@ export default class Header extends Component {
                 <h1 className="logo"><NavLink className="header__productify" to="/">PRODUCTIFY <FontAwesomeIcon icon={faRocket}/></NavLink></h1>
                 {this.getLinks()}
             </div>
-        )
+        );
     }
 }

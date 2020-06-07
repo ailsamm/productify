@@ -68,14 +68,14 @@ export default class SignUpPage extends Component {
                 user_id: id,
                 email_address: this.state.email.value.toLowerCase(),
                 password: this.state.password.value,
-            }
+            };
             const newUserInfo = {
                 id,
                 first_name: this.titleCase(this.state.firstName.value),
                 last_name: this.titleCase(this.state.lastName.value),
                 job_title: this.state.jobTitle.value,
                 team_id: 1 /* to-do: make dynamic */ 
-            }
+            };
             this.context.onSignUpUser(newUserLogIn, newUserInfo);
             this.props.history.push("/projects");
         }
@@ -83,7 +83,7 @@ export default class SignUpPage extends Component {
             this.setState({
                 ...this.state,
                 failedSignUpError: "Please fix the errors in red before proceeding."
-            })
+            });
         }
     }
 
@@ -103,7 +103,7 @@ export default class SignUpPage extends Component {
                 isValid: !validation,
                 value
             }
-        })
+        });
     }
 
     updateLastName(value) {
@@ -116,7 +116,7 @@ export default class SignUpPage extends Component {
                 isValid: !validation,
                 value
             }
-        })
+        });
     }
 
     updateEmail(value) {
@@ -129,7 +129,7 @@ export default class SignUpPage extends Component {
                 isValid: !validation,
                 value
             }
-        })
+        });
     }
 
     updateJobTitle(value) {
@@ -142,7 +142,7 @@ export default class SignUpPage extends Component {
                 isValid: !validation,
                 value
             }
-        })
+        });
     }
 
     updatePassword(value) {
@@ -155,7 +155,7 @@ export default class SignUpPage extends Component {
                 isValid: !validation,
                 value
             }
-        })
+        });
     }
 
     updateRepeatPassword(value) {
@@ -168,7 +168,7 @@ export default class SignUpPage extends Component {
                 isValid: !validation,
                 value
             }
-        })
+        });
     }
 
     getDemoMessage() {
@@ -177,7 +177,7 @@ export default class SignUpPage extends Component {
                 <h3 className="demoMessage">In order to use <span className="demoMessage__productify">Productify</span>, you must be invited by your team administrator.
                 Please ask them to add your email address so that you may be automatically added to your team's page.</h3>
             </div>
-        )
+        );
     }
 
     getSignUpForm() {
@@ -236,7 +236,7 @@ export default class SignUpPage extends Component {
                     <button type="submit" onClick={this.handleSubmit} className="button signUp__submitButton">submit</button>
                 </form>
             </div>
-        )
+        );
     }
 
     render(){
@@ -244,6 +244,6 @@ export default class SignUpPage extends Component {
             <div>
                 {CONFIG.env === "DEMO" ? this.getDemoMessage() : this.getSignUpForm()}
             </div>
-        )
+        );
     }
 }

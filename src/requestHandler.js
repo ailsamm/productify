@@ -14,19 +14,19 @@ export function fetchData(){
       ])
       .then(([teamsRes, projectsRes, usersInfoRes, usersLoginRes, tasksRes]) => {
           if (!teamsRes.ok) {
-            throw new Error("Could not fetch teams")
+            throw new Error("Could not fetch teams");
           }
           if (!projectsRes.ok) {
-            throw new Error("Could not fetch projects")
+            throw new Error("Could not fetch projects");
           }
           if (!usersInfoRes.ok) {
-            throw new Error("Could not fetch users info")
+            throw new Error("Could not fetch users info");
           }
           if (!usersLoginRes.ok) {
-            throw new Error("Could not fetch users login")
+            throw new Error("Could not fetch users login");
           }
           if (!tasksRes.ok) {
-            throw new Error("Could not fetch tasks")
+            throw new Error("Could not fetch tasks");
           }
           return Promise.all([
             teamsRes.json(), 
@@ -48,7 +48,7 @@ export function updateTaskInDb(taskId, taskFields) {
     })
     .then(response => {
       if (!response.ok) {
-        throw new Error('An error occurred while attempting to update the task')
+        throw new Error('An error occurred while attempting to update the task');
       }
     })
     .catch(e => console.log(e));
@@ -60,7 +60,7 @@ export function deleteTaskInDb(taskId) {
       })
       .then(response => {
         if (!response.ok) {
-          throw new Error('An error occurred while attempting to delete the task')
+          throw new Error('An error occurred while attempting to delete the task');
         }
       })
       .catch(e => console.log(e));
@@ -85,10 +85,10 @@ export function addNewUser2(userInfo, userLogin) {
         ])
         .then(([usersInfoRes, usersLoginRes]) => {
             if (!usersInfoRes.ok) {
-                throw new Error('An error occurred while attempting to add new user info')
+                throw new Error('An error occurred while attempting to add new user info');
             }
             if (!usersLoginRes.ok) {
-                throw new Error('An error occurred while attempting to add new user login')
+                throw new Error('An error occurred while attempting to add new user login');
             }
         })
         .catch(e => console.log(e));
@@ -104,7 +104,7 @@ export function addNewUser(userInfo, userLogin) {
         })
         .then(usersInfoRes => {
             if (!usersInfoRes.ok) {
-                throw new Error('An error occurred while attempting to add new user info')
+                throw new Error('An error occurred while attempting to add new user info');
             }
             fetch(`${config.serverUrl}/users-login/`, {
                 method: 'POST',
@@ -115,7 +115,7 @@ export function addNewUser(userInfo, userLogin) {
             })
             .then(usersLoginRes => {
                 if (!usersLoginRes.ok) {
-                    throw new Error('An error occurred while attempting to add new user login')
+                    throw new Error('An error occurred while attempting to add new user login');
                 }
             })
             .catch(e => console.log(e));
@@ -133,7 +133,7 @@ export function updateUserInfoInDb(userId, userInfoFields){
     })
     .then(userInfoRes => {
         if (!userInfoRes.ok) {
-          throw new Error('An error occurred while attempting to update user info')
+          throw new Error('An error occurred while attempting to update user info');
         }
     })
     .catch(e => console.log(e));

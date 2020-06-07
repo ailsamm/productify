@@ -113,6 +113,6 @@ export default class LogInPage extends Component {
                     <button type="submit" className="button logIn__submitButton">sign in</button>
                 </form>
             </div>
-        )
+        );
     }
 }

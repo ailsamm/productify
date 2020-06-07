@@ -20,7 +20,7 @@ export default class Project extends Component {
                                 <h3 context={project.id} className="project__name">{project.project_name}</h3>
                             </div>
                         </Link>
-                    )
+                    );
                 }}
                 
             </ProductifyContext.Consumer>

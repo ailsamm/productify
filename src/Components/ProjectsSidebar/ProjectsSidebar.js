@@ -43,7 +43,7 @@ export default class ProjectsSidebar extends Component {
             return projects.map(project => {
                 let className= ""
                 if (context.currentProject === project.id){
-                    className = " selectedProject"
+                    className = " selectedProject";
                 }
                 return (
                     <Project className={className} 
@@ -84,7 +84,7 @@ export default class ProjectsSidebar extends Component {
                 borderColor: '#767676',
                 data: [backlogCount, inProgressCount, inReviewCount, completeCount]
             }
-        ]
+        ];
         const doughnutDataset = [
             {
                 label: 'Tasks',
@@ -93,7 +93,7 @@ export default class ProjectsSidebar extends Component {
                 borderColor: '#767676',
                 data: [completeCount, incompleteCount]
             }
-        ]
+        ];
 
         return {
             pieDataset,
@@ -141,7 +141,7 @@ export default class ProjectsSidebar extends Component {
                     }}
                     />
             </div>
-        )
+        );
     }
 
     getProjectDetails() {
@@ -153,7 +153,7 @@ export default class ProjectsSidebar extends Component {
                 </div>
                 {this.state.isDesktop ? this.createCharts() : <></>}
             </div>
-        )
+        );
     }
 
     getFilterButtons() {
@@ -169,7 +169,7 @@ export default class ProjectsSidebar extends Component {
                     {buttonText}
                 </button>
             </div>
-        )
+        );
     }
 
     getBackButton() {
@@ -177,7 +177,7 @@ export default class ProjectsSidebar extends Component {
             <div className="projectSidebar__backButton">
                 <NavLink to="/projects" className="button stopButton">back</NavLink>
             </div>
-        )
+        );
     }
 
     render() {
@@ -198,6 +198,6 @@ export default class ProjectsSidebar extends Component {
                     )
                 }}
             </ProductifyContext.Consumer>
-        )
+        );
     }
 }

@@ -57,7 +57,7 @@ export default class TaskCard extends Component {
                     <span className="assigneeAvatar__initials">{this.getInitials(id)}</span>
                 </div>
             </div>
-        )
+        );
     }
 
     render() {
@@ -79,6 +79,6 @@ export default class TaskCard extends Component {
                     {assignee && this.getAssigneeAvatar(assignee)}
                 </div>
             </NavLink>
-        )
+        );
     }
 }

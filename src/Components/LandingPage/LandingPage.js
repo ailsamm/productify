@@ -12,6 +12,6 @@ export default class LandingPage extends Component {
                 <p className="landingPage__description">your new favorite tool for organizing projects and increasing productivity</p>
                 <NavLink to="/about" className="button landingPage__learnMorebutton">LEARN MORE</NavLink>
             </div>
-        )
+        );
     }
 }
