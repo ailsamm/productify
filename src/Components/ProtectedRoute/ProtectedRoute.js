@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
+// component for preventing a non-logged in state from accessing protected pages
 const ProtectedRoute = ({ component: Component, loggedInUser, ...rest }) => {
     return (
       <Route {...rest} render={

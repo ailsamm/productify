@@ -41,6 +41,7 @@ export default class LogInPage extends Component {
                     this.props.history.push("/projects");
                     return;
                 }
+                // if password doesn't match email
                 else {
                     this.setState({
                         ...this.state,
@@ -48,6 +49,7 @@ export default class LogInPage extends Component {
                     })
                 }
             }
+            // if email address is not in database
             else {
                 this.setState({
                     ...this.state,
@@ -55,6 +57,7 @@ export default class LogInPage extends Component {
                 })
             }
         }
+        // if the user has outstanding validation corrections to make
         else {
             this.setState({
                 ...this.state,
@@ -63,6 +66,7 @@ export default class LogInPage extends Component {
         }
     }
 
+    // updates email address state on field change
     updateEmail = (value) => {
         const validation = validateEmail(value);
         this.setState({
@@ -76,6 +80,7 @@ export default class LogInPage extends Component {
         })
     }
 
+    // updates password state on field change
     updatePassword = (value) => {
         const validation = notNull(value);
         this.setState({

@@ -38,6 +38,7 @@ export function fetchData(){
       })
 }
 
+// Handles patch request for updating task in server DB 
 export function updateTaskInDb(taskId, taskFields) {
     fetch(`${config.serverUrl}/tasks/${taskId}`, {
       method: 'PATCH',
@@ -54,6 +55,7 @@ export function updateTaskInDb(taskId, taskFields) {
     .catch(e => console.log(e));
 }
 
+// Handles delete request for removing task from server DB 
 export function deleteTaskInDb(taskId) {
     fetch(`${config.serverUrl}/tasks/${taskId}`, {
         method: 'DELETE',
@@ -66,34 +68,7 @@ export function deleteTaskInDb(taskId) {
       .catch(e => console.log(e));
 }
 
-export function addNewUser2(userInfo, userLogin) {
-    Promise.all([
-            fetch(`${config.serverUrl}/users-info/`, {
-            method: 'POST',
-            body: JSON.stringify(userInfo),
-            headers: {
-                'content-type': 'application/json'
-            },
-        }),
-            fetch(`${config.serverUrl}/users-login/`, {
-                method: 'POST',
-                body: JSON.stringify(userLogin),
-                headers: {
-                    'content-type': 'application/json'
-                },
-            })
-        ])
-        .then(([usersInfoRes, usersLoginRes]) => {
-            if (!usersInfoRes.ok) {
-                throw new Error('An error occurred while attempting to add new user info');
-            }
-            if (!usersLoginRes.ok) {
-                throw new Error('An error occurred while attempting to add new user login');
-            }
-        })
-        .catch(e => console.log(e));
-}
-
+// Carries out post request for adding user info to server DB then immediately handles posting of user login info
 export function addNewUser(userInfo, userLogin) {
         fetch(`${config.serverUrl}/users-info/`, {
             method: 'POST',
@@ -123,6 +98,7 @@ export function addNewUser(userInfo, userLogin) {
         .catch(e => console.log(e));   
 }
 
+// Handles patch request for updating user info in server DB 
 export function updateUserInfoInDb(userId, userInfoFields){
     fetch(`${config.serverUrl}/users-info/${userId}`, {
         method: 'PATCH',

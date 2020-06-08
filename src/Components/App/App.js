@@ -31,6 +31,7 @@
         .catch(e => console.log(e));
     }
 
+    // callback for when a user makes a successful attempt to log in
     logInUser = (userToLogIn) => {
       this.setState({
         ...this.state,
@@ -38,6 +39,7 @@
       });
     }
 
+    // callback for when a user makes a successful attempt to sign out
     signOutUser = () => {
       this.setState({
         ...this.state,
@@ -45,6 +47,7 @@
       });
     }
 
+    // callback for when a user makes a successful attempt to sign up
     signUpUser = (newUserLogin, newUserInfo) => {
       const { id } = newUserInfo;
       // Simultaneously add new user and log user in
@@ -57,6 +60,7 @@
       });
     }
 
+    // adds task to state
     addTask = (task) => {
       const updatedTasks = [...this.state.tasks, task];
       this.setState({
@@ -65,6 +69,7 @@
       });
     }
 
+    // deletes task from state
     deleteTask = (taskToDelete) => {
       const updatedTasks = this.state.tasks.filter(task => task.id !== taskToDelete);
       deleteTaskInDb(taskToDelete);
@@ -74,6 +79,7 @@
       });
     }
 
+    // handles drag and drop functionality by updating dropped task's status
     onDrop = (e, status) => {
       e.preventDefault();
       const taskId = parseInt(e.dataTransfer.getData("id"));
@@ -105,6 +111,7 @@
       });
     }
 
+    // toggles filtering of tasks by assignee
     updateFilterByAssignee = () => {
       this.setState({
           ...this.state,

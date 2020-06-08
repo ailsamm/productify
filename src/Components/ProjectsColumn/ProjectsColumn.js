@@ -5,7 +5,7 @@ import './ProjectsColumn.css';
 
 export default class ProjectsColumn extends Component {
 
-    getStatusName(name){
+    getColumnName(name){
         const joined = name.replace(" ", "");
         const status = joined.charAt(0).toLowerCase() + joined.slice(1);
         return status;
@@ -29,19 +29,20 @@ export default class ProjectsColumn extends Component {
                     }
                     return (
                         <div onDragOver={(e) => this.onDragOver(e)} 
-                        onDrop={(e)=>{context.onDrop(e, this.getStatusName(name))}} 
+                        onDrop={(e)=>{context.onDrop(e, this.getColumnName(name))}} 
                         className={`projects__tasks${name.replace(" ", "")} projects__column`}>
                             <div className="projects__column__heading">
                                 <h2>{name.toUpperCase()}</h2>
                             </div>
                             {tasks.map(task => {
-                                if (task.status === this.getStatusName(name)){
+                                if (task.status === this.getColumnName(name)){
                                     return <TaskCard key={task.id} task={task}/>
                                 }
                                 return null;
                             })}
                         </div>
-                )}}
+                );
+            }}
             </ProductifyContext.Consumer>
         )
     }

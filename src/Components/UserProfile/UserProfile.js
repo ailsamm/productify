@@ -7,6 +7,7 @@ import './UserProfile.css';
 
 export default class UserProfile extends Component {
 
+    // gets members who are on logged in user's team and excludes logged in user themself
     getMembers(curUser, members){
         const teamId = curUser.team_id;
         const teamMembers = members.filter(user => user.team_id === teamId && user.id !== curUser.id);

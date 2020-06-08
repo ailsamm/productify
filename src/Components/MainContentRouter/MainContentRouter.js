@@ -16,6 +16,7 @@ export default class MainContentRouter extends Component {
 
     static contextType = ProductifyContext;
 
+    // logic to handle routing of the main content web page area
     render(){
         return (
             <main className="mainContent">

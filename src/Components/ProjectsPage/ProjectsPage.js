@@ -7,6 +7,7 @@ export default class ProjectsPage extends Component {
 
     constructor(props){
         super(props);
+        // names of columns
         this.state = {
             columns: ['Backlog', 'In Progress', 'In Review', 'Complete']
         }

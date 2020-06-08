@@ -10,6 +10,7 @@ export default class Header extends Component {
 
     static contextType = ProductifyContext;
 
+    // determines whether to show log in/ sign up buttons or user avatar based on logged in user status
     getLinks = () => {
         if (this.context.loggedInUser !== null){
             return <UserAvatar 

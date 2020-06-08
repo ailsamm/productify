@@ -55,6 +55,7 @@ export default class SignUpPage extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        // checks that all fields have passed validation measures
         const formIsValid = this.state.firstName.isValid &&
             this.state.lastName.isValid &&
             this.state.email.isValid &&
@@ -64,6 +65,7 @@ export default class SignUpPage extends Component {
 
         if (formIsValid) {
             const id = createRandomId();
+            // two user objects required since each is being sent to a separate DB table
             const newUserLogIn = {
                 user_id: id,
                 email_address: this.state.email.value.toLowerCase(),
@@ -79,6 +81,7 @@ export default class SignUpPage extends Component {
             this.context.onSignUpUser(newUserLogIn, newUserInfo);
             this.props.history.push("/projects");
         }
+        // ensures that the user has passed all validation measures
         else {
             this.setState({
                 ...this.state,
@@ -171,6 +174,7 @@ export default class SignUpPage extends Component {
         });
     }
 
+    // safety precaution demo message to prevent users from entering their personal information
     getDemoMessage() {
         return (
             <div className="centeredContent">

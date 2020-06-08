@@ -10,10 +10,12 @@ export default class TaskCard extends Component {
 
     static contextType = ProductifyContext;
 
+    // adds data header so that it may be accessed at drop point
     onDragStart = (e, taskId) => {
         e.dataTransfer.setData("id", taskId);
     }
 
+    // card color depends on task status
     getColor(status){
         let color;
         switch(status) {
@@ -48,6 +50,7 @@ export default class TaskCard extends Component {
         return initials;
     }
 
+    // creates avatar of task's assignee's initials
     getAssigneeAvatar = (id) => {
         const user = this.context.usersInfo.find(user => user.id === id) || {};
         return (

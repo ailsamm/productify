@@ -18,12 +18,14 @@ export default class UserAvatar extends Component {
         }
     }
       
+    // on avatar menu click
     handleClick = (e) => {
         this.setState({
             anchorEl: e.currentTarget
         })
     };
   
+    // on avatar menu close
     handleClose = () => {
         this.setState({
             anchorEl: null
@@ -35,6 +37,7 @@ export default class UserAvatar extends Component {
         this.handleClose();
     }
 
+    // gets logged in user's initials for use in the header avatar
     getUserInitials = () => {
         const user = this.context.usersInfo.find(user => user.id === this.context.loggedInUser) || {};
         const firstName = user.first_name || "";
