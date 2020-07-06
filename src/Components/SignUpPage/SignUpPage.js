@@ -244,6 +244,7 @@ export default class SignUpPage extends Component {
     }
 
     render(){
+        console.log(CONFIG.env)
         return (
             <div>
                 {CONFIG.env === "DEMO" ? this.getDemoMessage() : this.getSignUpForm()}
