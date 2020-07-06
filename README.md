@@ -3,7 +3,7 @@
 Productify is your new favorite tool for organizing projects and increasing productivity. Designed for any form of team work, from software development to HR, sales to product management, Productify allows you to efficiently lay out what tasks need to be done, what the task's progress is, and who should be assigned to take on the task. The interface also provides responsive charts to give a quick visual overview of a project's progress.
 
 ## Live Walkthrough
-![live walkthrough](https://app-images1.s3-us-west-1.amazonaws.com/productify.gif)
+![live walkthrough](./public/images/productify.gif)
 
 ## Demo
 
